@@ -8,8 +8,9 @@ import Label from '../commonComponents/label'
 const NavigationBar = ({ }) => {
     return (
         <NavigationBarWrapper>
-            <OpenMenuButton />
             <Label text="NavigationBar Title" />
+            <NavigationBarIcon/>
+            <Label text="name" />
         </NavigationBarWrapper>
     )
 }
@@ -18,20 +19,19 @@ const NavigationBarWrapper = styled.div`
     display: flex;
     flex-direction: column;
     position: fixed;
-    left:0;
-    top: 0;
     width: 20vw;
-    height: 100vh;
+    height: 100%;
     background-color: yellow;
 `
 
-const OpenMenuButton = styled.div`
-    position:fixed;
-    top:0;
-    left:0;
-    width: 32px;
-    height: 32px;
-    background-color: red;
+const NavigationBarIcon = styled.img`
+    padding:0;
+    margin:0;
+    width:100px;
+    height:100px;
+    background-color: black;
+    border-radius: 100%;
 `
+
 
 export default NavigationBar

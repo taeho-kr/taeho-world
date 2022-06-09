@@ -8,7 +8,6 @@ import { Routes, Route } from 'react-router'
 import Landing from './pages/Landing'
 import Datastructure from './pages/Datastructure'
 import NavigationBar from './AppComponents/navigationBar'
-
 //import states
 
 const App = () => {
