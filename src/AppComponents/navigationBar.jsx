@@ -19,7 +19,7 @@ const NavigationBarWrapper = styled.div`
     display: flex;
     flex-direction: column;
     position: fixed;
-    width: 20vw;
+    width: 20%;
     height: 100%;
     background-color: yellow;
 `

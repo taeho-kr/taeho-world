@@ -8,6 +8,7 @@ import styled from 'styled-components'
 const Issue = ({}) => {
     return (
         <IssueWrapper>
+            <div>Issue Page</div>
         </IssueWrapper>
     )
 }

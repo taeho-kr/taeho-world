@@ -9,15 +9,18 @@ export const Node = ({ value, info, color }) => {
     const [infoString, setInfoString] = useState("")
 
     useEffect(()=>{
-        setInfoString(makeTooltip())
-    }, [key, value, info])
+        console.log('test to make node')
+    }, [])
 
-    const makeTooltip = () => {
+    useEffect(()=>{
+        setInfoString(makeTooltipMessage())
+    }, [value, info])
+
+    const makeTooltipMessage = () => {
         let strArr = []
         let infoKeyArr = Object.keys(info)
-        
-        key ? strArr.push(`key: ${key}`) : ''
-        value ? strArr.push(`value: ${value}`) : ''
+
+        value ? strArr.push(`value: ${value}`) : '0'
         
         infoKeyArr.forEach(el=>{
             strArr.push(`${el}: ${info.el}`)
@@ -28,15 +31,20 @@ export const Node = ({ value, info, color }) => {
 
     return (
         <NodeWrapper color={color}>
+            <div>node</div>
             <Label>
                 {value}
-                {infoString}
             </Label>
         </NodeWrapper>
     )
 }
 
 const NodeWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
     margin:0;
     padding:0;
     border-radius: 100%;

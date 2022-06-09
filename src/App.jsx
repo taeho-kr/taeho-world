@@ -15,10 +15,12 @@ const App = () => {
     <RecoilRoot>
       <AppWrapper>
         <NavigationBar />
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/datastructure" element={<Datastructure />} />
-        </Routes>
+        <PageArea>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/datastructure" element={<Datastructure />} />
+          </Routes>
+        </PageArea>
       </AppWrapper>
     </RecoilRoot>
   )
@@ -29,6 +31,12 @@ const AppWrapper = styled.div`
     padding: 0;
     width: 100vw;
     height: 100vh;
+`
+
+const PageArea = styled.div`
+  margin-left: 20%;
+  width:80%;
+  height: 100%;
 `
 
 export default App
