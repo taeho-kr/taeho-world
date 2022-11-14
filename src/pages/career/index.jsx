@@ -5,7 +5,7 @@ const CareerPage = ({}) => {
     return (
         <CareerPageWrapper>
             <div>product: StyleAR</div>
-            <a href="https://stylear.ai"/>
+            <a href="https://stylear.ai">https://stylear.ai/</a>
             <div>company: Deelpixel</div>
         </CareerPageWrapper>
     )
