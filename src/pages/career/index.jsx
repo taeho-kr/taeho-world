@@ -1,12 +1,17 @@
 import React from "react"
 import styled from "styled-components"
+import Card from "../../components/card"
 
-const CareerPage = ({}) => {
+const CareerPage = ({ }) => {
     return (
         <CareerPageWrapper>
-            <div>product: StyleAR</div>
-            <a href="https://stylear.ai">https://stylear.ai/</a>
-            <div>company: Deelpixel</div>
+            <Card>
+                <div>product: StyleAR</div>
+                <a href="https://stylear.ai">https://stylear.ai/</a>
+                <div>company: Deelpixel</div>
+            </Card>
+            <Card>
+            </Card>
         </CareerPageWrapper>
     )
 }
