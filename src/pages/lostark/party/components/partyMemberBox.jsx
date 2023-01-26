@@ -16,7 +16,7 @@ const PartyMemberBox = ({ name = "", onClick }) => {
             apiFunction: getInfoCharacterProfile({ name: name }),
             pass: calculatePower,
             fail: (err) => { console.log(err) },
-            onProcess: () => { console.log("call character info") }
+            onProcess: () => { }
         })
     }
 
@@ -25,17 +25,17 @@ const PartyMemberBox = ({ name = "", onClick }) => {
             apiFunction: getAllCharacters({ name: name }),
             pass: setMainCharacter,
             fail: (err) => { console.log(err) },
-            onProcess: () => { console.log("call all characters") }
+            onProcess: () => { }
         })
     }
 
     const calculatePower = (spec) => {
-        console.log(spec)
+        // console.log(spec)
         setInfo((info) => { return { ...info, level: spec.ItemAvgLevel.replace(',', '') } })
     }
 
     const setMainCharacter = (characters) => {
-        console.log(characters)
+        // console.log(characters)
         setInfo((info) => { return { ...info, mainCharacter: characters.reduce((o1, o2) => o1.ItemAvgLevel >= o2.ItemAvgLevel ? o1 : o2).CharacterName } })
     }
 
