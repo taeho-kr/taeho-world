@@ -20,7 +20,7 @@ const Lostark = () => {
             <Link to={"party"}>party</Link>
             <Routes>
                 <Route path="/character" element={<CharacterPage />} />
-                <Route path="/party/*" element={<PartyPage />} />
+                <Route path="/party/:groupId" element={<PartyPage />} />
             </Routes>
         </PageWrapper>
     )
