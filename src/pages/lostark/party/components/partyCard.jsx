@@ -2,18 +2,24 @@ import styled from "styled-components"
 import Card from "../../../../components/card"
 import PartyMemberBox from "./partyMemberBox"
 
-const PartyCard = ({ title, name, difficulty, stages, purpose, progress, members }) => {
+const PartyCard = ({ title, name, difficulty, stage, purpose, progress, members, datetime }) => {
 
-    const getPartyCardTitle = () => {
+    const getPartyCardHeader = () => {
         return (
-            <PartyCardTitle>
-                <TargetName>
-                    {name}
-                </TargetName>
-                <TargetLevel>
-                    {difficulty}
-                </TargetLevel>
-            </PartyCardTitle>
+            <PartyCardHeader>
+                <PartyCardTitle>
+                    <TargetName>
+                        {name}
+                    </TargetName>
+                    <TargetLevel>
+                        {difficulty}
+                    </TargetLevel>
+                </PartyCardTitle>
+                <PartyCardInfoSection>
+                    <div>{`${stage[0]}-${stage[1]}관문`}</div>
+                    {/* <div>{progress}</div> */}
+                </PartyCardInfoSection>
+            </PartyCardHeader>
         )
     }
 
@@ -40,7 +46,8 @@ const PartyCard = ({ title, name, difficulty, stages, purpose, progress, members
 
     return (
         <ComponentWrapper>
-            <Card title={getPartyCardTitle()} description={purpose}>
+            <Card title={getPartyCardHeader()} description={purpose}>
+                {datetime.toLocaleString()}
                 {getPartyMembersDOM()}
             </Card>
         </ComponentWrapper>
@@ -48,7 +55,14 @@ const PartyCard = ({ title, name, difficulty, stages, purpose, progress, members
 }
 
 const ComponentWrapper = styled.div`
-    
+    width: 20rem;
+`
+
+const PartyCardHeader = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 0.25rem;
+    justify-content: space-between;
 `
 
 const PartyCardTitle = styled.div`
@@ -63,6 +77,11 @@ const TargetName = styled.span`
 
 const TargetLevel = styled.span`
     color: orange;
+`
+
+const PartyCardInfoSection = styled.div`
+    display: flex;
+    flex-direction: row;
 `
 
 export default PartyCard

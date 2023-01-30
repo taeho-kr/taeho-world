@@ -16,8 +16,7 @@ const ComponentWrapper = styled.div`
     padding: 1rem;
     border-radius: 0.5rem;
     border: 1px solid white;
-    min-width: 12rem;
-    width: fit-content;
+    min-width: fit-content;
     height: fit-content;
 `
 
