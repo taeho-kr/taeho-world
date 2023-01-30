@@ -2,16 +2,16 @@ import styled from "styled-components"
 import Card from "../../../../components/card"
 import PartyMemberBox from "./partyMemberBox"
 
-const PartyCard = ({ title, targetName, targetLevel, purpose, progress, members }) => {
+const PartyCard = ({ title, name, difficulty, stages, purpose, progress, members }) => {
 
     const getPartyCardTitle = () => {
         return (
             <PartyCardTitle>
                 <TargetName>
-                    {targetName}
+                    {name}
                 </TargetName>
                 <TargetLevel>
-                    {targetLevel}
+                    {difficulty}
                 </TargetLevel>
             </PartyCardTitle>
         )

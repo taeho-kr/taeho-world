@@ -3,6 +3,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import styled from 'styled-components'
 import Header from './components/header'
+import Modal from './components/modal'
 import CareerPage from './pages/career'
 import Lostark from './pages/lostark'
 import Main from './pages/main'
@@ -15,7 +16,9 @@ const App = () => {
         <Route path="/" element={<Main />} />
         <Route path="/lostark/*" element={<Lostark />} />
         <Route path="/career" element={<CareerPage />} />
-      </Routes>   </AppContainer>
+      </Routes>
+      <Modal />
+    </AppContainer>
   )
 }
 
