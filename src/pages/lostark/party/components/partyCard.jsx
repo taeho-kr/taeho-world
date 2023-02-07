@@ -47,7 +47,7 @@ const PartyCard = ({ title, name, difficulty, stage, purpose, progress, members,
     return (
         <ComponentWrapper>
             <Card title={getPartyCardHeader()} description={purpose}>
-                {datetime.toLocaleString()}
+                {datetime ? datetime.toLocaleString() : '시간 미정'}
                 {getPartyMembersDOM()}
             </Card>
         </ComponentWrapper>

@@ -5,11 +5,11 @@ import { makeParty, requestAPI } from "../../../../api/lostark/was"
 import Button from "../../../../components/button"
 import { purposes, targets, type } from "../../../../static/lostark/party"
 
-const PartyCreateModal = ({ addParty, groupId }) => {
+const PartyCreateModal = ({ addParty, groupId, closeModal }) => {
     const [selectedType, setSelectedType] = useState({ id: 1, name: "어비스 레이드" })
     const [selectedTarget, setSelectedTarget] = useState("")
     const [selectedDifficulty, setSelectedDifficulty] = useState("")
-    const [selectedStages, setSelectedStages] = useState([1, 1])
+    const [selectedStage, setSelectedStage] = useState([1, 1])
     const [selectedPurpose, setSelectedPurpose] = useState("")
 
     const [selectableDifficulty, setSelectableDifficulty] = useState([])
@@ -32,8 +32,8 @@ const PartyCreateModal = ({ addParty, groupId }) => {
         setSelectedPurpose(e.target.value)
     }
 
-    const onChangeStages = (e, newValue) => {
-        setSelectedStages(newValue)
+    const onChangeStage = (e, newValue) => {
+        setSelectedStage(newValue)
     }
 
     const getMarks = () => {
@@ -49,10 +49,14 @@ const PartyCreateModal = ({ addParty, groupId }) => {
     const requestMakeParty = () => {
         const newParty = {
             type: selectedType.id,
-            target: selectedTarget,
+            name: selectedTarget,
             difficulty: selectedDifficulty,
-            stages: selectedStages,
+            stage: selectedStage,
+            members: [],
+            purpose: selectedPurpose,
+            progress: 0,
         }
+        console.log(newParty)
         addParty(newParty) // for test
         return makeParty(groupId, newParty)
     }
@@ -63,10 +67,12 @@ const PartyCreateModal = ({ addParty, groupId }) => {
 
     const onFailedMakeParty = () => {
         alert("파티 생성 실패")
+        closeModal()
     }
 
     const onProcessMakeParty = () => {
-
+        alert("파티 생성 성공")
+        closeModal()
     }
 
     useEffect(() => {
@@ -86,8 +92,8 @@ const PartyCreateModal = ({ addParty, groupId }) => {
             setSelectedDifficulty(target.difficulty[0])
         }
 
-        setSelectableStage(target.stages)
-        setSelectedStages([1, target.stages])
+        setSelectableStage(target.stage)
+        setSelectedStage([1, target.stage])
     }, [selectedTarget])
 
     return (
@@ -121,7 +127,7 @@ const PartyCreateModal = ({ addParty, groupId }) => {
                     })
                 }
             </SelectBox>
-            <Slider value={selectedStages} onChange={onChangeStages} min={1} max={selectableStage} step={1} marks={getMarks()} />
+            <Slider value={selectedStage} onChange={onChangeStage} min={1} max={selectableStage} step={1} marks={getMarks()} />
             <SelectBox onChange={onChangePurpose} value={selectedPurpose}>
                 {
                     purposes.map(el => {

@@ -40,7 +40,8 @@ const ModalContent = styled.div`
     padding: 0.5rem;
     border-radius: 0.5rem;
     transform: translate(-50%, -50%);
-    background: #ffffff89;
+    background: #ffffff;
+    color: black;
     z-index: 2;
 `
 

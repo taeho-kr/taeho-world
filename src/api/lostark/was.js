@@ -21,6 +21,7 @@ export const requestAPI = ({ apiFunction, pass, fail, onProcess }) => {
 }
 
 export const makeParty = ({ groupId, party }) => {
+    return {status: 200}
     return axios.post('', { groudId: groupId, party: party })
 }
 

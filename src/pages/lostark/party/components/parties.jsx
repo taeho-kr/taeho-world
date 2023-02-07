@@ -22,16 +22,17 @@ const Parties = ({ groupId }) => {
             if (newPartyList[el.name]) newPartyList[el.name].push(el)
             else newPartyList[el.name] = [el]
         })
-        console.log(newPartyList)
         setPartyList(newPartyList)
     }
 
     const onClickMakeParty = () => {
-        openModal((<PartyCreateModal addParty={addParty} groupId={groupId} />), true)
+        openModal((<PartyCreateModal addParty={addParty} groupId={groupId} closeModal={closeModal} />), true)
     }
 
     const addParty = (newParty) => {
-        setPartyListData([...partyListData, newParty])
+        const newPartyListData = [...partyListData]
+        newPartyListData.push(newParty)
+        setPartyListData(newPartyListData)
     }
 
     const getPartyListDOM = (target) => {
