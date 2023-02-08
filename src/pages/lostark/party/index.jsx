@@ -7,7 +7,7 @@ const PartyPage = () => {
     const { groupId } = useParams()
 
     useEffect(() => {
-        console.log(groupId)
+        console.log("groupId:", groupId)
     }, [groupId])
 
     return (

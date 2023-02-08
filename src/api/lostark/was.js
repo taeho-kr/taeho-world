@@ -5,23 +5,23 @@ axios.defaults.baseURL = LOSTARK_WAS_SERVER
 axios.defaults.headers.common["Accept"] = "application/json"
 axios.defaults.headers.post["Content-Type"] = "application/json"
 
-export const requestAPI = ({ apiFunction, pass, fail, onProcess }) => {
-    console.log(apiFunction, pass, fail, onProcess)
+export const requestAPI = ({ apiFunction, onSuccess, onError, onProcess }) => {
+    console.log(apiFunction, onSuccess, onError, onProcess)
     if (apiFunction === undefined) return
 
     onProcess && onProcess()
     apiFunction
         .then((res) => {
-            if (res.status === 200) pass && pass(res.data)
+            if (res.status === 200) onSuccess && onSuccess(res.data)
             else { }
         })
         .catch((err) => {
-            fail && fail(err)
+            onError && onError(err)
         })
 }
 
 export const makeParty = ({ groupId, party }) => {
-    return {status: 200}
+    return { status: 200 }
     return axios.post('', { groudId: groupId, party: party })
 }
 

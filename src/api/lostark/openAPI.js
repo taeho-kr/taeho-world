@@ -7,7 +7,7 @@ axios.defaults.headers.common["Accept"] = "application/json"
 axios.defaults.headers.common["authorization"] = `bearer ${API_KEY}`
 axios.defaults.headers.post["Content-Type"] = "application/json"
 
-export const requestAPI = ({ apiFunction, pass, fail, onProcess }) => {
+export const requestAPI = ({ apiFunction, onSuccess, onError, onProcess }) => {
     if (apiFunction === undefined) return
 
     onProcess && onProcess()
@@ -17,34 +17,32 @@ export const requestAPI = ({ apiFunction, pass, fail, onProcess }) => {
                 const data = res.map(el => {
                     if (el.status === 200) return el.data
                 })
-                pass && pass(data)
+                onSuccess && onSuccess(data)
             } else {
                 if (res.status === 200) {
                     const data = res.data
-                    pass && pass(data)
+                    onSuccess && onSuccess(data)
                 }
                 else { }
             }
         })
         .catch((err) => {
-            fail && fail(err)
+            onError && onError(err)
         })
 }
 
 export const getInfoCharacter = ({ name }) => {
-    const apiList = []
-    const data = { name: name }
-    apiList.push(getInfoCharacterProfile(data))
-    apiList.push(getInfoCharacterEquipment(data))
-    apiList.push(getInfoCharacterAvatars(data))
-    apiList.push(getInfoCharacterSkills(data))
-    apiList.push(getInfoCharacterEngravings(data))
-    apiList.push(getInfoCharacterCards(data))
-    apiList.push(getInfoCharacterGems(data))
-    apiList.push(getInfoCharacterColosseums(data))
-    apiList.push(getInfoCharacterCollectibles(data))
-
-    return Promise.all(apiList)
+    return Promise.all([
+        getInfoCharacterProfile({ name }),
+        getInfoCharacterEquipment({ name }),
+        getInfoCharacterAvatars({ name }),
+        getInfoCharacterSkills({ name }),
+        getInfoCharacterEngravings({ name }),
+        getInfoCharacterCards({ name }),
+        getInfoCharacterGems({ name }),
+        getInfoCharacterColosseums({ name }),
+        getInfoCharacterCollectibles({ name })
+    ])
 }
 export const getInfoCharacterProfile = ({ name }) => {
     return axios.get(`/armories/characters/${name}/profiles`)

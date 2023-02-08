@@ -7,10 +7,10 @@ import { purposes, targets, type } from "../../../../static/lostark/party"
 
 const PartyCreateModal = ({ addParty, groupId, closeModal }) => {
     const [selectedType, setSelectedType] = useState({ id: 1, name: "어비스 레이드" })
-    const [selectedTarget, setSelectedTarget] = useState("")
+    const [selectedTarget, setSelectedTarget] = useState("아르고스")
     const [selectedDifficulty, setSelectedDifficulty] = useState("")
-    const [selectedStage, setSelectedStage] = useState([1, 1])
-    const [selectedPurpose, setSelectedPurpose] = useState("")
+    const [selectedStage, setSelectedStage] = useState([1, 3])
+    const [selectedPurpose, setSelectedPurpose] = useState("트라이")
 
     const [selectableDifficulty, setSelectableDifficulty] = useState([])
     const [selectableStage, setSelectableStage] = useState(1)
@@ -43,7 +43,7 @@ const PartyCreateModal = ({ addParty, groupId, closeModal }) => {
     }
 
     const onClickMakeParty = () => {
-        requestAPI({ apiFunction: requestMakeParty(), pass: onSuccessMakeParty, fail: onFailedMakeParty, onProcess: onProcessMakeParty })
+        requestAPI({ apiFunction: requestMakeParty(), onSuccess: onSuccessMakeParty, onError: onFailedMakeParty, onProcess: onProcessMakeParty })
     }
 
     const requestMakeParty = () => {

@@ -16,7 +16,7 @@ const PartyCard = ({ title, name, difficulty, stage, purpose, progress, members,
                     </TargetLevel>
                 </PartyCardTitle>
                 <PartyCardInfoSection>
-                    <div>{`${stage[0]}-${stage[1]}관문`}</div>
+                    <div>{ stage[0] === stage[1] ? `${stage[0]}` : `${stage[0]}-${stage[1]}`}관문</div>
                     {/* <div>{progress}</div> */}
                 </PartyCardInfoSection>
             </PartyCardHeader>

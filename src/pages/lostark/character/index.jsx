@@ -22,8 +22,8 @@ const CharacterPage = () => {
     const callInfo = () => {
         requestAPI({
             apiFunction: getInfoCharacter({ name: "포대사령관" }),
-            pass: setInfo,
-            fail: (err) => { console.log(err) },
+            onSuccess: setInfo,
+            onError: (err) => { console.log(err) },
             onProcess: () => { console.log("call character info") }
         })
     }

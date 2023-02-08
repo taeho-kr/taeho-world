@@ -37,9 +37,10 @@ const Parties = ({ groupId }) => {
 
     const getPartyListDOM = (target) => {
         const newDOM = []
-        partyList[target].forEach(party => {
+        partyList[target].forEach((party, i) => {
             newDOM.push(
                 <PartyCard
+                    key={`${JSON.stringify(party)}${i}`}
                     title={party.title}
                     type={party.type}
                     name={party.name}
@@ -62,7 +63,7 @@ const Parties = ({ groupId }) => {
             {
                 Object.keys(partyList).map(el => {
                     return (
-                        <PartyListSection>
+                        <PartyListSection key={el}>
                             <Title>{el}</Title>
                             <PartyListContainer>{getPartyListDOM(el)}</PartyListContainer>
                         </PartyListSection>

@@ -14,8 +14,8 @@ const PartyMemberBox = ({ name = "", onClick }) => {
     const getCharacterInfoForBox = () => {
         requestAPI({
             apiFunction: getInfoCharacterProfile({ name: name }),
-            pass: calculatePower,
-            fail: (err) => { console.log(err) },
+            onSuccess: calculatePower,
+            onError: (err) => { console.log(err) },
             onProcess: () => { }
         })
     }
@@ -23,8 +23,8 @@ const PartyMemberBox = ({ name = "", onClick }) => {
     const getMainCharacter = () => {
         requestAPI({
             apiFunction: getAllCharacters({ name: name }),
-            pass: setMainCharacter,
-            fail: (err) => { console.log(err) },
+            onSuccess: setMainCharacter,
+            onError: (err) => { console.log(err) },
             onProcess: () => { }
         })
     }
