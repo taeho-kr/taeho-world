@@ -6,6 +6,7 @@ import Button from "../../../../components/button"
 import { purposes, targets, type } from "../../../../static/lostark/party"
 
 const PartyCreateModal = ({ addParty, groupId, closeModal }) => {
+    const [title, setTitle] = useState("")
     const [selectedType, setSelectedType] = useState({ id: 1, name: "어비스 레이드" })
     const [selectedTarget, setSelectedTarget] = useState("아르고스")
     const [selectedDifficulty, setSelectedDifficulty] = useState("")
@@ -99,6 +100,7 @@ const PartyCreateModal = ({ addParty, groupId, closeModal }) => {
     return (
         <ComponentWrapper>
             <div>파티 만들기</div>
+            <TextInput value={title} onKeyDown={(e) => { console.log(e) }} />
             <SelectBox onChange={onChangeType} value={selectedType.name}>
                 {
                     type.map(el => {
@@ -147,6 +149,10 @@ const ComponentWrapper = styled.div`
     flex-direction: column;
     gap: 0.25rem;
     padding: 1rem;
+`
+
+const TextInput = styled.input`
+    
 `
 
 const SelectBox = styled.select`

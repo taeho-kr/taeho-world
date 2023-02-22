@@ -18,7 +18,9 @@ const SolarSystem = () => {
                 0.1,
                 1000
             );
-            camera.position.z = 5;
+
+            camera.position.z = 10;
+            camera.position.y = 0;
 
             renderer = new THREE.WebGLRenderer();
             renderer.setSize(window.innerWidth, window.innerHeight);
@@ -159,14 +161,14 @@ const SolarSystem = () => {
 
         const animate = () => {
             requestAnimationFrame(animate);
-            const speed = 1
+            const speed = 3
             sphere.rotation.y += 0.01 * speed;
 
-            earth.rotation.y += 0.01 * speed;
+            earth.rotation.x += 0.5 * speed;
             moon.rotation.y += 0.01 * speed;
             mars.rotation.y += 0.01 * speed;
             jupiter.rotation.y += 0.01 * speed;
-            saturn.rotation.y += 0.01 * speed;
+            saturn.rotation.y += 0.05 * speed;
             uranus.rotation.y += 0.01 * speed;
             neptune.rotation.y += 0.01 * speed;
             pluto.rotation.y += 0.01 * speed;

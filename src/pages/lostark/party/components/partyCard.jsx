@@ -8,15 +8,19 @@ const PartyCard = ({ title, name, difficulty, stage, purpose, progress, members,
         return (
             <PartyCardHeader>
                 <PartyCardTitle>
+                    {title}
                     <TargetName>
                         {name}
                     </TargetName>
                     <TargetLevel>
                         {difficulty}
                     </TargetLevel>
+                    <TargetPurpose>
+                        {purpose}
+                    </TargetPurpose>
                 </PartyCardTitle>
                 <PartyCardInfoSection>
-                    <div>{ stage[0] === stage[1] ? `${stage[0]}` : `${stage[0]}-${stage[1]}`}관문</div>
+                    <div>{stage[0] === stage[1] ? `${stage[0]}` : `${stage[0]}-${stage[1]}`}관문</div>
                     {/* <div>{progress}</div> */}
                 </PartyCardInfoSection>
             </PartyCardHeader>
@@ -45,8 +49,8 @@ const PartyCard = ({ title, name, difficulty, stage, purpose, progress, members,
     }
 
     return (
-        <ComponentWrapper>
-            <Card title={getPartyCardHeader()} description={purpose}>
+        <ComponentWrapper onClick={null}>
+            <Card title={getPartyCardHeader()} description={""}>
                 {datetime ? datetime.toLocaleString() : '시간 미정'}
                 {getPartyMembersDOM()}
             </Card>
@@ -55,7 +59,8 @@ const PartyCard = ({ title, name, difficulty, stage, purpose, progress, members,
 }
 
 const ComponentWrapper = styled.div`
-    width: 20rem;
+    min-width: 20rem;
+    cursor: pointer;
 `
 
 const PartyCardHeader = styled.div`
@@ -77,6 +82,10 @@ const TargetName = styled.span`
 
 const TargetLevel = styled.span`
     color: orange;
+`
+
+const TargetPurpose = styled.span`
+    color: grey;
 `
 
 const PartyCardInfoSection = styled.div`

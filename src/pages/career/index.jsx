@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Card from "../../components/card"
 
 const CareerPage = ({ }) => {
+
     return (
         <CareerPageWrapper>
             <Card>
@@ -17,7 +18,7 @@ const CareerPage = ({ }) => {
 }
 
 const CareerPageWrapper = styled.div`
-    
+
 `
 
 export default CareerPage

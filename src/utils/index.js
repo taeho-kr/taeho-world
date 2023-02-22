@@ -1,13 +1,10 @@
 
-export const groupArrayByAttribute = (data, attrName) => {
-    if (!Array.isArray(data)) return []
-
-    console.log(data, attrName)
+const groupArrayByAttribute = (data, attrName) => {
     data.reduce((acc, cur) => {
-        if (acc[attrName]) acc[attrName].push(cur)
-        else acc[attrName] = [cur]
+        const a = attrName
+        const { attrName } = cur
+        if (acc[type]) acc[type].push(cur)
+        else acc[type] = [cur]
         return acc
-    })
-
-    return data
+    }
 }
