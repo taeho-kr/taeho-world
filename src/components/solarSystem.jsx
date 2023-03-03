@@ -19,9 +19,8 @@ const SolarSystem = () => {
                 1000
             );
 
-            camera.position.z = 10;
-            camera.position.y = 0;
-
+            camera.position.z = 20;
+            
             renderer = new THREE.WebGLRenderer();
             renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -29,7 +28,7 @@ const SolarSystem = () => {
         };
 
         const createSphere = () => {
-            const sphereGeometry = new THREE.SphereGeometry(3, 32, 32);
+            const sphereGeometry = new THREE.SphereGeometry(5, 32, 32);
             const sphereMaterial = new THREE.MeshBasicMaterial({
                 color: 0x000000,
                 wireframe: true
@@ -40,9 +39,9 @@ const SolarSystem = () => {
         };
 
         const createSun = () => {
-            const sunGeometry = new THREE.SphereGeometry(0.7, 32, 32);
+            const sunGeometry = new THREE.SphereGeometry(0.5, 32, 32);
             const sunMaterial = new THREE.MeshBasicMaterial({
-                color: 0xffff00
+                color: 0xff8800
             });
 
             sun = new THREE.Mesh(sunGeometry, sunMaterial);
@@ -53,22 +52,22 @@ const SolarSystem = () => {
         const createMercury = () => {
             const mercuryGeometry = new THREE.SphereGeometry(0.05, 32, 32);
             const mercuryMaterial = new THREE.MeshBasicMaterial({
-                color: 0x0077be
+                color: 0x73e1ff
             });
 
             mercury = new THREE.Mesh(mercuryGeometry, mercuryMaterial);
-            mercury.position.x = 0.38;
+            mercury.position.x = 0.108;
             sphere.add(mercury);
         };
 
         const createVenus = () => {
             const venusGeometry = new THREE.SphereGeometry(0.138, 32, 32);
             const venusMaterial = new THREE.MeshBasicMaterial({
-                color: 0x0077be
+                color: 0xa86932
             });
 
             venus = new THREE.Mesh(venusGeometry, venusMaterial);
-            venus.position.x = 0.108;
+            venus.position.x = 0.38;
             sphere.add(venus);
         };
 
@@ -159,22 +158,46 @@ const SolarSystem = () => {
             sphere.add(pluto);
         };
 
-        const animate = () => {
-            requestAnimationFrame(animate);
-            const speed = 3
-            sphere.rotation.y += 0.01 * speed;
+        const update = () => {
+            const time = Date.now() * 0.01;
 
-            earth.rotation.x += 0.5 * speed;
-            moon.rotation.y += 0.01 * speed;
-            mars.rotation.y += 0.01 * speed;
-            jupiter.rotation.y += 0.01 * speed;
-            saturn.rotation.y += 0.05 * speed;
-            uranus.rotation.y += 0.01 * speed;
-            neptune.rotation.y += 0.01 * speed;
-            pluto.rotation.y += 0.01 * speed;
+            // Calculate the ratio of the period of each planet to that of Earth
+            const mercuryRatio = 0.24;
+            const venusRatio = 0.62;
+            const earthRatio = 1;
+            const marsRatio = 1.88;
+            const jupiterRatio = 11.86;
+            const saturnRatio = 29.46;
+            const uranusRatio = 84.01;
+            const neptuneRatio = 164.8;
+            const plutoRatio = 247.68;
+
+            // Update the positions of the planets based on their period ratio
+            mercury.position.x = Math.cos(time / mercuryRatio * 0.7) * 0.38;
+            mercury.position.z = Math.sin(time / mercuryRatio * 0.7) * 0.38;
+            venus.position.x = Math.cos(time / venusRatio * 0.6) * 0.72;
+            venus.position.z = Math.sin(time / venusRatio * 0.6) * 0.72;
+            earth.position.x = Math.cos(time / earthRatio * 0.5) * 1;
+            earth.position.z = Math.sin(time / earthRatio * 0.5) * 1;
+            moon.position.x = Math.cos(time / earthRatio * 0.5) * 0.3;
+            mars.position.x = Math.cos(time / marsRatio * 0.4) * 1.5;
+            mars.position.z = Math.sin(time / marsRatio * 0.4) * 1.5;
+            jupiter.position.x = Math.cos(time / jupiterRatio * 0.3) * 2.5;
+            jupiter.position.z = Math.sin(time / jupiterRatio * 0.3) * 2.5;
+            saturn.position.x = Math.cos(time / saturnRatio * 0.2) * 3.2;
+            saturn.position.z = Math.sin(time / saturnRatio * 0.2) * 3.2;
+            uranus.position.x = Math.cos(time / uranusRatio * 0.1) * 4;
+            uranus.position.z = Math.sin(time / uranusRatio * 0.1) * 4;
+            neptune.position.x = Math.cos(time / neptuneRatio * 0.09) * 4.7;
+            neptune.position.z = Math.sin(time / neptuneRatio * 0.09) * 4.7;
+            pluto.position.x = Math.cos(time / plutoRatio * 0.08) * 5.2;
+            pluto.position.z = Math.sin(time / plutoRatio * 0.08) * 5.2;
 
             renderer.render(scene, camera);
+
+            requestAnimationFrame(update);
         };
+
 
         init();
         createSphere();
@@ -189,7 +212,7 @@ const SolarSystem = () => {
         createUranus();
         createNeptune();
         createPluto();
-        animate();
+        update();
     }, []);
 
     return <ComponentWrapper ref={containerRef} />;
