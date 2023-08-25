@@ -126,7 +126,8 @@ const SolarSystem = () => {
         const planet = planetData.mesh;
         const period = planetData.period / accelerate;
 
-        planet.position.x = Math.cos(time / period) * planetData.position.x * 10;
+        planet.position.x =
+          Math.cos(time / period) * planetData.position.x * 10;
         planet.position.z = Math.sin(time / period) * planetData.position.x;
       });
 
