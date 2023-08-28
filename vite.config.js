@@ -8,16 +8,16 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"), // Base alias for src directory
-      "@/components": "@/components",
-      "@/pages": "@/pages",
-      "@/assets": "@/assets",
-      "@/utils": "@/utils",
-      "@/hooks": "@/hooks",
-      "@/styles": "@/styles",
-      "@/apis": "@/apis",
-      "@/store": "@/store",
-      "@/layouts": "@/layouts",
-      "@/routes": "@/routes",
+      "@/components": "./components",
+      "@/pages": "./pages",
+      "@/assets": "./assets",
+      "@/utils": "./utils",
+      "@/hooks": "./hooks",
+      "@/styles": "./styles",
+      "@/apis": "./apis",
+      "@/store": "./store",
+      "@/layouts": "./layouts",
+      "@/routes": "./routes",
     },
   },
   server: {
