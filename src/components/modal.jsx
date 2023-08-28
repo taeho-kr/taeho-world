@@ -1,58 +1,52 @@
-import { useRecoilValue } from "recoil"
-import styled from "styled-components"
-import { useModal } from "../hooks"
-import { modalState } from "../store"
+import { useRecoilValue } from "recoil";
+import styled from "styled-components";
+import { modalStateAtom } from "../store";
+import useModal from "@/hooks/useModal";
 
 const Modal = () => {
-    const [openModal, closeModal] = useModal()
-    const componentState = useRecoilValue(modalState)
+  const modalState = useRecoilValue(modalStateAtom);
+  const modal = useModal();
 
-    return (
-        <ComponentWrapper isOpen={componentState.isOpen}>
-            <ModalContent>
-                {componentState.children}
-            </ModalContent>
-            {
-                componentState.useBackmark && <BackMarker onClick={closeModal} />
-            }
-        </ComponentWrapper>
-    )
-}
+  const onClickBackdrop = () => {
+    modal.closeModal();
+  };
+
+  return (
+    <ComponentWrapper show={modalState.open ? "true" : "false"}>
+      <ChildrenConatiner>{modalState.children}</ChildrenConatiner>
+      <Backdrop
+        show={modalState.useBackdrop ? "true" : "false"}
+        onClick={onClickBackdrop}
+      />
+    </ComponentWrapper>
+  );
+};
 
 const ComponentWrapper = styled.div`
-    display: ${props => props.isOpen ? "block" : "none"};
-    `
+  display: ${(props) => (props.show === "true" ? "" : "none")};
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+`;
 
-const ModalContent = styled.div`
-    position: fixed;
-    top: 50%;
-    bottom: 50%;
-    left: 50%;
-    right: 50%;
-    border: 1px solid white;
-    min-width: 5rem;
-    min-height: 3rem;
-    width: fit-content;
-    height: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    transform: translate(-50%, -50%);
-    background: #ffffff;
-    color: black;
-    z-index: 2;
-`
+const ChildrenConatiner = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+`;
 
-const BackMarker = styled.div`
-    z-index: 1;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #0000004b;
-`
+const Backdrop = styled.div`
+  display: ${(props) => (props.show === "true" ? "" : "none")};
+  width: 100%;
+  height: 100%;
+  background-color: #3f3f3f85;
+  /* backdrop-filter: blur(0.5rem); */
+  z-index: 1;
+`;
 
-export default Modal
+export default Modal;
