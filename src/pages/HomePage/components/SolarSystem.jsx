@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import * as THREE from "three";
 
@@ -69,6 +69,16 @@ const SolarSystem = () => {
       period: 60182,
     },
   ];
+  const moonsData = [
+    {
+      name: "Moon",
+      parent: "Earth",
+      size: 0.05,
+      color: 0xeaed85,
+      position: { x: 0.01, y: 0, z: 0 },
+      period: 30,
+    },
+  ];
 
   useEffect(() => {
     let scene, camera, renderer, sphere;
@@ -115,9 +125,29 @@ const SolarSystem = () => {
         planetData.position.y,
         planetData.position.z
       );
-      sphere.add(planet);
 
-      return planet;
+      planetData.mesh = planet;
+      sphere.add(planet);
+    };
+
+    const createMoon = (moonData) => {
+      const moonDataGeometry = new THREE.SphereGeometry(moonData.size, 32, 32);
+      const moonDataMaterial = new THREE.MeshBasicMaterial({
+        color: moonData.color,
+      });
+
+      const moon = new THREE.Mesh(moonDataGeometry, moonDataMaterial);
+      moon.position.set(
+        moonData.position.x,
+        moonData.position.y,
+        moonData.position.z
+      );
+
+      moonData.mesh = moon;
+      const parent = planetsData.filter(
+        (planetData) => planetData.name === moonData.parent
+      );
+      parent[0] && parent[0].mesh.add(moon);
     };
 
     const updatePositions = (time) => {
@@ -129,6 +159,20 @@ const SolarSystem = () => {
         planet.position.x =
           Math.cos(time / period) * planetData.position.x * 10;
         planet.position.z = Math.sin(time / period) * planetData.position.x;
+      });
+
+      moonsData.forEach((moonData) => {
+        const moon = moonData.mesh;
+        const period = moonData.period / accelerate;
+
+        const parentPlanet = planetsData.find(
+          (planetData) => planetData.name === moonData.parent
+        );
+        const parentPosition = parentPlanet.position.x * 10;
+        moon.position.x =
+          Math.cos(time / period) * parentPosition * moonData.position.x * 10;
+        moon.position.z =
+          Math.sin(time / period) * parentPosition * moonData.position.y * 10;
       });
 
       renderer.render(scene, camera);
@@ -143,7 +187,10 @@ const SolarSystem = () => {
     init();
     createSphere();
     planetsData.forEach((planetData) => {
-      planetData.mesh = createPlanet(planetData);
+      createPlanet(planetData);
+    });
+    moonsData.forEach((moonData) => {
+      createMoon(moonData);
     });
 
     update();
