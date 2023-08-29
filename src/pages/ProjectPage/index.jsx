@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { pageBox } from "@/styles/components";
+import { pageBox } from "../../styles/components";
 
 const ProjectPage = () => {
   return <PageWrapper>Project Page</PageWrapper>;

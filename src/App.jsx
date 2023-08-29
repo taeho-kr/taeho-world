@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import Navigation from "@/layouts/Navigation";
-import ContentsContainer from "@/layouts/ContentsContainer";
-import { rowBox } from "@/styles/components";
+import Navigation from "./layouts/Navigation";
+import ContentsContainer from "./layouts/ContentsContainer";
+import { rowBox } from "./styles/components";
 import { Route, Routes } from "react-router";
-import Menu from "@/components/Menu";
-import Modal from "@/components/Modal";
-import { routes } from "@/routes";
+import Menu from "./components/Menu";
+import Modal from "./components/Modal";
+import { routes } from "./routes";
 
 function App() {
   return (

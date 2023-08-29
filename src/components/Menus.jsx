@@ -1,7 +1,6 @@
-import { centerBox, columnBox } from "@/styles/components";
 import styled from "styled-components";
 import Card from "./Card";
-import useMenu from "@/hooks/useMenu";
+import useMenu from "../hooks/useMenu";
 
 const Menus = ({ items = [], onClickItem }) => {
   const menu = useMenu();

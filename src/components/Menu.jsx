@@ -2,7 +2,7 @@ import { useRecoilValue } from "recoil";
 import { menuStateAtom } from "../store";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import useMenu from "@/hooks/useMenu";
+import useMenu from "../hooks/useMenu";
 
 const Menu = () => {
   const [x, setX] = useState(0);

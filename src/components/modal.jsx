@@ -1,7 +1,7 @@
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { modalStateAtom } from "@/store";
-import useModal from "@/hooks/useModal";
+import { modalStateAtom } from "../store";
+import useModal from "../hooks/useModal";
 
 const Modal = () => {
   const modalState = useRecoilValue(modalStateAtom);

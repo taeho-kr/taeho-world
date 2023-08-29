@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { pageBox } from "@/styles/components";
-import SolarSystem from "@/pages/HomePage/components/SolarSystem";
+import SolarSystem from "./components/SolarSystem";
+import { pageBox } from "../../styles/components";
 
 const HomePage = () => {
   return (

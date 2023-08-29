@@ -1,7 +1,7 @@
-import CareerPage from "@/pages/CareerPage";
-import HomePage from "@/pages/HomePage";
-import ProjectPage from "@/pages/ProjectPage";
-import iconHome from "@/assets/icons/home.svg";
+import CareerPage from "../pages/CareerPage";
+import HomePage from "../pages/HomePage";
+import ProjectPage from "../pages/ProjectPage";
+import iconHome from "../assets/icons/home.svg";
 
 export const routes = [
   { label: "Home", route: "/home", icon: iconHome, element: <HomePage /> },

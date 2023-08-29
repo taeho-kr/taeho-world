@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { columnBox, rowBox } from "../styles/components";
+import { columnBox } from "../styles/components";
 import Button from "../components/Button";
 import { useNavigate } from "react-router";
-import { routes } from "@/routes";
+import { routes } from "../routes";
 
 const Navigation = () => {
   const navigate = useNavigate();
