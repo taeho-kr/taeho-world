@@ -5,6 +5,7 @@ import { rowBox } from "./styles/components";
 import { Route, Routes } from "react-router";
 import Menu from "./components/Menu";
 import { routes } from "./routes";
+import Modal from "./components/Modal";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         </Routes>
       </ContentsContainer>
       <Menu />
+      <Modal />
     </AppContainer>
   );
 }
