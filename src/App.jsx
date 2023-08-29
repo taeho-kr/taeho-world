@@ -4,7 +4,6 @@ import ContentsContainer from "./layouts/ContentsContainer";
 import { rowBox } from "./styles/components";
 import { Route, Routes } from "react-router";
 import Menu from "./components/Menu";
-import Modal from "./components/Modal";
 import { routes } from "./routes";
 
 function App() {
@@ -23,7 +22,6 @@ function App() {
         </Routes>
       </ContentsContainer>
       <Menu />
-      <Modal />
     </AppContainer>
   );
 }
