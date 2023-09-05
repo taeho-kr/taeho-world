@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Innodep = () => {
-  return <ComponentWrapper></ComponentWrapper>;
+  return <ComponentWrapper>Innodep</ComponentWrapper>;
 };
 
 const ComponentWrapper = styled.div``;

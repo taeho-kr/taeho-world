@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Conworth = () => {
-  return <ComponentWrapper></ComponentWrapper>;
+  return <ComponentWrapper>Conworth</ComponentWrapper>;
 };
 
 const ComponentWrapper = styled.div``;

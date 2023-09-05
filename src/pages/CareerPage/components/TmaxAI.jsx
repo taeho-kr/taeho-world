@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const TmaxAI = () => {
-  return <ComponentWrapper></ComponentWrapper>;
+  return <ComponentWrapper>TmaxAI</ComponentWrapper>;
 };
 
 const ComponentWrapper = styled.div``;

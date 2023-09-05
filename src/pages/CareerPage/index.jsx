@@ -1,5 +1,13 @@
 import styled from "styled-components";
-import { Caption, Content, Row, Title, pageBox } from "../../styles/components";
+import {
+  Caption,
+  Content,
+  Row,
+  Title,
+  columnBox,
+  pageBox,
+  rowBox,
+} from "../../styles/components";
 import Deepixel from "./components/Deepixel";
 import { useState } from "react";
 import Card from "../../components/Card";
@@ -8,7 +16,7 @@ import Conworth from "./components/Conworth";
 import Innodep from "./components/Innodep";
 
 const CareerPage = () => {
-  const [expanded, setExpanded] = useState([]);
+  const [expandedCareers, setExpandedCareers] = useState([]);
   const careers = [
     {
       title: "Deepixel",
@@ -40,21 +48,37 @@ const CareerPage = () => {
     },
   ];
 
+  const handleClickCareer = (careerTitle) => {
+    const newExpandedCareers = [...expandedCareers];
+    newExpandedCareers.includes(careerTitle)
+      ? newExpandedCareers.splice(newExpandedCareers.indexOf(careerTitle))
+      : newExpandedCareers.push(careerTitle);
+    setExpandedCareers(newExpandedCareers);
+  };
+
   return (
     <PageWrapper>
       {careers.map((career) => (
         <Card key={career.title}>
           <CareerWrapper>
-            <CareerTitleContainer>
-              <Title>{career.title}</Title>
-              <Content>{career.role}</Content>
-            </CareerTitleContainer>
-            <CareerTitleContainer>
-              <Caption>{`${career.start} ~ ${
-                career.end ? career.end : "Now"
-              }`}</Caption>
-            </CareerTitleContainer>
-            {career.element}
+            <CareerTitleWrapper onClick={() => handleClickCareer(career.title)}>
+              <CareerTitleContainer>
+                <Title>{career.title}</Title>
+                <Content>{career.role}</Content>
+              </CareerTitleContainer>
+              <CareerTitleContainer>
+                <Caption>{`${career.start} ~ ${
+                  career.end ? career.end : "Now"
+                }`}</Caption>
+              </CareerTitleContainer>
+            </CareerTitleWrapper>
+            {expandedCareers.includes(career.title) && (
+              <Card>
+                <CareerContentsContainer>
+                  {career.element}
+                </CareerContentsContainer>
+              </Card>
+            )}
           </CareerWrapper>
         </Card>
       ))}
@@ -64,16 +88,37 @@ const CareerPage = () => {
 
 const PageWrapper = styled.div`
   ${pageBox}
+  ${columnBox}
   padding: 1rem;
+  gap: 0.5rem;
 `;
 
 const CareerWrapper = styled.div`
+  ${columnBox}
+  gap: 1rem;
   padding: 1rem;
   background-color: var(--white);
 `;
 
-const CareerTitleContainer = styled(Row)`
+const CareerTitleWrapper = styled.div`
+  ${columnBox}
+  cursor: pointer;
+  &:hover {
+    color: var(--dark-gray);
+  }
+`;
+
+const CareerTitleContainer = styled.div`
+  ${rowBox}
+  gap: 1rem;
   align-items: baseline;
+`;
+
+const CareerContentsContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  background-color: var(--light-gray);
 `;
 
 export default CareerPage;
