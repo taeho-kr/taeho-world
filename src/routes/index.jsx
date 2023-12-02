@@ -7,4 +7,5 @@ export const routes = [
   { label: "Home", route: "/home", icon: iconHome, element: <HomePage /> },
   { label: "Career", route: "/career", icon: null, element: <CareerPage /> },
   { label: "Project", route: "/project", icon: null, element: <ProjectPage /> },
+  { label: "Life", route: "/life", icon: null, element: <ProjectPage /> },
 ];

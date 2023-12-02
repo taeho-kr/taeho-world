@@ -17,6 +17,7 @@ const Navigation = () => {
         <Button
           key={route.label}
           width={"100%"}
+          varient="text"
           bold={location.pathname.startsWith(route.route) && "true"}
           onClick={() => onClickMenu(route.route)}
         >

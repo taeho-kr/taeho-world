@@ -32,6 +32,7 @@ const SolarSystem = () => {
       color: 0x4b98e2,
       position: { x: 1, y: 0, z: 0 },
       period: 365,
+      child: "moon",
     },
     {
       name: "Mars",
@@ -89,12 +90,11 @@ const SolarSystem = () => {
 
       camera = new THREE.PerspectiveCamera(
         100,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        1000
+        window.innerWidth / window.innerHeight
       );
-      camera.position.z = 30;
-      camera.position.y = 15;
+
+      camera.position.z = 100;
+      camera.position.y = 20;
 
       renderer = new THREE.WebGLRenderer();
       renderer.setSize(window.innerWidth, window.innerHeight);
@@ -114,7 +114,11 @@ const SolarSystem = () => {
     };
 
     const createPlanet = (planetData) => {
-      const planetGeometry = new THREE.SphereGeometry(planetData.size, 32, 32);
+      const planetGeometry = new THREE.SphereGeometry(
+        planetData.size * 2,
+        32,
+        32
+      );
       const planetMaterial = new THREE.MeshBasicMaterial({
         color: planetData.color,
       });
@@ -131,7 +135,11 @@ const SolarSystem = () => {
     };
 
     const createMoon = (moonData) => {
-      const moonDataGeometry = new THREE.SphereGeometry(moonData.size, 32, 32);
+      const moonDataGeometry = new THREE.SphereGeometry(
+        moonData.size * 2,
+        32,
+        32
+      );
       const moonDataMaterial = new THREE.MeshBasicMaterial({
         color: moonData.color,
       });
@@ -186,6 +194,7 @@ const SolarSystem = () => {
 
     init();
     createSphere();
+
     planetsData.forEach((planetData) => {
       createPlanet(planetData);
     });

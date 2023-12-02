@@ -6,10 +6,12 @@ import { Route, Routes } from "react-router";
 import Menu from "./components/Menu";
 import { routes } from "./routes";
 import Modal from "./components/Modal";
+import MyBasicInfo from "./layouts/MyBasicInfo";
 
 function App() {
   return (
     <AppContainer>
+      <MyBasicInfo />
       <Navigation />
       <ContentsContainer>
         <Routes>

@@ -1,6 +1,6 @@
 :root {
-  --theme: linear-gradient(270deg, #5ab2f7 0%, #12cff3 100%);
-  --primary: #cae9ff;
+  --theme: black;
+  --primary: #e4e4e4;
   --primary-text: rgb(44, 44, 44);
   --secondary: #c53434;
   --secondary-text: rgb(64, 64, 64);
