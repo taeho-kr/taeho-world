@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { centerBox } from "../../styles/components";
+import { centerBox, columnBox, rowBox } from "../../styles/components";
 import { formatDatetime } from "../../utils/datetime";
 
 const Clock = () => {
-  const [time, setTime] = useState();
+  const [time, setTime] = useState(formatDatetime(new Date()));
 
   useEffect(() => {
     setInterval(() => {
@@ -12,16 +12,30 @@ const Clock = () => {
     }, 333);
   }, []);
 
-  return <ComponentWrapper>{time}</ComponentWrapper>;
+  return (
+    <ComponentWrapper>
+      {time.split(" ").map((char) => {
+        if (char === ":" || char === "-") return <span>{char}</span>;
+        else return <TimeBlock>{char}</TimeBlock>;
+      })}
+    </ComponentWrapper>
+  );
 };
 
 const ComponentWrapper = styled.div`
   ${centerBox}
-  width: 100%;
-  height: 3rem;
+  ${columnBox}
   border: 1px solid black;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   margin: 0.25rem;
+  padding: 0.5rem;
+`;
+
+const TimeBlock = styled.span`
+  color: red;
+  font-weight: bold;
+  border: 1px solid black;
+  padding: 0.25rem;
 `;
 
 export default Clock;
