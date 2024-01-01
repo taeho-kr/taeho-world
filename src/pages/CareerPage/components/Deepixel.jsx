@@ -1,11 +1,5 @@
 import styled from "styled-components";
-import {
-  Caption,
-  ContentStrong,
-  Row,
-  columnBox,
-  rowBox,
-} from "../../../styles/components";
+import { Caption, columnBox, rowBox } from "../../../styles/components";
 import Button from "../../../components/Button";
 import Chip from "../../../components/Chip";
 
@@ -22,7 +16,8 @@ const Deepixel = () => {
 
   return (
     <ComponentWrapper>
-      <ContentStrong>사내 유일한 Frontend Engineer</ContentStrong>
+      <h4>사내 유일한 Frontend Engineer</h4>
+      <small>기술 스택</small>
       <StackContainer>
         {stacks.map((stack) => (
           <Chip key={stack}>{stack}</Chip>

@@ -31,11 +31,6 @@ export const SubTitle = styled.span`
   font-weight: normal;
 `;
 
-export const ContentStrong = styled.span`
-  font-size: 1rem;
-  font-weight: bold;
-`;
-
 export const Content = styled.span`
   font-size: 1rem;
   font-weight: normal;
