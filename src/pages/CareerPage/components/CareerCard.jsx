@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import Card from "../../../components/Card";
-import { columnBox } from "../../../styles/components";
+import Chip from "../../../components/Chip";
+import { Caption, columnBox, rowBox } from "../../../styles/components";
 
-const CareerCard = ({ title, start, end, role, element }) => {
+const CareerCard = ({ title, role, start, end, stacks, element }) => {
   return (
     <Card>
       <ComponentWrapper>
@@ -10,8 +11,19 @@ const CareerCard = ({ title, start, end, role, element }) => {
         <span>{role}</span>
         <span>
           {start}
+          &nbsp;~&nbsp;
           {end}
         </span>
+        {stacks && (
+          <>
+            <small>기술스택</small>
+            <StackContainer>
+              {stacks.map((stack) => (
+                <Chip key={stack}>{stack}</Chip>
+              ))}
+            </StackContainer>
+          </>
+        )}
         {element}
       </ComponentWrapper>
     </Card>
@@ -21,6 +33,11 @@ const CareerCard = ({ title, start, end, role, element }) => {
 const ComponentWrapper = styled.div`
   ${columnBox}
   padding: 1rem;
+`;
+
+const StackContainer = styled(Caption)`
+  ${rowBox}
+  gap: 0.5rem;
 `;
 
 export default CareerCard;

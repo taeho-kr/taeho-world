@@ -1,15 +1,7 @@
 import styled from "styled-components";
-import {
-  Caption,
-  Content,
-  Title,
-  columnBox,
-  pageBox,
-  rowBox,
-} from "../../styles/components";
+import { columnBox, pageBox } from "../../styles/components";
 import Deepixel from "./components/Deepixel";
 import { useState } from "react";
-import Card from "../../components/Card";
 import TmaxAI from "./components/TmaxAI";
 import Conworth from "./components/Conworth";
 import Innodep from "./components/Innodep";
@@ -23,6 +15,15 @@ const CareerPage = () => {
       start: "2020-02",
       end: "2021-06",
       role: "Frontend Engineer",
+      stacks: [
+        "Vue.js",
+        "Vuetify",
+        "Vuex",
+        "Node.js",
+        "MySQL",
+        "OpenGL",
+        "JQuery",
+      ],
       element: <Deepixel />,
     },
     {
@@ -65,6 +66,7 @@ const CareerPage = () => {
           role={career.role}
           start={career.start}
           end={career.end}
+          stacks={career.stacks}
           element={career.element}
         />
       ))}
