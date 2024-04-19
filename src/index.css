@@ -1,25 +1,33 @@
-@import url("./assets/fonts/Noto_Sans_KR/NotoSansKR.css");
-@import url("./assets/fonts/Montserrat/Montserrat.css");
+/*
+1. 화이트+골드
+2. 화이트+그린
+3. 네이비+실버
+*/
 
 :root {
-  font-family: "Montserrat", "NotoSansKR";
-  line-height: 1.5;
-  font-weight: 400;
+  --primary-gold: #f0e68c;
+  --primary-white: #ffffff;
+  --secondary-gold: #ffd700;
+  --secondary-white: #fffdd0;
+  --third-gold: #daa520;
+
+  background-color: #03020c;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  margin: 0;
-  padding: 0;
 }
 
 * {
-  user-select: none;
-  font-family: "Montserrat", "NotoSansKR";
   box-sizing: border-box;
+  font-family: "Gowun Batang", serif;
+}
+
+body {
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
+  margin: 0 auto;
+  justify-content: center;
 }
