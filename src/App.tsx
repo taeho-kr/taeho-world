@@ -100,8 +100,9 @@ function App() {
 
 const AppContainer = styled.div`
   background-color: var(--primary-white);
+  min-width: 360px;
   width: 100vw;
-  max-width: 900px;
+  max-width: 600px;
 `;
 
 export default App;
