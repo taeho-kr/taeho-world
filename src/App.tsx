@@ -2,6 +2,7 @@ import styled from "styled-components";
 import LandingArea from "./components/LandingArea";
 import { useEffect, useRef, useState } from "react";
 import InvitationArea from "./components/InvitationArea";
+import MapArea from "./components/MapArea";
 
 const getDifferenceOfDay = (from: Date, to: Date) => {
   const difference = from.getTime() - to.getTime();
@@ -94,6 +95,7 @@ function App() {
         weddingDateObject={weddingDateObject}
       />
       <InvitationArea />
+      <MapArea />
     </AppContainer>
   );
 }

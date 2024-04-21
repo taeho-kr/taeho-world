@@ -33,7 +33,12 @@ const LandingArea = ({
         <strong>더 라움</strong>
       </SubLabel>
       {borders.map((el) => (
-        <Border $padding={el} $type="primary" $color="white" />
+        <Border
+          key={JSON.stringify(el)}
+          $padding={el}
+          $type="primary"
+          $color="white"
+        />
       ))}
     </ComponentWrapper>
   );
@@ -44,7 +49,6 @@ const ComponentWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
-  background-color: black;
   color: white;
 `;
 

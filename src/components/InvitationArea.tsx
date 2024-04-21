@@ -115,7 +115,7 @@ const Cover = styled.div`
 const Dot = styled.div`
   width: 0.25rem;
   height: 0.25rem;
-  background-color: var(--third-gold);
+  background-color: var(--primary-gold);
   border-radius: 100%;
 `;
 
