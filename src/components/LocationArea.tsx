@@ -5,7 +5,7 @@ import { centerBox, columnBox } from "../styles";
 const coord = [37.5082633, 127.0396983];
 let mapInstance: naver.maps.Map | null = null;
 
-const MapArea = () => {
+const LocationArea = () => {
   useEffect(() => {
     initMap();
   }, []);
@@ -50,4 +50,4 @@ const MapContainer = styled.div`
   border: 3px solid var(--secondary-gold);
 `;
 
-export default MapArea;
+export default LocationArea;
