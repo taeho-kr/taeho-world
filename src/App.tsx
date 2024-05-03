@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Navigation from "./components/Navigation";
 import { columnBox } from "./styles";
 import { Route, Routes } from "react-router-dom";
+import ContentsArea from "./components/ContentsArea";
+import MainPage from "./pages/MainPage";
 // import LocationArea from "./components/LocationArea";
 
 
@@ -10,9 +12,11 @@ function App() {
   return (
     <AppContainer>
       {/* <LocationArea /> */}
-      <Routes>
-        <Route path="/" element={<div>Home</div>} />
-      </Routes>
+      <ContentsArea>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+        </Routes>
+      </ContentsArea>
       <Navigation />
     </AppContainer>
   );
