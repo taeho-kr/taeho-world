@@ -6,9 +6,7 @@ import ContentsArea from "./components/ContentsArea";
 import MainPage from "./pages/MainPage";
 // import LocationArea from "./components/LocationArea";
 
-
 function App() {
-
   return (
     <AppContainer>
       {/* <LocationArea /> */}

@@ -5,45 +5,36 @@ import { IconHeart, IconInstagram, IconMessage } from "../../../assets/icons"
 const Header = () => {
     return (
         <ComponentWrapper>
-            <ContentsContainer>
-                <LogoContainer>
-                    {IconInstagram}
-                </LogoContainer>
-                <ButtonContainer>
-                    <Icon>
-                        {IconHeart}
-                    </Icon>
-                    <Icon>
-                        {IconMessage}
-                    </Icon>
-                </ButtonContainer>
-            </ContentsContainer>
+            <LogoContainer>
+                {IconInstagram}
+            </LogoContainer>
+            <ButtonContainer>
+                <Icon>
+                    {IconHeart}
+                </Icon>
+                <Icon>
+                    {IconMessage}
+                </Icon>
+            </ButtonContainer>
         </ComponentWrapper>
     )
 }
 
 const ComponentWrapper = styled.div`
-    width: 100%;
-    padding: 0 16px;
-`
-
-const ContentsContainer = styled.div`
     ${rowBox}
     width: 100%;
     height: 44px;
     min-height: 44px;
     align-items: center;
     justify-content: space-between;
+    padding: 0 16px;
 `
 
 const LogoContainer = styled.div`
     ${centerBox}
     margin: 0;
-    flex-grow: 1;
-    flex-shrink: 1;
-    text-align: left;
-    height:31px;
-    margin-top: 1px;
+    height: 31px;
+    padding-top: 4px;
 `
 
 const ButtonContainer = styled.div`
