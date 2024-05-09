@@ -1,69 +1,46 @@
 import styled from "styled-components";
 import { centerBox, columnBox, rowBox } from "../../../styles";
-import th from "../../../assets/images/th_instagram.jpg";
-import ye from "../../../assets/images/ye_instagram.jpg";
+import useStory from "../../../hooks/useStory";
+import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
+import { UsersAtom } from "../../../store/user";
 
 const StoryArea = () => {
-  const badges = [
-    {
-      id: 1,
-      title: "taeho._.world",
-      image: th,
-      stories: [
-        {
-          url: "https://www.instagram.com/stories/_sis.chloey_/3363087535855940219/?hl=kr",
-          view: false,
-        },
-      ],
-    },
-    {
-      id: 2,
-      title: "_sis.chloey_",
-      image: ye,
-      stories: [
-        {
-          url: "https://www.instagram.com/stories/_sis.chloey_/3363087535855940219/?hl=kr",
-          view: false,
-        },
-      ],
-    },
-    {
-      id: 3,
-      title: "premierleague",
-      image: "https://via.placeholder.com/150",
-      stories: [
-        {
-          url: "https://www.instagram.com/stories/_sis.chloey_/3363087535855940219/?hl=kr",
-          view: true,
-        },
-      ],
-    },
-    {
-      id: 4,
-      title: "Badge4",
-      image: "https://via.placeholder.com/150",
-      stories: [
-        {
-          url: "https://www.instagram.com/stories/_sis.chloey_/3363087535855940219/?hl=kr",
-          view: true,
-        },
-      ],
-    },
-    {
-      id: 5,
-      title: "Badge 5",
-      image: "https://via.placeholder.com/150",
-      stories: [
-        {
-          url: "https://www.instagram.com/stories/_sis.chloey_/3363087535855940219/?hl=kr",
-          view: true,
-        },
-      ],
-    },
-  ];
+  const users = useRecoilValue(UsersAtom);
+  const [badges, setBadges] = useState([]);
+  const story = useStory();
+
+  useEffect(() => {
+    const storedOldStories = localStorage.getItem("sav");
+    let oldStories = [];
+
+    if (storedOldStories) {
+      oldStories = JSON.parse(storedOldStories);
+    }
+
+    const usersHaveStories = users.filter((user) => user.stories.length);
+    const newBadges = usersHaveStories.map((user) => ({
+      id: user.id,
+      image: user.image,
+      stories: user.stories.map((story) => ({
+        story,
+        view: oldStories.includes(story),
+      })),
+    }));
+
+    newBadges.sort(
+      (a, b) =>
+        a.stories.filter((story) => story.view).length -
+        b.stories.filter((story) => story.view).length
+    );
+
+    setBadges(newBadges);
+  }, [users]);
 
   const handleClickBadge = (badge) => {
-    console.log(badge);
+    const startIndex = badges.indexOf(badge);
+    const badgesNext = badges.slice(startIndex);
+    story.openStory(badgesNext);
   };
 
   const isAllViewed = (badge) => badge.stories.every((story) => story.view);
@@ -77,7 +54,7 @@ const StoryArea = () => {
               <img src={badge.image} />
               <BadgeBorder $view={isAllViewed(badge)} />
             </BadgeImageContainer>
-            <UserID $view={badge.view}>{badge.title}</UserID>
+            <UserID $view={isAllViewed(badge)}>{badge.id}</UserID>
           </Badge>
         ))}
       </BadgesContainer>

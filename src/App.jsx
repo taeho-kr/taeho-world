@@ -4,9 +4,24 @@ import { columnBox } from "./styles";
 import { Route, Routes } from "react-router-dom";
 import ContentsArea from "./components/ContentsArea";
 import MainPage from "./pages/MainPage";
+import StoryPage from "./pages/StoryPage";
+import { useEffect } from "react";
 // import LocationArea from "./components/LocationArea";
+import { users } from "./data/users";
+import { useSetRecoilState } from "recoil";
+import { UsersAtom } from "./store/user";
 
 function App() {
+  const setUsers = useSetRecoilState(UsersAtom);
+
+  useEffect(() => {
+    getUsersData();
+  }, []);
+
+  const getUsersData = () => {
+    setUsers(users);
+  };
+
   return (
     <AppContainer>
       {/* <LocationArea /> */}
@@ -16,6 +31,7 @@ function App() {
         </Routes>
       </ContentsArea>
       <Navigation />
+      <StoryPage />
     </AppContainer>
   );
 }
