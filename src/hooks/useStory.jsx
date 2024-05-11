@@ -14,7 +14,7 @@ const useStory = () => {
   const closeStory = () => {
     setStory({
       show: false,
-      user: [],
+      users: [],
     });
   };
 

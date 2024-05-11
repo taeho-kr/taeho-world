@@ -13,7 +13,7 @@ const StoryPage = () => {
 
   useEffect(() => {
     setUserIndex(0);
-    const newStoryIndex = stories.users[userIndex]?.stories.findIndex(
+    const newStoryIndex = stories?.users[userIndex]?.stories.findIndex(
       (story) => !story.view
     );
     setStoryIndex(newStoryIndex);
@@ -22,9 +22,9 @@ const StoryPage = () => {
   return (
     <PageWrapper $show={stories.show}>
       <div onClick={story.closeStory}>Close</div>
-      <ProfileInFeed user={stories.users[userIndex]} />
+      <ProfileInFeed user={stories?.users[userIndex]} />
       {stories.users[userIndex]?.stories[storyIndex] && (
-        <img src={stories.users[userIndex].stories[storyIndex].story} />
+        <img src={stories?.users[userIndex]?.stories[storyIndex]?.story} />
       )}
     </PageWrapper>
   );
