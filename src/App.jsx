@@ -15,8 +15,48 @@ function App() {
   const setUsers = useSetRecoilState(UsersAtom);
 
   useEffect(() => {
+    checkScreen();
     getUsersData();
   }, []);
+
+  const checkScreen = () => {
+    const isMobile = window.innerWidth < 600;
+
+    if (isMobile) {
+      if (confirm("전체 화면 모드로 전환하시겠습니까?")) {
+        const element = document.documentElement;
+
+        if (element.requestFullscreen) {
+          element.requestFullscreen().catch((err) => {
+            console.error(
+              `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
+            );
+          });
+        } else if (element.mozRequestFullScreen) {
+          // Firefox
+          element.mozRequestFullScreen().catch((err) => {
+            console.error(
+              `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
+            );
+          });
+        } else if (element.webkitRequestFullscreen) {
+          // Chrome, Safari, Opera
+          element.webkitRequestFullscreen().catch((err) => {
+            console.error(
+              `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
+            );
+          });
+        } else if (element.msRequestFullscreen) {
+          // IE/Edge
+          element.msRequestFullscreen().catch((err) => {
+            console.error(
+              `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
+            );
+          });
+        }
+      }
+    }
+  };
 
   const getUsersData = () => {
     setUsers(users);
