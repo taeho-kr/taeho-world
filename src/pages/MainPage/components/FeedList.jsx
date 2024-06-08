@@ -1,7 +1,10 @@
 import styled from "styled-components";
+import Feed from "./Feed";
 
 const FeedList = () => {
-  return <ComponentWrapper></ComponentWrapper>;
+  return <ComponentWrapper>
+    <Feed user={{}} feed={{}}/>
+  </ComponentWrapper>;
 };
 
 const ComponentWrapper = styled.div`

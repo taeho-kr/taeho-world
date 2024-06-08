@@ -38,6 +38,10 @@ span {
   font-size: 12px;
 }
 
+small { 
+  color: var(--text-disabled);
+}
+
 ::-webkit-scrollbar {
   display: none;
 }

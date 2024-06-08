@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { centerBox } from "../styles";
 import useStory from "../hooks/useStory";
 
-const ProfileInFeed = ({ user }) => {
+const ProfileInFeed = ({ user = {} }) => {
   const story = useStory();
 
   const handleClickBadge = () => {
@@ -12,12 +12,11 @@ const ProfileInFeed = ({ user }) => {
   return (
     <ProfileContainer>
       <BadgeImageContainer onClick={handleClickBadge}>
-        <img src={user?.image} />
-        {user?.stories.some((story) => !story.view) && <BadgeBorder />}
+        <img src={user.image} />
+        {user.stories?.some((story) => !story.view) && <BadgeBorder />}
       </BadgeImageContainer>
       <ProfileInfo>
-        <UserName>{user?.id}</UserName>
-        <UserLocation>{user?.location}</UserLocation>
+        <UserName>{user.id}</UserName>
       </ProfileInfo>
     </ProfileContainer>
   );
@@ -40,6 +39,7 @@ const BadgeImageContainer = styled.div`
     border-radius: 100%;
     outline: 2px solid black;
     z-index: 2;
+    background-color: #323232;
   }
 `;
 
@@ -62,11 +62,6 @@ const ProfileInfo = styled.div`
 const UserName = styled.div`
   font-size: 14px;
   font-weight: 500;
-`;
-
-const UserLocation = styled.div`
-  font-size: 12px;
-  color: var(--text);
 `;
 
 export default ProfileInFeed;
