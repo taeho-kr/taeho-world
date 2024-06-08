@@ -326,8 +326,8 @@ export const IconComment = (
       d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z"
       fill="none"
       stroke="currentColor"
-      stroke-linejoin="round"
-      stroke-width="2"
+      strokeLinejoin="round"
+      strokeWidth="2"
     ></path>
   </svg>
 );
@@ -344,9 +344,9 @@ export const IconBookmark = (
       fill="none"
       points="20 21 12 13.44 4 21 4 3 20 3 20 21"
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
     ></polygon>
   </svg>
 );
