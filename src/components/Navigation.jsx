@@ -18,6 +18,8 @@ const Navigation = () => {
 
 const ComponentWrapper = styled.div`
   ${rowBox};
+  position: sticky;
+  bottom: 0;
   height: 48px;
   min-height: 48px;
   width: 100%;

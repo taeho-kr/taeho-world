@@ -37,8 +37,9 @@ function App() {
 }
 
 const AppContainer = styled.div`
-  background-color: black;
   ${columnBox};
+  background-color: black;
+  position: relative;
   min-width: 360px;
   width: 100vw;
   max-width: 600px;
