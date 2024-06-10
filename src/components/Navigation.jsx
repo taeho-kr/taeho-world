@@ -28,6 +28,7 @@ const ComponentWrapper = styled.div`
   align-items: center;
   justify-content: space-evenly;
   border-top: 1px solid var(--border);
+  z-index: 9999;
 `;
 
 const Icon = styled(Link)`

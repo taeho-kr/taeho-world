@@ -8,8 +8,32 @@ import {
   IconMessage,
   IconThreedot,
 } from "../../../assets/icons";
+import Carousel from "../../../components/Carousel";
 
 const Feed = ({ user, feed }) => {
+  const getFeedDateLabel = (date) => {
+    const now = new Date();
+    const created = new Date(date);
+    const diff = now - created;
+    const sec = 1000;
+    const min = sec * 60;
+    const hour = min * 60;
+    const day = hour * 24;
+    const week = day * 7;
+
+    if (diff < min) {
+      return `${Math.floor(diff / sec)}초 전`;
+    } else if (diff < hour) {
+      return `${Math.floor(diff / min)}분 전`;
+    } else if (diff < day) {
+      return `${Math.floor(diff / hour)}시간 전`;
+    } else if (diff < week) {
+      return `${Math.floor(diff / day)}일 전`;
+    } else {
+      return `${Math.floor(diff / week)}주 전`;
+    }
+  };
+
   return (
     <ComponentWrapper>
       <FeedHeaderWrapper>
@@ -17,13 +41,7 @@ const Feed = ({ user, feed }) => {
         <div>{IconThreedot}</div>
       </FeedHeaderWrapper>
       <FeedImageContainer>
-        {feed.contents?.map((content) => {
-          return content.type === "video" ? (
-            <video src={content.src} />
-          ) : (
-            <img src={content.src} />
-          );
-        })}
+        <Carousel contents={feed.contents} />
       </FeedImageContainer>
       <FeedInteractionContainer>
         <div>{IconHeart}</div>
@@ -33,11 +51,13 @@ const Feed = ({ user, feed }) => {
       </FeedInteractionContainer>
       <FeedDescriptionContainer>
         {feed.like && <strong>좋아요 {feed.like}개</strong>}
-        <FeedLabel>
-          <strong>{user.id}</strong>
-          <span>{feed.description}</span>
-        </FeedLabel>
-        <small>6월 8일</small>
+        {feed.description && (
+          <FeedLabel>
+            <strong>{user.id}</strong>
+            <span>{feed.description}</span>
+          </FeedLabel>
+        )}
+        <small>{getFeedDateLabel(feed.createdDatetime)}</small>
       </FeedDescriptionContainer>
     </ComponentWrapper>
   );
@@ -46,7 +66,6 @@ const Feed = ({ user, feed }) => {
 const ComponentWrapper = styled.div`
   ${columnBox};
   width: 100%;
-  height: 100vh;
 `;
 
 const FeedHeaderWrapper = styled.div`
@@ -60,10 +79,16 @@ const FeedHeaderWrapper = styled.div`
 
 const FeedImageContainer = styled.div`
   ${rowBox};
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 50vh;
-  background-color: blue;
+  background-color: #0c0c0c;
   overflow: hidden;
+
+  img {
+    height: 100%;
+  }
 `;
 
 const FeedInteractionContainer = styled.div`
