@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import Header from "./components/Header";
 import StoryArea from "./components/StoryArea";
@@ -9,7 +10,9 @@ const MainPage = () => {
     <PageWrapper>
       <Header />
       <StoryArea />
-      <FeedList />
+      <FeedListWrapper>
+        <FeedList />
+      </FeedListWrapper>
     </PageWrapper>
   );
 };
@@ -19,6 +22,14 @@ const PageWrapper = styled.div`
   width: 100%;
   height: 100%;
   background-color: black;
+  position: relative;
+  overflow: hidden;
+`;
+
+const FeedListWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
 `;
 
 export default MainPage;

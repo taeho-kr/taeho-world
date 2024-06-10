@@ -25,8 +25,7 @@ const ComponentWrapper = styled.div`
   gap: 1rem;
   width: 100%;
   height: 100%;
-  padding-bottom: calc(48px + 10px); //48: height of navigation
-  overflow: scroll;
+  padding-bottom: 1rem;
 `;
 
 export default FeedList;

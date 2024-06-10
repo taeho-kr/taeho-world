@@ -1,11 +1,9 @@
-import styled from "styled-components";
+import React from "react";
+import styled, { css } from "styled-components";
 import { centerBox, rowBox } from "../../../styles";
 import { IconHeart, IconInstagram, IconMessage } from "../../../assets/icons";
-import { useEffect } from "react";
 
-const Header = () => {
-  useEffect(() => {}, []);
-
+const Header = ({ isVisible }) => {
   return (
     <ComponentWrapper>
       <LogoContainer>{IconInstagram}</LogoContainer>
