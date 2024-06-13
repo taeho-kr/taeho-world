@@ -2,6 +2,7 @@ import { atom } from "recoil";
 import { Comment, Content } from "./common";
 
 export interface Feed {
+  id: number;
   userID: string;
   contents: Array<Content>;
   description?: string;

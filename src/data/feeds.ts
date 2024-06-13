@@ -2,6 +2,7 @@ import { Feed } from "../store/feed";
 
 export const feeds: Array<Feed> = [
   {
+    id: 1,
     userID: "taeho._.world",
     contents: [
       {
@@ -19,6 +20,7 @@ export const feeds: Array<Feed> = [
     createdDatetime: new Date("2024-06-07 12:00:00"),
   },
   {
+    id: 2,
     userID: "flowerphant.studio",
     contents: [
       {

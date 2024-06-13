@@ -9,6 +9,7 @@ import {
   IconThreedot,
 } from "../../../assets/icons";
 import Carousel from "../../../components/Carousel";
+import React from "react";
 
 const Feed = ({ user, feed }) => {
   const getFeedDateLabel = (date) => {
@@ -118,4 +119,4 @@ const FeedLabel = styled.div`
   }
 `;
 
-export default Feed;
+export default React.memo(Feed);

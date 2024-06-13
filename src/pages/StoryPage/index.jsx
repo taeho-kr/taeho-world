@@ -4,6 +4,7 @@ import { StoriesAtom } from "../../store/story";
 import useStory from "../../hooks/useStory";
 import { useEffect, useState } from "react";
 import ProfileInFeed from "../../components/ProfileInFeed";
+import { rowBox } from "../../styles";
 
 const StoryPage = () => {
   const story = useStory();
@@ -21,8 +22,10 @@ const StoryPage = () => {
 
   return (
     <PageWrapper $show={stories.show}>
-      <div onClick={story.closeStory}>Close</div>
-      <ProfileInFeed user={stories?.users[userIndex]} />
+      <HeaderContainer>
+        <ProfileInFeed user={stories?.users[userIndex]} />
+        <div onClick={() => story.closeStory()}>x</div>
+      </HeaderContainer>
       {stories.users[userIndex]?.stories[storyIndex] && (
         <img src={stories?.users[userIndex]?.stories[storyIndex]?.story} />
       )}
@@ -40,6 +43,12 @@ const PageWrapper = styled.div`
   height: 100%;
   background-color: var(--background);
   color: var(--text);
+`;
+
+const HeaderContainer = styled.div`
+  ${rowBox};
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export default StoryPage;
