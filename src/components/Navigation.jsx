@@ -8,7 +8,7 @@ const Navigation = () => {
   return (
     <ComponentWrapper>
       <Icon to="/">{IconHome}</Icon>
-      <Icon to="/explore">{IconSearch}</Icon>
+      <Icon to="/explorer">{IconSearch}</Icon>
       <Icon to="/new">{IconAdd}</Icon>
       <Icon to="/reels">{IconMedia}</Icon>
       <Icon to="/user">{IconUser}</Icon>
@@ -18,8 +18,8 @@ const Navigation = () => {
 
 const ComponentWrapper = styled.div`
   ${rowBox};
-  position: sticky;
-  bottom: 0;
+  position: absolute;
+  bottom: -1px;
   height: 48px;
   min-height: 48px;
   width: 100%;

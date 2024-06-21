@@ -72,7 +72,6 @@ const BadgesContainer = styled.div`
   ${rowBox};
   align-items: center;
   width: 100%;
-  height: 85px;
   overflow: auto hidden;
   gap: 16px;
   padding: 0 12px;
@@ -88,14 +87,14 @@ const Badge = styled.div`
 const BadgeImageContainer = styled.div`
   position: relative;
   ${centerBox};
-  width: 66px;
-  height: 66px;
+  width: 80px;
+  height: 80px;
 
   img {
-    width: 56px;
-    height: 56px;
+    width: 68px;
+    height: 68px;
     border-radius: 100%;
-    outline: 2px solid black;
+    outline: 3px solid black;
     z-index: 2;
   }
 `;
@@ -104,8 +103,8 @@ const BadgeBorder = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  width: ${(props) => (props.$view ? "63px" : "65px")};
-  height: ${(props) => (props.$view ? "63px" : "65px")};
+  width: ${(props) => (props.$view ? "78px" : "80px")};
+  height: ${(props) => (props.$view ? "78px" : "80px")};
   transform: translate(-50%, -50%);
   z-index: 1;
   border-radius: 100%;

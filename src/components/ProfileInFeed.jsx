@@ -16,7 +16,7 @@ const ProfileInFeed = ({ user = {} }) => {
         {user.stories?.some((story) => !story.view) && <BadgeBorder />}
       </BadgeImageContainer>
       <ProfileInfo>
-        <UserName>{user.id}</UserName>
+        <span>{user.id}</span>
       </ProfileInfo>
     </ProfileContainer>
   );
@@ -57,11 +57,6 @@ const BadgeBorder = styled.div`
 
 const ProfileInfo = styled.div`
   margin-left: 8px;
-`;
-
-const UserName = styled.div`
-  font-size: 14px;
-  font-weight: 500;
 `;
 
 export default ProfileInFeed;

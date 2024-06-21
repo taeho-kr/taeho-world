@@ -7,6 +7,7 @@ const ContentsArea = ({ children }) => {
 const ComponentWrapper = styled.div`
   width: 100%;
   height: 100%;
+  padding-bottom: 48px;
 `;
 
 export default ContentsArea;

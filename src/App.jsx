@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { users } from "./data/users";
 import { useSetRecoilState } from "recoil";
 import { UsersAtom } from "./store/user";
+import ExplorerPage from "./pages/ExplorerPage";
 
 function App() {
   const setUsers = useSetRecoilState(UsersAtom);
@@ -28,6 +29,7 @@ function App() {
       <ContentsArea>
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/explorer" element={<ExplorerPage />} />
         </Routes>
       </ContentsArea>
       <Navigation />
