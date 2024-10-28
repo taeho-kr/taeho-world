@@ -6,8 +6,8 @@ export const feeds: Array<Feed> = [
     userID: "taeho._.world",
     contents: [
       {
-        type: "image",
-        src: "https://picsum.photos/600/600",
+        type: "video",
+        src: "blob:https://www.instagram.com/6ffb2193-90e6-4a92-893f-32245ea91725",
       },
       {
         type: "image",

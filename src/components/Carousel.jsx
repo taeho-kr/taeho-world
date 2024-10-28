@@ -86,9 +86,13 @@ const Carousel = ({ contents }) => {
               {content.type === "image" ? (
                 <img src={content.src} alt={content.alt} />
               ) : (
-                <video controls>
-                  <source src={content.src} type="video/mp4" />
-                </video>
+                <video
+                  src={content.src}
+                  type="video/mp4"
+                  controls
+                  muted
+                  autoPlay
+                />
               )}
             </Slide>
           ))}
