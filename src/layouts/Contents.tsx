@@ -3,16 +3,17 @@ import React from "react";
 
 interface ContentsProps {
   children: React.ReactNode;
+  animate: boolean;
 }
 
-const Contents = ({ children }: ContentsProps) => {
+const Contents = ({ children, animate }: ContentsProps) => {
   const { navRendered } = appStore();
 
-  if (!navRendered) {
+  if (!navRendered && animate) {
     return null;
   }
 
-  return <main className="w-fit h-fit">{children}</main>;
+  return <main className="w-fit h-fit animate-fadeIn">{children}</main>;
 };
 
 export default Contents;

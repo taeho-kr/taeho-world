@@ -8,7 +8,7 @@ import useLayout from "./hooks/useLayout";
 import { useEffect } from "react";
 
 function App() {
-  const { allRendered, checkRenderHistory } = useLayout();
+  const { doNotAnimate, checkRenderHistory } = useLayout();
 
   useEffect(() => {
     checkRenderHistory();
@@ -17,10 +17,10 @@ function App() {
   return (
     <div className="w-full h-full p-8">
       <div className="w-full h-full border rounded-lg p-8">
-        <Header animate={!allRendered} />
+        <Header animate={!doNotAnimate} />
         <div className="flex flex-row place-content-between mt-10">
-          <Nav animate={!allRendered} />
-          <Contents>
+          <Nav animate={!doNotAnimate} />
+          <Contents animate={!doNotAnimate}>
             <Routes>
               {routes.map((route) => (
                 <Route

@@ -29,7 +29,7 @@ const Text = ({
   className,
   ...props
 }: TextProps & React.ComponentProps<"span">) => {
-  const [displayedText, setDisplayedText] = useState("");
+  const [displayedText, setDisplayedText] = useState(typing ? "" : children);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
 
   const sizeStyles = {

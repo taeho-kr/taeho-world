@@ -1,16 +1,11 @@
 import appStore from "@/store/appStore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const EXPIRATION_TIME = 1000 * 60 * 30; // 30 minutes
 
 const useLayout = () => {
-  const {
-    headerRendered,
-    navRendered,
-    footerRendered,
-    allRendered,
-    setAllRendered,
-  } = appStore();
+  const { headerRendered, navRendered, footerRendered } = appStore();
+  const [doNotAnimate, setDoNotAnimate] = useState<boolean>(false);
 
   useEffect(() => {
     if (headerRendered && navRendered && footerRendered) {
@@ -32,11 +27,11 @@ const useLayout = () => {
       return;
     }
 
-    setAllRendered(true);
+    setDoNotAnimate(true);
   };
 
   return {
-    allRendered,
+    doNotAnimate,
     checkRenderHistory,
   };
 };

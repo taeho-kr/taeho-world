@@ -9,7 +9,7 @@ const ANIMATE_DURATION = 1000; // ms
 
 const Nav = ({ animate }: { animate: boolean }) => {
   const { headerRendered, setNavRendered } = appStore();
-  const [render, setRender] = useState<boolean>(animate);
+  const [render, setRender] = useState<boolean>(!animate);
   const renderTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const location = useLocation();
@@ -33,12 +33,14 @@ const Nav = ({ animate }: { animate: boolean }) => {
     };
   }, [headerRendered]);
 
-  if (!render) return null;
+  if (!render && animate) return null;
 
   return (
     <nav
-      className="animate-fadeInTop h-fit w-fit"
-      style={{ animationDuration: `${animate ? ANIMATE_DURATION : 0}ms` }}
+      className={cn("h-fit w-fit", {
+        "animate-fadeInTop": animate,
+      })}
+      style={{ animationDuration: `${ANIMATE_DURATION}ms` }}
     >
       <ul>
         {routes.map((route) => (

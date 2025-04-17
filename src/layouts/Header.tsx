@@ -3,11 +3,11 @@ import appStore from "@/store/appStore";
 import { useState } from "react";
 
 const Header = ({ animate }: { animate: boolean }) => {
-  const [titleTyped, setTitleTyped] = useState<boolean>(animate);
+  const [titleTyped, setTitleTyped] = useState<boolean>(!animate);
   const { setHeaderRendered } = appStore();
 
   return (
-    <header className="flex flex-col">
+    <header className="flex flex-col h-20">
       <Text
         size="title"
         weight="thin"
