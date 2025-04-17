@@ -19,19 +19,15 @@ const infos = [
 ];
 
 const InfoPage = () => {
-  const iconClassName = "cursor-pointer hover:text-[var(--muted)]";
-
   return (
     <div className="w-full h-full">
       {infos.map((info) => {
         return (
-          <div key={info.name} className="flex flex-row items-center mb-2">
-            <a
-              href={info.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-row items-center"
-            >
+          <div
+            key={info.name}
+            className="cursor-pointer hover:text-[var(--muted)]"
+          >
+            <a href={info.link} target="_blank" rel="noopener noreferrer">
               {info.icon}
             </a>
           </div>

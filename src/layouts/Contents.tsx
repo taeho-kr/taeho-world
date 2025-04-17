@@ -12,7 +12,7 @@ const Contents = ({ children }: ContentsProps) => {
     return null;
   }
 
-  return <main>{children}</main>;
+  return <main className="w-fit h-fit">{children}</main>;
 };
 
 export default Contents;

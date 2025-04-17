@@ -1,13 +1,15 @@
 import { cn } from "@/lib/utils";
 import routes from "@/routes";
 import appStore from "@/store/appStore";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router";
 
+const RENDER_DELAY = 250; // ms
 const ANIMATE_DURATION = 1000; // ms
 
-const Nav = () => {
+const Nav = ({ animate }: { animate: boolean }) => {
   const { headerRendered, setNavRendered } = appStore();
+  const [render, setRender] = useState<boolean>(animate);
   const renderTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const location = useLocation();
@@ -16,23 +18,27 @@ const Nav = () => {
 
   useEffect(() => {
     if (!headerRendered) return;
-    if (renderTimeout.current) clearTimeout(renderTimeout.current);
 
-    renderTimeout.current = setTimeout(() => {
-      setNavRendered(true);
-    }, ANIMATE_DURATION);
+    setTimeout(() => {
+      setRender(true);
+      if (renderTimeout.current) clearTimeout(renderTimeout.current);
+
+      renderTimeout.current = setTimeout(() => {
+        setNavRendered(true);
+      }, ANIMATE_DURATION);
+    }, RENDER_DELAY);
 
     return () => {
       if (renderTimeout.current) clearTimeout(renderTimeout.current);
     };
   }, [headerRendered]);
 
-  if (!headerRendered) return null;
+  if (!render) return null;
 
   return (
     <nav
       className="animate-fadeInTop h-fit w-fit"
-      style={{ animationDuration: `${ANIMATE_DURATION}ms` }}
+      style={{ animationDuration: `${animate ? ANIMATE_DURATION : 0}ms` }}
     >
       <ul>
         {routes.map((route) => (
@@ -46,7 +52,7 @@ const Nav = () => {
               "slease-in-out duration-300": currentRoute?.path === route.path,
             })}
           >
-            <Link to={route.path} className="relative">
+            <Link to={route.path} className="relative flex flex-row">
               {route.name}
             </Link>
           </li>

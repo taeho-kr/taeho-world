@@ -16,7 +16,7 @@ interface TextProps {
   color?: string;
   typing?: boolean;
   onTypingComplete?: () => void;
-  children?: string;
+  children?: React.ReactNode;
 }
 
 const Text = ({

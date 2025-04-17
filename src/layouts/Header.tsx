@@ -2,8 +2,8 @@ import Text from "@/components/myUI/text";
 import appStore from "@/store/appStore";
 import { useState } from "react";
 
-const Header = () => {
-  const [titleTyped, setTitleTyped] = useState<boolean>(false);
+const Header = ({ animate }: { animate: boolean }) => {
+  const [titleTyped, setTitleTyped] = useState<boolean>(animate);
   const { setHeaderRendered } = appStore();
 
   return (
@@ -11,7 +11,7 @@ const Header = () => {
       <Text
         size="title"
         weight="thin"
-        typing
+        typing={animate}
         onTypingComplete={() => setTitleTyped(true)}
       >
         Taeho
@@ -20,7 +20,7 @@ const Header = () => {
         <Text
           size="caption"
           weight="thin"
-          typing
+          typing={animate}
           onTypingComplete={() => setHeaderRendered(true)}
         >
           Web Frontend Engineer

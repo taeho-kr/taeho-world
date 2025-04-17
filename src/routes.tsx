@@ -6,8 +6,8 @@ import InfoPage from "./pages/InfoPage";
 export interface RoutableItem {
   name: string;
   path: string;
-  element: React.ReactElement;
-  icon?: React.ReactElement | string;
+  element: React.ReactNode;
+  icon?: React.ReactNode;
 }
 
 const routes: RoutableItem[] = [
@@ -18,8 +18,8 @@ const routes: RoutableItem[] = [
     icon: <Home />,
   },
   {
-    name: "Career",
-    path: "/career",
+    name: "Projects",
+    path: "/projects",
     element: <CareerPage />,
     icon: <Workflow />,
   },
