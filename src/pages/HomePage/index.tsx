@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 
-const LandingPage = () => {
+const HomePage = () => {
   return (
     <div className="w-full h-full">
       <Button></Button>
@@ -8,4 +8,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default HomePage;

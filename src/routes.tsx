@@ -1,6 +1,7 @@
-import { Home, Workflow } from "lucide-react";
+import { Home, Info, Workflow } from "lucide-react";
 import CareerPage from "./pages/CareerPage";
-import LandingPage from "./pages/LandingPage";
+import HomePage from "./pages/HomePage";
+import InfoPage from "./pages/InfoPage";
 
 export interface RoutableItem {
   name: string;
@@ -13,7 +14,7 @@ const routes: RoutableItem[] = [
   {
     name: "Home",
     path: "/",
-    element: <LandingPage />,
+    element: <HomePage />,
     icon: <Home />,
   },
   {
@@ -21,6 +22,12 @@ const routes: RoutableItem[] = [
     path: "/career",
     element: <CareerPage />,
     icon: <Workflow />,
+  },
+  {
+    name: "Info",
+    path: "/info",
+    element: <InfoPage />,
+    icon: <Info />,
   },
 ];
 

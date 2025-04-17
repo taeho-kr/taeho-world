@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@layer utilities {
+  /* Fade In Animation */
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Fade In from Top Animation */
+  .animate-fadeInTop {
+    animation: fadeInTop 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeInTop {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Fade In from Bottom Animation */
+  .animate-fadeInBottom {
+    animation: fadeInBottom 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeInBottom {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Fade Out Animation */
+  .animate-fadeOut {
+    animation: fadeOut 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  /* Slide In from Left Animation */
+  .animate-slideInLeft {
+    animation: slideInLeft 0.5s ease-out forwards;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  /* Slide In from Right Animation */
+  .animate-slideInRight {
+    animation: slideInRight 0.5s ease-out forwards;
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  /* Scale In Animation */
+  .animate-scaleIn {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Rotate In Animation */
+  .animate-rotateIn {
+    animation: rotateIn 0.5s ease-out forwards;
+  }
+
+  @keyframes rotateIn {
+    from {
+      transform: rotate(-180deg);
+      opacity: 0;
+    }
+    to {
+      transform: rotate(0deg);
+      opacity: 1;
+    }
+  }
+
+  /* Bounce In Animation */
+  .animate-bounceIn {
+    animation: bounceIn 0.6s ease-out forwards;
+  }
+
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.3);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.7;
+    }
+    70% {
+      transform: scale(0.9);
+      opacity: 0.9;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Pulse Animation (continuous) */
+  .animate-pulseCustom {
+    animation: pulseCustom 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulseCustom {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.7;
+    }
+  }
+}
