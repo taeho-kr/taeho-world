@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import routes from "@/routes";
 import appStore from "@/store/appStore";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router";
 
 const RENDER_DELAY = 250; // ms
@@ -15,6 +16,8 @@ const Nav = ({ animate }: { animate: boolean }) => {
   const location = useLocation();
   const currentPath = location.pathname;
   const currentRoute = routes.find((route) => route.path === currentPath);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!headerRendered) return;
@@ -50,12 +53,12 @@ const Nav = ({ animate }: { animate: boolean }) => {
               "border-b-[transparent]": currentRoute?.path !== route.path,
               "hover:border-b-[var(--muted)] hover:text-[var(--muted)]":
                 currentRoute?.path !== route.path,
-              "border-b-[white]": currentRoute?.path === route.path,
+              "border-b-[var(--foreground)]": currentRoute?.path === route.path,
               "slease-in-out duration-300": currentRoute?.path === route.path,
             })}
           >
             <Link to={route.path} className="relative flex flex-row">
-              {route.name}
+              {t(route.name)}
             </Link>
           </li>
         ))}

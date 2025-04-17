@@ -9,7 +9,7 @@ const CareerPage = () => {
 
   return (
     <div className="w-full h-full flex flex-col gap-5 items-end">
-      {projects.reverse().map((project, index) => (
+      {[...projects].reverse().map((project, index) => (
         <ProjectItem
           key={project.id}
           project={project}

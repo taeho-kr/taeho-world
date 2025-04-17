@@ -12,7 +12,15 @@ interface TextProps {
     | "caption"
     | "small"
     | "tiny";
-  weight?: "thin" | "regular" | "bold" | "extra";
+  weight?:
+    | "thin"
+    | "extralight"
+    | "light"
+    | "regular"
+    | "medium"
+    | "semibold"
+    | "bold"
+    | "extrabold";
   color?: string;
   typing?: boolean;
   onTypingComplete?: () => void;
@@ -21,7 +29,7 @@ interface TextProps {
 
 const Text = ({
   size,
-  weight = "regular",
+  weight = "light",
   color,
   typing = false,
   onTypingComplete,
@@ -45,10 +53,14 @@ const Text = ({
   };
 
   const weightStyles = {
-    thin: "font-light",
+    thin: "font-thin",
+    extralight: "font-extralight",
+    light: "font-light",
     regular: "font-normal",
+    medium: "font-medium",
+    semibold: "font-semibold",
     bold: "font-bold",
-    extra: "font-extrabold",
+    extrabold: "font-extrabold",
   };
 
   useEffect(() => {
@@ -89,7 +101,7 @@ const Text = ({
       className={cn(
         sizeStyles[size],
         weightStyles[weight],
-        color ? `text-${color}` : "text-inherit",
+        color ? `text-[${color}]` : "text-inherit",
         typing && "inline-flex items-center",
         className
       )}
@@ -101,7 +113,7 @@ const Text = ({
           className={cn(
             "inline-block w-1 h-4 ml-1 animate-blink",
             sizeStyles[size].includes("5xl") ? "h-8" : "h-4",
-            color ? `bg-${color}` : "bg-current"
+            color ? `bg-[${color}]` : "bg-current"
           )}
         />
       )}

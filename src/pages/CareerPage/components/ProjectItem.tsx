@@ -48,6 +48,9 @@ const ProjectItem = ({
           {company.find((c) => c.id === project.company)?.name}
         </Text>
       </div>
+      <Text size="small" className="opacity-70">
+        {project.start} ~ {project.end || "Now"}
+      </Text>
       <Text size="small">Service Preview</Text>
     </div>
   );

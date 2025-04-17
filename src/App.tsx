@@ -15,8 +15,8 @@ function App() {
   }, []);
 
   return (
-    <div className="w-full h-full p-8">
-      <div className="w-full h-full border rounded-lg p-8">
+    <div className="w-full h-full p-8 flex flex-col">
+      <div className="w-full flex-1 border rounded-lg p-8">
         <Header animate={!doNotAnimate} />
         <div className="flex flex-row place-content-between mt-10">
           <Nav animate={!doNotAnimate} />

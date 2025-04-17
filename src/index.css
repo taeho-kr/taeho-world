@@ -3,11 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@font-face {
-  font-family: "Google Sans Flex";
-  src: url("./src/assets/fonts/googlesnasflex.woff2");
-}
-
 html,
 body {
   width: 100%;
@@ -99,8 +94,10 @@ body {
   --sidebar-accent-foreground: #000000;
   --sidebar-border: #c7c7cc;
   --sidebar-ring: #007aff;
-  --default-font-family: "Google Sans Flex", -apple-system;
-  --default-mono-font-family: "Google Sans Flex", -apple-system;
+  --default-font-family: "Roboto Flex", "Noto Sans KR", sans-serif,
+    -apple-system;
+  --default-mono-font-family: "Roboto Flex", "Noto Sans KR", sans-serif,
+    -apple-system;
 }
 
 .dark {
@@ -135,8 +132,10 @@ body {
   --sidebar-accent-foreground: #ffffff;
   --sidebar-border: #3c3c43;
   --sidebar-ring: #0a84ff;
-  --default-font-family: "Google Sans Flex", -apple-system;
-  --default-mono-font-family: "Google Sans Flex", -apple-system;
+  --default-font-family: "Roboto Flex", "Noto Sans KR", sans-serif,
+    -apple-system;
+  --default-mono-font-family: "Roboto Flex", "Noto Sans KR", sans-serif,
+    -apple-system;
 }
 
 @layer base {

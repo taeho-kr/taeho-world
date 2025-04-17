@@ -35,7 +35,7 @@ const projects: Project[] = [
   {
     id: 4,
     company: 3,
-    product: "TMS",
+    product: "Smart City Total Management System",
     domains: ["Physical security", "Geographic", "Video"],
     start: "2023-04",
     end: "2024-06",
