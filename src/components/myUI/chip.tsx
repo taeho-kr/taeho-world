@@ -2,12 +2,11 @@ import { cn } from "@/lib/utils";
 import { cva, VariantProps } from "class-variance-authority";
 
 const chipVariants = cva(
-  "border border-[var(--accent-foreground)] bg-[var(--accent)] text-[var(--accent-foreground)] rounded-md px-2",
+  "border border-[var(--muted)] bg-[var(--secondary)] text-[var(--mute-foreground)] rounded-sm px-2 flex items-center w-fit inline-flex",
   {
     variants: {
       variant: {
-        default:
-          "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
+        default: "bg-secondary text-primary-foreground shadow-xs",
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:

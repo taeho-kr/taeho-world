@@ -49,7 +49,7 @@ const ProjectItem = ({
         </Text>
       </div>
       <Text size="small" className="opacity-70">
-        {project.start} ~ {project.end || "Now"}
+        {project.start} ~ {project.end || "in progress"}
       </Text>
       <Text size="small">Service Preview</Text>
     </div>

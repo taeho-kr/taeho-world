@@ -6,15 +6,18 @@ import { BrowserRouter } from "react-router";
 import { ThemeProvider } from "./components/theme-provider.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "@/language-pack/index.ts";
+import { TooltipProvider } from "./components/ui/tooltip.tsx";
 
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")!).render(
   <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <TooltipProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </TooltipProvider>
     </QueryClientProvider>
   </ThemeProvider>
 );

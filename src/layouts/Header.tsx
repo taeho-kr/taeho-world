@@ -23,7 +23,7 @@ const Header = ({ animate }: { animate: boolean }) => {
           typing={animate}
           onTypingComplete={() => setHeaderRendered(true)}
         >
-          Web Frontend Engineer
+          Frontend Engineer
         </Text>
       )}
     </header>
