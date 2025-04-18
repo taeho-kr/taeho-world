@@ -1,7 +1,9 @@
 const en = {
-  translation: {
-    Projects: "Projects",
-  },
+	translation: {
+		Home: 'Home',
+		Projects: 'Projects',
+		Info: 'Info',
+	},
 };
 
 export default en;
