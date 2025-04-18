@@ -24,7 +24,7 @@ const ProjectItem = ({
 		<div
 			key={project.id}
 			{...props}
-			className={cn(`flex flex-col gap-0.5 items-baseline transition-transform duration-300 items-end`, {
+			className={cn(`flex flex-col gap-0.25 items-baseline transition-transform duration-300 items-end`, {
 				'bg-[var(--foreground)] text-[var(--muted-foreground)]': hovered,
 			})}
 		>
@@ -78,7 +78,6 @@ const ProjectItem = ({
 			>
 				{project.start} ~ {project.end || 'in progress'}
 			</Text>
-			<Spacing size={4} />
 			<Button
 				size='sm'
 				variant='text'

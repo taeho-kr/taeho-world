@@ -16,10 +16,12 @@ function App() {
 
 	return (
 		<div className='w-full h-full p-8 flex flex-col relative m-[0 auto] max-w-[1300px]'>
-			<div className='w-full flex-1 border rounded-lg p-8'>
-				<Header animate={!doNotAnimate} />
-				<div className='flex flex-row place-content-between mt-10'>
-					<Nav animate={!doNotAnimate} />
+			<div className='w-full flex-1 flex flex-col border rounded-lg'>
+				<div className='flex flex-1 flex-row place-content-between'>
+					<div className='mt-10 ml-8'>
+						<Header animate={!doNotAnimate} />
+						<Nav animate={!doNotAnimate} />
+					</div>
 					<Contents animate={!doNotAnimate}>
 						<Routes>
 							{routes.map((route) => (

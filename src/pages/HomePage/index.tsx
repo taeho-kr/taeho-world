@@ -1,38 +1,94 @@
-import { Button } from '@/components/ui/button';
-import { useEffect, useState } from 'react';
-
-const count = 10;
+import { useCallback, useEffect, useState } from 'react';
+import * as THREE from 'three';
 
 const HomePage = () => {
-	const [current, setCurrent] = useState<number>(0);
+	const [threeContainer, setThreeContainer] = useState<HTMLDivElement | null>(null);
 
-	useEffect(() => {
-		const interval = setInterval(() => {
-			setCurrent((prev) => {
-				if (prev === count) {
-					clearInterval(interval);
-				}
-				return prev + 1;
-			});
-		}, Math.random() * 1000 + 250);
-
-		return () => {
-			clearInterval(interval);
-		};
+	const mountRef = useCallback((node: HTMLDivElement | null) => {
+		if (node) {
+			setThreeContainer(node);
+		}
 	}, []);
 
+	useEffect(() => {
+		if (!threeContainer) return;
+
+		const scene = new THREE.Scene();
+		scene.background = new THREE.Color(0x000000);
+		const camera = new THREE.PerspectiveCamera(
+			75,
+			threeContainer.clientWidth / threeContainer.clientHeight,
+			0.1,
+			1000
+		);
+		camera.position.set(0, 2, 5);
+		camera.lookAt(0, 0, 0);
+
+		const renderer = new THREE.WebGLRenderer({ antialias: true });
+		renderer.setSize(threeContainer.clientWidth, threeContainer.clientHeight);
+		threeContainer.appendChild(renderer.domElement);
+
+		// Wave plane
+		const geometry = new THREE.PlaneGeometry(10, 10, 64, 64);
+		const material = new THREE.ShaderMaterial({
+			vertexShader: `
+        varying vec2 vUv;
+        uniform float time;
+        
+        void main() {
+          vUv = uv;
+          vec3 pos = position;
+          pos.z += sin(pos.x * 1.0 + time) * cos(pos.y * 1.0 + time) * 0.5;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+        }
+      `,
+			fragmentShader: `
+        varying vec2 vUv;
+        
+        void main() {
+          gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0); // White waves
+        }
+      `,
+			uniforms: {
+				time: { value: 0 },
+			},
+			side: THREE.DoubleSide,
+		});
+
+		const plane = new THREE.Mesh(geometry, material);
+		plane.rotation.x = -Math.PI / 2;
+		scene.add(plane);
+
+		// Animation
+		let time = 0;
+		const animate = () => {
+			requestAnimationFrame(animate);
+			time += 0.02;
+			material.uniforms.time.value = time;
+			renderer.render(scene, camera);
+		};
+		animate();
+
+		// Handle resize
+		const handleResize = () => {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+		};
+		window.addEventListener('resize', handleResize);
+
+		// Cleanup
+		return () => {
+			window.removeEventListener('resize', handleResize);
+			threeContainer?.removeChild(renderer.domElement);
+		};
+	}, [threeContainer]);
+
 	return (
-		<div className='w-full h-full'>
-			<div className='flex flex-col'>
-				{new Array(current).fill(0).map((_, index) => (
-					<Button
-						className='w-2 h-2 p-0'
-						variant='secondary'
-						style={{ marginBottom: (index + 1) * 4 + 'px' }}
-					/>
-				))}
-			</div>
-		</div>
+		<div
+			ref={mountRef}
+			className='w-full h-full'
+		/>
 	);
 };
 

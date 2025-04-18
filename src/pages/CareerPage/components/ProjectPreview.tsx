@@ -52,7 +52,7 @@ const ProjectPreview = ({ project }: ProjectPreviewProps) => {
 										>
 											<img
 												src={image}
-												className='w-fit h-auto max-h-[240px] cursor-pointer hover:scale-105 transition-transform duration-300'
+												className='w-fit h-auto max-h-[240px] max-w-[80%] object-contain cursor-pointer hover:scale-105 transition-transform duration-300'
 												onClick={handleImageClick}
 												alt={`${project.name} ${index + 1}`}
 											/>
@@ -78,7 +78,7 @@ const ProjectPreview = ({ project }: ProjectPreviewProps) => {
 					) : (
 						<img
 							src={project.images[0]}
-							className='w-auto h-auto max-h-[240px] m-auto cursor-pointer hover:scale-105 transition-transform duration-300'
+							className='w-auto h-auto max-h-[240px] max-w-[80%] object-contain m-auto cursor-pointer hover:scale-105 transition-transform duration-300'
 							onClick={handleImageClick}
 						/>
 					)}

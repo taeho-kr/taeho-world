@@ -12,20 +12,18 @@ const CareerPage = () => {
 
 	const ref = useCallback((node: HTMLDivElement | null) => {
 		if (node) {
-			const parentOffsetTop = node.offsetTop;
-			const viewportHeight = window.innerHeight;
-
-			const newMaxHeight = viewportHeight - parentOffsetTop - 117;
-			setMaxHeight(newMaxHeight);
+			const parentHeight = node.parentElement!.clientHeight;
+			setMaxHeight(parentHeight);
 		}
 	}, []);
 
 	return (
 		<div
 			ref={ref}
-			className='w-full h-full flex flex-col relative gap-12 items-end overflow-auto pr-2'
+			className='w-full h-full flex flex-col relative gap-4 items-end overflow-auto pr-2'
 			style={{ maxHeight: maxHeight + 'px' }}
 		>
+			<div className='sticky w-full min-h-4 bottom-0 left-0 bg-gradient-to-t from-[transparent] to-[var(--background)]' />
 			{[...projects].reverse().map((project, index) => (
 				<ProjectItem
 					key={project.id}
@@ -36,7 +34,7 @@ const CareerPage = () => {
 					setSelectedProject={setSelectedProject}
 				/>
 			))}
-			<div className='sticky w-full min-h-20 bottom-0 left-0 bg-gradient-to-t from-[var(--background)] to-[transparent]' />
+			<div className='sticky w-full min-h-4 bottom-0 left-0 bg-gradient-to-t from-[var(--background)] to-[transparent]' />
 			<Dialog
 				open={!!selectedProject}
 				onOpenChange={(open: boolean) => {
