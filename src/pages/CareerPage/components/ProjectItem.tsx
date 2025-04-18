@@ -4,7 +4,6 @@ import { Project } from '@/types';
 import { openPage } from '@/utils/common';
 import { company } from '../data';
 import Chip from '@/components/myUI/chip';
-import Spacing from '@/components/myUI/spaing';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
