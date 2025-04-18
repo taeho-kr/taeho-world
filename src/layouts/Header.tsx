@@ -7,7 +7,7 @@ const Header = ({ animate }: { animate: boolean }) => {
   const { setHeaderRendered } = appStore();
 
   return (
-    <header className="flex flex-col h-20">
+    <header className="flex flex-col">
       <Text
         size="title"
         weight="thin"

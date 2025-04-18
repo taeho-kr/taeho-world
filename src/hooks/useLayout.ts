@@ -1,10 +1,12 @@
 import appStore from "@/store/appStore";
 import { useEffect, useState } from "react";
+import { useIsMobile } from "./use-mobile";
 
 const EXPIRATION_TIME = 1000 * 60 * 30; // 30 minutes
 
 const useLayout = () => {
   const { headerRendered, navRendered, footerRendered } = appStore();
+  const isMobile = useIsMobile();
   const [doNotAnimate, setDoNotAnimate] = useState<boolean>(false);
 
   useEffect(() => {
@@ -31,6 +33,7 @@ const useLayout = () => {
   };
 
   return {
+    isMobile,
     doNotAnimate,
     checkRenderHistory,
   };
