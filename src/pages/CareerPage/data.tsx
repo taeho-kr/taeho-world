@@ -2,9 +2,18 @@ import { Company, Project } from '@/types';
 import Text from '@/components/myUI/text';
 import Spacing from '@/components/myUI/spaing';
 import styleARImage from './images/stylear.webp';
+import styleAR2Image from './images/stylear2.webp';
 import vunexMLOpsImage from './images/mlops.webp';
+import vunexMLOps2Image from './images/mlops2.webp';
+import vunexMLOps3Image from './images/mlops3.webp';
 import vunexAIImage from './images/vunexai.webp';
+import vunexAI2Image from './images/vunexai2.webp';
+import aiCamImage from './images/aicam.webp';
+import aiCam2Image from './images/aicam2.webp';
+import aiCam3Image from './images/aicam3.webp';
 import TMSImage from './images/tms.webp';
+import TMS2Image from './images/tms2.webp';
+import TMS3Image from './images/tms3.webp';
 import RISSImage from './images/riss.webp';
 import manyChatImage from './images/manychat.webp';
 
@@ -17,7 +26,7 @@ const projects: Project[] = [
 		start: '2020-02',
 		end: '2021-06',
 		url: 'https://www.stylear.ai/',
-		image: styleARImage,
+		images: [styleAR2Image, styleARImage],
 		singleSentence: 'AR virtual try-on solution for jewelry, beauty, and fashion e-commerce.',
 		description: (
 			<Text size='caption'>
@@ -35,10 +44,10 @@ const projects: Project[] = [
 		company: 2,
 		name: 'HyperChatbot',
 		domains: ['AI', 'E-Commerce', 'Beauty'],
-		start: '2020-02',
-		end: '2021-06',
+		start: '2021-07',
+		end: '2022-12',
 		url: 'https://www.tmax.co.kr/hyperchatbot',
-		image: manyChatImage,
+		images: [manyChatImage],
 		singleSentence: 'A chatbot combining AI and rule-based approaches.',
 		description: (
 			<Text size='caption'>
@@ -57,7 +66,7 @@ const projects: Project[] = [
 		start: '2021-12',
 		end: '2022-12',
 		url: 'https://www.riss.kr/',
-		image: RISSImage,
+		images: [RISSImage],
 		singleSentence: 'A service for searching a list of academic papers using AI-based technology.',
 		description: (
 			<Text size='caption'>
@@ -78,7 +87,7 @@ const projects: Project[] = [
 		domains: ['Geographic', 'Physical security', 'Video Stream'],
 		start: '2023-04',
 		end: '2024-06',
-		image: TMSImage,
+		images: [TMSImage, TMS2Image, TMS3Image],
 		videoUrl: 'https://www.youtube.com/watch?v=uvrNgaAT7wM',
 		singleSentence: 'Total management system based on AI and video stream analysis.',
 		description: (
@@ -95,12 +104,31 @@ const projects: Project[] = [
 		techStack: ['Angular', 'SCSS', 'OpenLayers', 'React', 'Recoil', 'Styled-Components'],
 	},
 	{
+		id: 5,
+		company: 3,
+		name: 'AI Camera',
+		domains: ['AI', 'Video Stream'],
+		start: '2023-06',
+		end: '2024-11',
+		images: [aiCamImage, aiCam2Image, aiCam3Image],
+		singleSentence: 'AI-based camera firmware.',
+		description: (
+			<Text size='caption'>
+				To manage multiple cameras, instead of collecting and analyzing all footage on a central server,
+				distributed processing is used where AI analysis is performed directly on edge devices. By setting the
+				AI sensitivity, ROI, schedule, and model files on the edge device, the camera can operate as a
+				standalone type.
+			</Text>
+		),
+		techStack: ['React', 'Recoil', 'Styled-Components'],
+	},
+	{
 		id: 6,
 		company: 3,
 		name: 'VUNex AI',
 		domains: ['AI', 'Video Stream', 'Physical Security'],
 		start: '2024-10',
-		image: vunexAIImage,
+		images: [vunexAIImage, vunexAI2Image],
 		singleSentence: 'Physical security solution for small business.',
 		description: (
 			<Text size='caption'>
@@ -122,7 +150,7 @@ const projects: Project[] = [
 		domains: ['AI', 'MLOps'],
 		start: '2024-10',
 		url: 'https://mlops.vunex-cloud.com/',
-		image: vunexMLOpsImage,
+		images: [vunexMLOpsImage, vunexMLOps2Image, vunexMLOps3Image],
 		singleSentence: 'Label your data on video, not on image.',
 		description: (
 			<Text size='caption'>

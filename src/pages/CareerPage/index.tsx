@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { projects } from './data';
 import ProjectItem from './components/ProjectItem';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import ProjectPreview from './components/ProjectPreview';
 import { Project } from '@/types';
 
@@ -44,6 +44,7 @@ const CareerPage = () => {
 				}}
 			>
 				<DialogContent className='w-fit max-w-[1200px]'>
+					<DialogTitle />
 					{selectedProject && <ProjectPreview project={selectedProject} />}
 				</DialogContent>
 			</Dialog>

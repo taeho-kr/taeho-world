@@ -6,7 +6,7 @@ export interface Project {
 	start: string;
 	end?: string;
 	url?: string;
-	image: string;
+	images: string[];
 	videoUrl?: string;
 	singleSentence: string;
 	description: React.ReactNode;

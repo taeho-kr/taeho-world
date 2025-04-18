@@ -32,7 +32,7 @@ const Footer = () => {
 			</div>
 			<div>
 				<Tooltip>
-					<TooltipTrigger>
+					<TooltipTrigger asChild>
 						<Button
 							variant='ghost'
 							onClick={changeLanguage}
