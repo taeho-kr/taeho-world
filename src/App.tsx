@@ -5,29 +5,50 @@ import Nav from "./layouts/Nav";
 import Footer from "./layouts/Footer";
 import Contents from "./layouts/Contents";
 import useLayout from "./hooks/useLayout";
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { cn } from "./lib/utils";
+import useThree from "./hooks/useThree";
 
 function App() {
   const { isMobile, doNotAnimate, checkRenderHistory } = useLayout();
+  const [threeContainer, setThreeContainer] = useState<HTMLDivElement | null>(
+    null
+  );
+  const { threeWave } = useThree();
+
+  const mountRef = useCallback((node: HTMLDivElement | null) => {
+    if (node) {
+      setThreeContainer(node);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (threeContainer) threeWave(threeContainer);
+  }, [threeContainer]);
 
   useEffect(() => {
     checkRenderHistory();
   }, []);
 
   return (
-    <div className="w-full h-full p-8 flex flex-col relative m-[0 auto] max-w-[1300px]">
-      <div className="w-full flex flex-1 flex-col md:flex-row border rounded-md">
-        {isMobile ? (
-          <div className="flex flex-row justify-between items-center py-3 px-5">
-            <Header animate={!doNotAnimate} />
-            <Nav animate={!doNotAnimate} />
-          </div>
-        ) : (
-          <div className="mt-10 ml-8">
-            <Header animate={!doNotAnimate} />
-            <Nav animate={!doNotAnimate} />
-          </div>
+    <div className="w-full h-full p-8 flex flex-col max-w-[1300px]">
+      <div
+        className={cn(
+          "w-full flex flex-1 border rounded-md relative",
+          isMobile ? "flex-col" : "flex-row"
         )}
+      >
+        <div ref={mountRef} className="absolute w-full h-full opacity-20" />
+        <div
+          className={
+            isMobile
+              ? "flex flex-row justify-between items-center py-3 px-5"
+              : "mt-10 ml-8"
+          }
+        >
+          <Header animate={!doNotAnimate} />
+          <Nav animate={!doNotAnimate} />
+        </div>
         <Contents animate={!doNotAnimate}>
           <Routes>
             {routes.map((route) => (
