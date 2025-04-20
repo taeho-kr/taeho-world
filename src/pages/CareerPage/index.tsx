@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { projects } from "./data";
 import ProjectItem from "./components/ProjectItem";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
@@ -9,22 +9,10 @@ const CareerPage = () => {
   const [hoveredItemIndex, setHoveredItemIndex] = useState<number | undefined>(
     undefined
   );
-  const [maxHeight, setMaxHeight] = useState<number>(0);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const ref = useCallback((node: HTMLDivElement | null) => {
-    if (node) {
-      const parentHeight = node.parentElement!.clientHeight;
-      setMaxHeight(parentHeight);
-    }
-  }, []);
-
   return (
-    <div
-      ref={ref}
-      className="w-full h-full flex flex-col relative gap-4 items-end overflow-auto pr-4 py-5"
-      style={{ maxHeight: maxHeight + "px" }}
-    >
+    <div className="w-full h-full flex flex-col relative gap-4 items-end pr-4 py-5">
       {[...projects].reverse().map((project, index) => (
         <ProjectItem
           key={project.id}

@@ -11,20 +11,21 @@ import useThree from "./hooks/useThree";
 
 function App() {
   const { isMobile, doNotAnimate, checkRenderHistory } = useLayout();
-  const [threeContainer, setThreeContainer] = useState<HTMLDivElement | null>(
-    null
-  );
+  const [contentsContainer, setContentsContainer] =
+    useState<HTMLDivElement | null>(null);
   const { threeWave } = useThree();
 
   const mountRef = useCallback((node: HTMLDivElement | null) => {
     if (node) {
-      setThreeContainer(node);
+      setContentsContainer(node);
     }
   }, []);
 
   useEffect(() => {
-    if (threeContainer) threeWave(threeContainer);
-  }, [threeContainer]);
+    if (contentsContainer) {
+      threeWave(contentsContainer);
+    }
+  }, [contentsContainer]);
 
   useEffect(() => {
     checkRenderHistory();
@@ -34,7 +35,7 @@ function App() {
     <div className="w-full h-full p-8 flex flex-col max-w-[1300px]">
       <div
         className={cn(
-          "w-full flex flex-1 border rounded-md relative",
+          "w-full flex flex-1 border max-h-[100%] overflow-hidden rounded-md relative",
           isMobile ? "flex-col" : "flex-row"
         )}
       >

@@ -47,13 +47,13 @@ const expertises: Expertise[] = [
 
 const Expertise = () => {
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center">
+    <div className="w-full flex flex-col items-center justify-center">
       <Text size="display" weight="bold">
         Expertise
       </Text>
       <Spacing size={16} />
       <div
-        className="lg:grid border md:flex md:flex-col"
+        className="w-full lg:grid lg:flex lg:flex-col lg:px-5 [&>:first-child]:border-t"
         style={{
           gridTemplateAreas: `
             "card1 card1 card1"
@@ -64,7 +64,7 @@ const Expertise = () => {
         {expertises.map((expertise) => (
           <div
             key={expertise.title}
-            className="flex flex-col items-center gap-2 p-4 border"
+            className="flex flex-col items-center gap-2 p-4 border-b lg:border"
             style={{
               gridArea: "card" + expertise.area,
             }}
