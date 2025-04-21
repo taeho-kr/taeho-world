@@ -27,10 +27,10 @@ const ProjectItem = ({
 				'bg-[var(--foreground)] text-[var(--muted-foreground)]': hovered,
 			})}
 		>
-			<div className='flex flex-row items-baseline'>
+			<div className='flex flex-col lg:!flex-row items-end lg:!items-baseline'>
 				<Text
 					size='title'
-					className={cn('', {
+					className={cn('text-right', {
 						'hover:text-[var(--background)] cursor-pointer': project.url !== undefined,
 						'cursor-default': project.url === undefined,
 					})}
@@ -40,28 +40,30 @@ const ProjectItem = ({
 						<>{project.name}&nbsp;</>
 					) : (
 						<Tooltip>
-							<TooltipTrigger>{project.name}&nbsp;</TooltipTrigger>
+							<TooltipTrigger className='text-right'>{project.name}&nbsp;</TooltipTrigger>
 							<TooltipContent side='bottom'>
 								<Text size='body'>On-Premise service</Text>
 							</TooltipContent>
 						</Tooltip>
 					)}
 				</Text>
-				<Text
-					size='caption'
-					color='var(--muted-foreground)'
-				>
-					with&nbsp;
-				</Text>
-				<Text
-					size='label'
-					className='hover:text-[var(--background)] cursor-pointer'
-					onClick={() => openPage(company.find((c) => c.id === project.company)!.url)}
-				>
-					{company.find((c) => c.id === project.company)?.name}
-				</Text>
+				<div>
+					<Text
+						size='caption'
+						color='var(--muted-foreground)'
+					>
+						with&nbsp;
+					</Text>
+					<Text
+						size='label'
+						className='hover:text-[var(--background)] cursor-pointer'
+						onClick={() => openPage(company.find((c) => c.id === project.company)!.url)}
+					>
+						{company.find((c) => c.id === project.company)?.name}
+					</Text>
+				</div>
 			</div>
-			<div className='flex flex-row gap-2'>
+			<div className='[&>div]:ml-2 [&>div]:first:ml-0 w-fit text-right'>
 				{project.domains.map((domain, i) => (
 					<Chip
 						size='sm'

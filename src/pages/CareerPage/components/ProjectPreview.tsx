@@ -2,6 +2,7 @@ import Chip from '@/components/myUI/chip';
 import Spacing from '@/components/myUI/spaing';
 import Text from '@/components/myUI/text';
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { Project } from '@/types';
 import { useEffect, useState } from 'react';
@@ -38,7 +39,7 @@ const ProjectPreview = ({ project }: ProjectPreviewProps) => {
 	};
 
 	return (
-		<div className='flex flex-col gap-2'>
+		<div className='flex flex-col gap-2 relative'>
 			<Tooltip>
 				<TooltipTrigger asChild>
 					{project.images.length > 1 ? (
@@ -88,22 +89,26 @@ const ProjectPreview = ({ project }: ProjectPreviewProps) => {
 				</TooltipContent>
 			</Tooltip>
 			<Spacing size={16} />
-			<Text size='title'>{project.name}</Text>
-			<Text
-				size='body'
-				color='var(--label-fade)'
-			>
-				{project.singleSentence}
-			</Text>
+			<DialogTitle>
+				<Text size='title'>{project.name}</Text>
+			</DialogTitle>
+			<DialogDescription>
+				<Text
+					size='body'
+					color='var(--label-fade)'
+				>
+					{project.singleSentence}
+				</Text>
+			</DialogDescription>
 			<Spacing size={16} />
-			{project.description}
+			<div className='lg:max-w-[70%]'>{project.description}</div>
 			<Spacing size={24} />
 			<Text size='body'>Tech Stack</Text>
-			<div>
+			<div className='max-lg:flex max-lg:flex-col'>
 				{project.techStack.map((tech) => (
 					<Chip
 						key={tech}
-						className='mr-2 mb-2'
+						className='mr-2 mb-2 w-fit'
 					>
 						{tech}
 					</Chip>

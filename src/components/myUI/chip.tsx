@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import { cva, VariantProps } from 'class-variance-authority';
 
-const chipVariants = cva('border-t border-b px-2 flex items-center w-fit inline-flex', {
+const chipVariants = cva('border-t border-b px-2 flex items-center w-fit min-w-fit inline-flex', {
 	variants: {
 		variant: {
 			default: '',
