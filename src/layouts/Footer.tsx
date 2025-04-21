@@ -20,7 +20,7 @@ const Footer = () => {
 	};
 
 	return (
-		<footer className='py-2 pl-2 flex flex-row justify-between items-center'>
+		<footer className='pt-2 pl-2 flex flex-row justify-between items-center'>
 			<div className='flex flex-row gap-1 items-center text-muted'>
 				<Copyright className='w-5 h-5' />
 				<Text
