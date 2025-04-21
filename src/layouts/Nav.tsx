@@ -40,14 +40,14 @@ const Nav = ({ animate }: { animate: boolean }) => {
 
 	return (
 		<nav
-			className={cn('h-fit w-fit', {
+			className={cn('h-fit w-fit md:mt-10', {
 				'animate-fadeInTop': animate,
 			})}
 			style={{ animationDuration: `${ANIMATE_DURATION}ms` }}
 		>
-			<ul>
+			<div className='flex flex-row md:!flex-col gap-2'>
 				{routes.map((route) => (
-					<li
+					<div
 						key={route.path}
 						className={cn('mb-2 relative border-b w-[fit-content]', {
 							'border-b-[transparent]': currentRoute?.path !== route.path,
@@ -57,15 +57,10 @@ const Nav = ({ animate }: { animate: boolean }) => {
 							'slease-in-out duration-300': currentRoute?.path === route.path,
 						})}
 					>
-						<Link
-							to={route.path}
-							className='relative flex flex-row'
-						>
-							{t(route.name)}
-						</Link>
-					</li>
+						<Link to={route.path}>{t(route.name)}</Link>
+					</div>
 				))}
-			</ul>
+			</div>
 		</nav>
 	);
 };
