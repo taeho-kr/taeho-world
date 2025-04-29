@@ -48,7 +48,7 @@ const Footer = () => {
 				<Button
 					variant='ghost'
 					onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-				>
+					>
 					{theme === 'dark' ? <MoonStar color='#7474dc' /> : <Sun color='#bf8622' />}
 				</Button>
 			</div>

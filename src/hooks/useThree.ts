@@ -5,11 +5,11 @@ import * as THREE from 'three';
 
 const useThree = () => {
 	const { theme } = useTheme();
-	const [bg, setBg] = useState<number>(theme === 'dark' ? 0x000000 : 0xffffff);
+	const [bg, setBg] = useState<string>(theme === 'dark' ? '#000000' : '#ffffff');
 	const [color, setColor] = useState<string>(theme === 'dark' ? '#ffffff' : '#000000');
 
 	useEffect(() => {
-		const newBg = theme === 'dark' ? 0x000000 : 0xffffff;
+		const newBg = theme === 'dark' ? '#000000' : '#ffffff';
 		const newColor = theme === 'dark' ? '#ffffff' : '#000000';
 		setBg(newBg);
 		setColor(newColor);
@@ -24,7 +24,6 @@ const useThree = () => {
 		}
 	}, [theme]);
 
-	// Store Three.js objects in refs to access them in useEffect
 	const sceneRef = useRef<THREE.Scene | null>(null);
 	const materialRef = useRef<THREE.ShaderMaterial | null>(null);
 	const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
@@ -50,6 +49,7 @@ const useThree = () => {
 		// Renderer
 		const renderer = new THREE.WebGLRenderer({ antialias: true });
 		renderer.setSize(threeContainer.clientWidth, threeContainer.clientHeight);
+		renderer.domElement.style.background = `${bg}`;
 		threeContainer.appendChild(renderer.domElement);
 		rendererRef.current = renderer;
 
@@ -114,14 +114,107 @@ const useThree = () => {
 		return () => {
 			window.removeEventListener('resize', handleResize);
 			cancelAnimationFrame(animationFrameId);
+			renderer.dispose();
 			if (threeContainer.contains(renderer.domElement)) {
 				threeContainer.removeChild(renderer.domElement);
 			}
-			renderer.dispose();
 		};
 	};
 
-	return { threeWave };
+	const threeCube = (threeContainer: HTMLDivElement | null) => {
+		if (!threeContainer) return () => {};
+
+		const scene = new THREE.Scene();
+		scene.background = new THREE.Color(bg);
+		const camera = new THREE.PerspectiveCamera(
+			50,
+			threeContainer.clientWidth / threeContainer.clientHeight,
+			0.1,
+			1000
+		);
+
+		const renderer = new THREE.WebGLRenderer({ antialias: true });
+		renderer.setSize(threeContainer.clientWidth, threeContainer.clientHeight);
+		renderer.domElement.style.background = `${bg}`;
+		threeContainer.appendChild(renderer.domElement);
+		sceneRef.current = scene;
+		rendererRef.current = renderer;
+
+		const snowflakes: THREE.Mesh[] = [];
+		const geometry = new THREE.SphereGeometry(0.01, 8, 8);
+		const material = new THREE.MeshBasicMaterial({ color: color });
+
+		for (let i = 0; i < 5000; i++) {
+			const snowflake = new THREE.Mesh(geometry, material);
+
+			snowflake.position.x = (Math.random() - 0.5) * 20;
+			snowflake.position.y = (Math.random() - 0.5) * 50;
+			snowflake.position.z = (Math.random() - 0.5) * 20;
+
+			snowflake.userData = {
+				speed: 0.005 + Math.random() * 0.005,
+				oscillationAmplitude: 0.1 + Math.random() * 0.3,
+				offset: Math.random(),
+				rotationSpeed: Math.random() * 0.01,
+			};
+
+			scene.add(snowflake);
+			snowflakes.push(snowflake);
+		}
+
+		function animate() {
+			requestAnimationFrame(animate);
+
+			// Animate each snowflake
+			snowflakes.forEach((snowflake) => {
+				snowflake.rotation.x += snowflake.userData.rotationSpeed;
+				snowflake.rotation.y += snowflake.userData.rotationSpeed;
+
+				// Fall downward
+				snowflake.position.y -= snowflake.userData.speed;
+
+				// Horizontal drift
+				snowflake.position.x += snowflake.userData.offset * snowflake.userData.oscillationAmplitude * 0.04;
+
+				// Reset position when below the scene
+				if (snowflake.position.y < -25) {
+					snowflake.position.y = 25;
+				}
+
+				if (snowflake.position.x < -10 || snowflake.position.x > 10) {
+					snowflake.position.x = (Math.random() - 0.5) * 20;
+				}
+			});
+
+			renderer.render(scene, camera);
+		}
+
+		animate();
+
+		// Handle resize
+		const handleResize = () => {
+			camera.aspect = threeContainer.clientWidth / threeContainer.clientHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize(threeContainer.clientWidth, threeContainer.clientHeight);
+		};
+		window.addEventListener('resize', handleResize);
+
+		// Cleanup
+		return () => {
+			window.removeEventListener('resize', handleResize);
+			snowflakes.forEach((snowflake) => {
+				scene.remove(snowflake);
+			});
+			geometry.dispose();
+			material.dispose();
+			renderer.dispose();
+			if (threeContainer.contains(renderer.domElement)) {
+				threeContainer.removeChild(renderer.domElement);
+			}
+		};
+	};
+
+	return { threeWave, threeCube };
 };
 
 export default useThree;

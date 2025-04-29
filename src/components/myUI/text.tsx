@@ -85,7 +85,7 @@ const Text = ({
 				'w-fit',
 				sizeStyles[size],
 				weightStyles[weight],
-				color ? `text-[${color}]` : 'text-inherit',
+				color ? `text-[${color}]` : 'text-foreground',
 				typing && 'inline-flex items-center',
 				className
 			)}

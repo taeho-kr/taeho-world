@@ -5,26 +5,20 @@ import Nav from './layouts/Nav';
 import Footer from './layouts/Footer';
 import Contents from './layouts/Contents';
 import useLayout from './hooks/useLayout';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { cn } from './lib/utils';
 import useThree from './hooks/useThree';
 
 function App() {
 	const { isMobile, doNotAnimate, checkRenderHistory } = useLayout();
-	const [contentsContainer, setContentsContainer] = useState<HTMLDivElement | null>(null);
-	const { threeWave } = useThree();
-
-	const mountRef = useCallback((node: HTMLDivElement | null) => {
-		if (node) {
-			setContentsContainer(node);
-		}
-	}, []);
+	const contentsContainer = useRef<HTMLDivElement | null>(null);
+	const cubeContainer = useRef<HTMLDivElement | null>(null);
+	const { threeWave, threeCube } = useThree();
 
 	useEffect(() => {
-		if (contentsContainer) {
-			threeWave(contentsContainer);
-		}
-	}, [contentsContainer]);
+		threeCube(cubeContainer.current);
+		threeWave(contentsContainer.current);
+	}, []);
 
 	useEffect(() => {
 		checkRenderHistory();
@@ -34,13 +28,17 @@ function App() {
 		<div className='w-full h-full p-4 lg:p-8 flex flex-col max-w-[1300px]'>
 			<div
 				className={cn(
-					'w-full flex flex-1 border max-h-[100%] overflow-hidden rounded-md relative',
+					'w-full flex flex-1 relative border max-h-[100%] overflow-hidden rounded-md relative',
 					isMobile ? 'flex-col' : 'flex-row'
 				)}
 			>
 				<div
-					ref={mountRef}
-					className='absolute w-full h-full opacity-20'
+					ref={contentsContainer}
+					className='absolute w-full h-full opacity-20 z-[-1]'
+				/>
+				<div
+					className='absolute w-full h-full opacity-50 z-[-1]'
+					ref={cubeContainer}
 				/>
 				<div className={isMobile ? 'flex flex-row justify-between items-center py-3 px-5' : 'mt-10 ml-8'}>
 					<Header animate={!doNotAnimate} />
