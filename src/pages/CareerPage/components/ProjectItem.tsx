@@ -24,7 +24,7 @@ const ProjectItem = ({
 			key={project.id}
 			{...props}
 			className={cn(`flex flex-col gap-0.25 items-baseline transition-transform duration-300 items-end`, {
-				'bg-[var(--foreground)] text-[var(--muted-foreground)]': hovered,
+				'bg-[var(--foreground)] ': hovered,
 			})}
 		>
 			<div className='flex flex-col lg:!flex-row items-end lg:!items-baseline'>
@@ -32,6 +32,7 @@ const ProjectItem = ({
 					size='title'
 					className={cn('text-right', {
 						'hover:text-[var(--background)] cursor-pointer': project.url !== undefined,
+						'text-[var(--muted-foreground)]' : hovered,
 						'cursor-default': project.url === undefined,
 					})}
 					onClick={() => project.url && openPage(project.url)}
@@ -56,7 +57,10 @@ const ProjectItem = ({
 					</Text>
 					<Text
 						size='label'
-						className='hover:text-[var(--background)] cursor-pointer'
+						className={cn('hover:text-[var(--background)] cursor-pointer',{
+							'text-[var(--muted-foreground)]' : hovered,
+						}
+						)}
 						onClick={() => openPage(company.find((c) => c.id === project.company)!.url)}
 					>
 						{company.find((c) => c.id === project.company)?.name}
