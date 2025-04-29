@@ -72,6 +72,7 @@ const ProjectItem = ({
 					<Chip
 						size='sm'
 						key={i}
+						className={hovered ? 'text-[var(--background)]' : 'text-[var(--foreground)]'}
 					>
 						{domain}
 					</Chip>
