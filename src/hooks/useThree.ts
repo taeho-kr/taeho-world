@@ -5,7 +5,7 @@ import * as THREE from 'three';
 
 const useThree = () => {
 	const { theme } = useTheme();
-	const [bg, setBg] = useState<string>(theme === 'dark' ? '#000000' : '#ffffff');
+	const [bg, setBg] = useState<string>(theme === 'dark' ? '#000000' : '#ffffffff');
 	const [color, setColor] = useState<string>(theme === 'dark' ? '#ffffff' : '#000000');
 
 	useEffect(() => {
