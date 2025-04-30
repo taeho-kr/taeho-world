@@ -12,11 +12,9 @@ import useThree from './hooks/useThree';
 function App() {
 	const { isMobile, doNotAnimate, checkRenderHistory } = useLayout();
 	const contentsContainer = useRef<HTMLDivElement | null>(null);
-	const cubeContainer = useRef<HTMLDivElement | null>(null);
-	const { threeWave, threeCube } = useThree();
+	const { threeWave } = useThree();
 
 	useEffect(() => {
-		threeCube(cubeContainer.current);
 		threeWave(contentsContainer.current);
 	}, []);
 
@@ -34,11 +32,7 @@ function App() {
 			>
 				<div
 					ref={contentsContainer}
-					className='absolute w-full h-full opacity-20 z-[-1]'
-				/>
-				<div
-					className='absolute w-full h-full opacity-50 z-[-1]'
-					ref={cubeContainer}
+					className='absolute w-full h-full z-[-1]'
 				/>
 				<div className={isMobile ? 'flex flex-row justify-between items-center py-3 px-5' : 'mt-10 ml-8'}>
 					<Header animate={!doNotAnimate} />

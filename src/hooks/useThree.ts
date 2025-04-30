@@ -5,17 +5,13 @@ import * as THREE from 'three';
 
 const useThree = () => {
 	const { theme } = useTheme();
-	const [bg, setBg] = useState<string>(theme === 'dark' ? '#000000' : '#ffffffff');
 	const [color, setColor] = useState<string>(theme === 'dark' ? '#ffffff' : '#000000');
 
 	useEffect(() => {
-		const newBg = theme === 'dark' ? '#000000' : '#ffffff';
 		const newColor = theme === 'dark' ? '#ffffff' : '#000000';
-		setBg(newBg);
 		setColor(newColor);
 
 		if (sceneRef.current && materialRef.current) {
-			sceneRef.current.background = new THREE.Color(newBg);
 			materialRef.current.uniforms.color.value = new THREE.Vector4(
 				...hexToRgba(newColor)
 					.match(/[\d.]+/g)!
@@ -31,48 +27,45 @@ const useThree = () => {
 	const threeWave = (threeContainer: HTMLDivElement | null) => {
 		if (!threeContainer) return () => {};
 
-		// Scene
 		const scene = new THREE.Scene();
-		scene.background = new THREE.Color(bg);
 		sceneRef.current = scene;
 
-		// Camera
 		const camera = new THREE.PerspectiveCamera(
 			75,
 			threeContainer.clientWidth / threeContainer.clientHeight,
 			0.1,
 			1000
 		);
-		camera.position.set(0, 1, 10);
-		camera.lookAt(0, 7, 0);
+		camera.lookAt(0, 0, 3);
+		camera.position.set(0, 5.2, 2.7);
 
 		// Renderer
 		const renderer = new THREE.WebGLRenderer({ antialias: true });
 		renderer.setSize(threeContainer.clientWidth, threeContainer.clientHeight);
-		renderer.domElement.style.background = `${bg}`;
+		renderer.setClearColor(0x000000, 0);
 		threeContainer.appendChild(renderer.domElement);
 		rendererRef.current = renderer;
 
 		// Wave plane
-		const geometry = new THREE.PlaneGeometry(32, 32, 64, 64);
+		const geometry = new THREE.PlaneGeometry(32, 32, 128, 128);
 		const material = new THREE.ShaderMaterial({
 			vertexShader: `
-        varying vec2 vUv;
-        uniform float time;
-        
-        void main() {
-          vUv = uv;
-          vec3 pos = position;
-          pos.z += sin(pos.x * 1.2 + time) * cos(pos.y * 1.2 + time) * 0.5;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.5);
-        }
-      `,
+				varying vec2 vUv;
+				uniform float time;
+				
+				void main() {
+				vUv = uv;
+				vec3 pos = position;
+				pos.z += sin(pos.x * 1.2 + time) * cos(pos.y * 1.2 + time) * 0.5;
+				gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.5);
+				}
+			`,
 			fragmentShader: `
-        uniform vec4 color;
-        void main() {
-          gl_FragColor = color;
-        }
-      `,
+				uniform vec4 color;
+				void main() {
+				gl_FragColor = color;
+				}
+			`,
 			uniforms: {
 				time: { value: 0 },
 				color: {
@@ -125,7 +118,6 @@ const useThree = () => {
 		if (!threeContainer) return () => {};
 
 		const scene = new THREE.Scene();
-		scene.background = new THREE.Color(bg);
 		const camera = new THREE.PerspectiveCamera(
 			50,
 			threeContainer.clientWidth / threeContainer.clientHeight,
@@ -135,7 +127,7 @@ const useThree = () => {
 
 		const renderer = new THREE.WebGLRenderer({ antialias: true });
 		renderer.setSize(threeContainer.clientWidth, threeContainer.clientHeight);
-		renderer.domElement.style.background = `${bg}`;
+		renderer.setClearColor(0x000000, 0);
 		threeContainer.appendChild(renderer.domElement);
 		sceneRef.current = scene;
 		rendererRef.current = renderer;
