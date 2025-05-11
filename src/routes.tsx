@@ -31,8 +31,8 @@ const routes: RoutableItem[] = [
     icon: <Info />,
   },
   {
-    name: "Memo",
-    path: "/memo",
+    name: "Notepad",
+    path: "/notepad",
     element: <MemoPage />,
     icon: <Notebook />,
   },
