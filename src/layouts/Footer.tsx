@@ -1,10 +1,8 @@
 import Text from '@/components/myUI/text';
 import { useTheme } from '@/components/theme-provider';
 import { Button } from '@/components/ui/button';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import appStore from '@/store/appStore';
-import i18next from 'i18next';
-import { Copyright, Globe, MoonStar, Sun } from 'lucide-react';
+import { Copyright, MoonStar, Sun } from 'lucide-react';
 import { useEffect } from 'react';
 
 const Footer = () => {
@@ -14,10 +12,6 @@ const Footer = () => {
 	useEffect(() => {
 		setFooterRendered(true);
 	}, []);
-
-	const changeLanguage = () => {
-		i18next.changeLanguage(i18next.language === 'en' ? 'kr' : 'en');
-	};
 
 	return (
 		<footer className='pt-2 pl-2 flex flex-row justify-between items-center'>
@@ -31,24 +25,10 @@ const Footer = () => {
 				</Text>
 			</div>
 			<div>
-				<Tooltip>
-					<TooltipTrigger asChild>
-						<Button
-							variant='ghost'
-							onClick={changeLanguage}
-							disabled
-						>
-							<Globe />
-						</Button>
-					</TooltipTrigger>
-					<TooltipContent>
-						<Text size='small'>Will updated</Text>
-					</TooltipContent>
-				</Tooltip>
 				<Button
 					variant='ghost'
 					onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-					>
+				>
 					{theme === 'dark' ? <MoonStar color='#7474dc' /> : <Sun color='#bf8622' />}
 				</Button>
 			</div>
