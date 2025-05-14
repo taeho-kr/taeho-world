@@ -30,12 +30,6 @@ const routes: RoutableItem[] = [
     element: <InfoPage />,
     icon: <Info />,
   },
-  {
-    name: "Notepad",
-    path: "/notepad",
-    element: <MemoPage />,
-    icon: <Notebook />,
-  },
 ];
 
 export default routes;
