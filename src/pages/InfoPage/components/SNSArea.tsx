@@ -1,6 +1,6 @@
 import Spacing from '@/components/myUI/spaing';
 import Text from '@/components/myUI/text';
-import { Instagram, Linkedin, Send } from 'lucide-react';
+import { Github, Instagram, Linkedin, Send } from 'lucide-react';
 
 const sns_s = [
 	{
@@ -17,6 +17,11 @@ const sns_s = [
 		name: 'LinkedIn',
 		link: 'https://www.linkedin.com/in/taeho-kim-0a504a335/',
 		icon: <Linkedin />,
+	},
+	{
+		name: 'GitHub',
+		link: 'https://github.com/taeho-kr',
+		icon: <Github />,
 	},
 ];
 
