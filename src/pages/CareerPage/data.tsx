@@ -1,6 +1,5 @@
 import { Company, Project } from '@/types';
 import Text from '@/components/myUI/text';
-import Spacing from '@/components/myUI/spaing';
 import styleARImage from './images/stylear.webp';
 import styleAR2Image from './images/stylear2.webp';
 import vunexMLOpsImage from './images/mlops.webp';
@@ -27,14 +26,15 @@ const projects: Project[] = [
 		end: '2021-06',
 		url: 'https://www.stylear.ai/',
 		images: [styleAR2Image, styleARImage],
-		singleSentence: 'AR virtual try-on solution for jewelry, beauty, and fashion e-commerce.',
+		singleSentence: 'AR Virtual Try-On for E-Commerce',
 		description: (
 			<Text size='caption'>
-				Enables customers to virtually try on products like jewelry and clothing through AR technology. It
-				integrates seamlessly with clients websites and supports platforms like Cafe24, customizable to match
-				brand themes. The solution enhances customer engagement by offering QR code distribution across online
-				and offline channels. It is available on iOS, Android, Windows, and devices like smartphones, kiosks,
-				and smart mirrors. StyleAR aims to boost retention and streamline the shopping experience.
+				StyleAR enables customers to virtually try on jewelry, clothing, and beauty products using augmented
+				reality (AR) technology. Seamlessly integrated with client websites, including platforms like Cafe24, it
+				offers customizable interfaces to align with brand themes. The solution enhances customer engagement
+				through QR code distribution across online and offline channels, driving interaction and retention.
+				Available on iOS, Android, Windows, and devices such as smartphones, kiosks, and smart mirrors, StyleAR
+				streamlines the shopping experience and boosts customer satisfaction.
 			</Text>
 		),
 		techStack: ['Vue2', 'Vuex', 'HTML Canvas', 'WebGL', 'JQuery', 'Node.js', 'Express', 'MySQL'],
@@ -48,12 +48,14 @@ const projects: Project[] = [
 		end: '2022-12',
 		url: 'https://www.tmax.co.kr/hyperchatbot',
 		images: [manyChatImage],
-		singleSentence: 'A chatbot combining AI and rule-based approaches.',
+		singleSentence: 'Personalized AI Chatbot',
 		description: (
 			<Text size='caption'>
-				A web application chatbot that provides personalized responses based on a knowledge graph, leveraging
-				natural language processing (NLP) results. It can deliver tailored consultations by setting response
-				formats according to situational rules.
+				HyperChatbot blends AI and rule-based methods for tailored conversational responses.
+				<br />
+				HyperChatbot is a web-based chatbot that combines AI with rule-based approaches, leveraging natural
+				language processing and a knowledge graph to deliver personalized consultations. By adapting response
+				formats to situational rules, it enhances user engagement across various applications.
 			</Text>
 		),
 		techStack: ['React', 'Redux', 'Styled-Components'],
@@ -61,21 +63,21 @@ const projects: Project[] = [
 	{
 		id: 3,
 		company: 2,
-		name: 'Research Information Sharing Service',
+		name: 'Research Information Sharing Service (RISS)',
 		domains: ['AI', 'Academic'],
 		start: '2021-12',
 		end: '2022-12',
 		url: 'https://www.riss.kr/',
 		images: [RISSImage],
-		singleSentence: 'A service for searching a list of academic papers using AI-based technology.',
+		singleSentence: 'AI-Powered Academic Search',
 		description: (
 			<Text size='caption'>
-				RISS is a nationwide service that enables the shared use of academic resources produced, held, and
-				subscribed to by universities across the country, openly accessible to the public.
+				RISS uses AI to search and share university academic papers publicly.
 				<br />
-				Strengthening national research competitiveness by establishing a shared national academic research
-				information system. Enhancing next-generation industrial momentum through the development of human
-				resources.
+				RISS is a nationwide platform leveraging AI-based technology to provide efficient access to academic
+				papers from university resources. Openly accessible to the public, it fosters research collaboration and
+				strengthens national competitiveness by centralizing scholarly materials and supporting next-generation
+				industries.
 			</Text>
 		),
 		techStack: ['React', 'Recoil', 'Styled-Components'],
@@ -89,16 +91,15 @@ const projects: Project[] = [
 		end: '2024-06',
 		images: [TMSImage, TMS2Image, TMS3Image],
 		videoUrl: 'https://www.youtube.com/watch?v=uvrNgaAT7wM',
-		singleSentence: 'Total management system based on AI and video stream analysis.',
+		singleSentence: 'AI-Driven Urban Safety',
 		description: (
 			<Text size='caption'>
-				Introduced to address urban issues, this service integrates previously disconnected, individually
-				operated information systems to establish a comprehensive disaster safety framework tailored to
-				geographical and environmental characteristics.
-				<Spacing size={16} />
-				In emergencies, real-time information sharing (e.g., location, CCTV footage) with relevant agencies
-				secures golden time, proposing efficient operational strategies. Additionally, it supports the
-				development of preventive disaster safety systems through big data collection and analysis.
+				This system integrates AI and video analysis for comprehensive urban disaster management.
+				<br />
+				The Smart City Total Management System unifies disparate information systems into a tailored disaster
+				safety framework using AI and video stream analysis. It enables real-time sharing of location data and
+				CCTV footage during emergencies, optimizing response strategies, and supports proactive disaster
+				prevention through big data analysis.
 			</Text>
 		),
 		techStack: ['Angular', 'SCSS', 'OpenLayers', 'React', 'Recoil', 'Styled-Components'],
@@ -111,13 +112,15 @@ const projects: Project[] = [
 		start: '2023-06',
 		end: '2024-11',
 		images: [aiCamImage, aiCam2Image, aiCam3Image],
-		singleSentence: 'AI-based camera firmware.',
+		singleSentence: 'Edge-Based Video Analysis',
 		description: (
 			<Text size='caption'>
-				To manage multiple cameras, instead of collecting and analyzing all footage on a central server,
-				distributed processing is used where AI analysis is performed directly on edge devices. By setting the
-				AI sensitivity, ROI, schedule, and model files on the edge device, the camera can operate as a
-				standalone type.
+				VUNex AI processes video on edge devices for efficient multi-camera security management.
+				<br />
+				VUNex AI uses distributed processing to analyze video directly on edge devices, eliminating reliance on
+				central servers. By configuring AI sensitivity, regions of interest, schedules, and models on each
+				camera, it operates independently, reducing latency and enhancing security for small business
+				applications.
 			</Text>
 		),
 		techStack: ['React', 'Recoil', 'Styled-Components'],
@@ -129,16 +132,15 @@ const projects: Project[] = [
 		domains: ['AI', 'Video Stream', 'Physical Security'],
 		start: '2024-10',
 		images: [vunexAIImage, vunexAI2Image],
-		singleSentence: 'Physical security solution for small business.',
+		singleSentence: 'Security for Small Businesses',
 		description: (
 			<Text size='caption'>
-				Physical security solution based on AI and video stream analysis for small business.
-				<br /> Most of physical security solutions are designed for large business. But in the real world, many
-				small business are using physical security solution. VUNex AI can provide security for small business.
-				<Spacing size={16} />
-				It provides a service to detect intrusion, falldown, and fire, etc. It also provides a service to detect
-				the abnormal behavior of people. It can be used in various places such as factories, stores, and
-				offices.
+				VUNex AI delivers AI-powered video security for small businesses, detecting incidents and behaviors.
+				<br />
+				Tailored for small businesses, VUNex AI uses AI and video stream analysis to detect intrusions, falls,
+				fires, and abnormal behaviors. Unlike solutions for large enterprises, it’s designed for settings like
+				factories, stores, and offices, offering a cost-effective, scalable way to enhance safety and protect
+				assets.
 			</Text>
 		),
 		techStack: ['React', 'Zustand', 'tanstack Query', 'Styled-Components', 'tailwindcss', 'WebRTC', 'HTML Canvas'],
@@ -151,16 +153,16 @@ const projects: Project[] = [
 		start: '2024-10',
 		url: 'https://mlops.vunex-cloud.com/',
 		images: [vunexMLOpsImage, vunexMLOps2Image, vunexMLOps3Image],
-		singleSentence: 'Label your data on video, not on image.',
+		singleSentence: 'Video Data Labeling Solution',
 		description: (
 			<Text size='caption'>
-				Most of common labeling tools are designed for image data.
-				<br /> But in the real world, most of data is video. VUNex MLOps provides a tool to label your data on
-				video, not on image. You can label your data on video, and you can use it for your AI model training.
-				<Spacing size={16} />
-				Imagine you have a video with 10 seconds, and the video has 30 fps. You can get 300 images from the
-				video. That means you have to label 300 images. But if you use VUNex MLOps, you can label the video, and
-				you can get. Now you can label object just once, and you can get same labeling result for 300 images.
+				VUNex MLOps enables efficient video data labeling for AI model training, unlike image-based tools.
+				<br />
+				Unlike traditional labeling tools designed for images, VUNex MLOps streamlines video data annotation for
+				AI model training. For a 10-second video at 30 fps, containing 300 frames, labeling each frame
+				individually is time-consuming. With VUNex MLOps, users label the video once, automatically applying
+				consistent annotations across all frames, saving time and ensuring accuracy for small business AI
+				applications.
 			</Text>
 		),
 		techStack: ['React', 'Zustand', 'tanstack Query', 'tailwindcss', 'HTML Canvas'],
