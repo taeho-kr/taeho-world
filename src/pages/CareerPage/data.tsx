@@ -185,6 +185,11 @@ const company: Company[] = [
 		name: 'Innodep Inc.',
 		url: 'https://innodep.co.kr/',
 	},
+	{
+		id: 4,
+		name: 'S2W',
+		url: 'https://s2w.inc/',
+	}
 ];
 
 export { projects, company };
