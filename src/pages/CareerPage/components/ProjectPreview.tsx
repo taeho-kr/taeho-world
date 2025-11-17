@@ -6,12 +6,14 @@ import { DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { Project } from '@/types';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface ProjectPreviewProps {
 	project: Project;
 }
 
 const ProjectPreview = ({ project }: ProjectPreviewProps) => {
+	const { t } = useTranslation();
 	const [api, setApi] = useState<CarouselApi>();
 	const [current, setCurrent] = useState(0);
 	const [count, setCount] = useState(0);
@@ -55,7 +57,7 @@ const ProjectPreview = ({ project }: ProjectPreviewProps) => {
 												src={image}
 												className='w-fit h-auto max-h-[240px] max-w-[80%] object-contain cursor-pointer hover:scale-105 transition-transform duration-300'
 												onClick={handleImageClick}
-												alt={`${project.name} ${index + 1}`}
+												alt={`${t(`projects.${project.translationKey}.name`)} ${index + 1}`}
 											/>
 										</CarouselItem>
 									))}
@@ -85,25 +87,31 @@ const ProjectPreview = ({ project }: ProjectPreviewProps) => {
 					)}
 				</TooltipTrigger>
 				<TooltipContent>
-					<Text size='body'>Click to view in fullscreen</Text>
+					<Text size='body'>{t('projectPreview.clickFullscreen')}</Text>
 				</TooltipContent>
 			</Tooltip>
 			<Spacing size={16} />
 			<DialogTitle>
-				<Text size='title'>{project.name}</Text>
+				<Text size='title'>{t(`projects.${project.translationKey}.name`)}</Text>
 			</DialogTitle>
 			<DialogDescription>
 				<Text
 					size='body'
 					color='var(--label-fade)'
 				>
-					{project.singleSentence}
+					{t(`projects.${project.translationKey}.singleSentence`)}
 				</Text>
 			</DialogDescription>
 			<Spacing size={16} />
-			<div className='lg:max-w-[70%]'>{project.description}</div>
+			<div className='lg:max-w-[70%]'>
+				<Text size='caption'>
+					{t(`projects.${project.translationKey}.summary`)}
+					<br />
+					{t(`projects.${project.translationKey}.detail`)}
+				</Text>
+			</div>
 			<Spacing size={24} />
-			<Text size='body'>Tech Stack</Text>
+			<Text size='body'>{t('projectPreview.techStack')}</Text>
 			<div className='max-lg:flex max-lg:flex-col'>
 				{project.techStack.map((tech) => (
 					<Chip

@@ -2,55 +2,47 @@ import Spacing from '@/components/myUI/spaing';
 import Text from '@/components/myUI/text';
 import ReactIcon from '@/assets/react.svg';
 import { CircuitBoard, CodeXml, Sparkles } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface Expertise {
 	area: number;
 	icon: string | React.ReactNode;
-	title: string;
-	subtitle: string;
-	description: string;
+	translationKey: string;
 }
 
 const expertises: Expertise[] = [
 	{
 		area: 1,
 		icon: ReactIcon,
-		title: 'Frontend',
-		subtitle: 'React, React Native',
-		description: 'User interface builder',
+		translationKey: 'frontend',
 	},
 	{
 		area: 2,
 		icon: <CodeXml />,
-		title: 'Software',
-		subtitle: 'Development',
-		description: 'Always develop software with scalability and maintainability in mind.',
+		translationKey: 'software',
 	},
 	{
 		area: 3,
 		icon: <Sparkles />,
-		title: 'Business',
-		subtitle: 'Domain adaptability',
-		description:
-			'I am experienced in multiple business domains, including fashion, e-commerce, education, AI, and physical security.',
+		translationKey: 'business',
 	},
 	{
 		area: 4,
 		icon: <CircuitBoard />,
-		title: 'For good UX',
-		subtitle: 'Do not harm user',
-		description: 'Always strive to develop a great UX, as it delivers the highest value.',
+		translationKey: 'ux',
 	},
 ];
 
 const Expertise = () => {
+	const { t } = useTranslation();
+
 	return (
 		<div className='w-full flex flex-col items-center justify-center'>
 			<Text
 				size='display'
 				weight='bold'
 			>
-				Expertise
+				{t('Expertise')}
 			</Text>
 			<Spacing size={16} />
 			<div
@@ -64,7 +56,7 @@ const Expertise = () => {
 			>
 				{expertises.map((expertise) => (
 					<div
-						key={expertise.title}
+						key={expertise.translationKey}
 						className='flex flex-col items-center gap-2 p-4 border-b lg:border'
 						style={{
 							gridArea: 'card' + expertise.area,
@@ -82,12 +74,12 @@ const Expertise = () => {
 								</p>
 							)}
 							<div className='flex flex-col'>
-								<Text size='subtitle'>{expertise.title}</Text>
+								<Text size='subtitle'>{t(`expertise.${expertise.translationKey}.title`)}</Text>
 								<Text
 									size='label'
 									className='bg-[var(--foreground)] text-[var(--background)] w-fit'
 								>
-									{expertise.subtitle}
+									{t(`expertise.${expertise.translationKey}.subtitle`)}
 								</Text>
 							</div>
 						</div>
@@ -97,7 +89,7 @@ const Expertise = () => {
 							weight='regular'
 							className='break-word max-w-[270px] pl-4'
 						>
-							{expertise.description}
+							{t(`expertise.${expertise.translationKey}.description`)}
 						</Text>
 					</div>
 				))}

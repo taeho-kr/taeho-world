@@ -6,6 +6,7 @@ import { company } from '../data';
 import Chip from '@/components/myUI/chip';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { useTranslation } from 'react-i18next';
 
 interface ProjectItemProps {
 	project: Project;
@@ -19,6 +20,9 @@ const ProjectItem = ({
 	setSelectedProject,
 	...props
 }: ProjectItemProps & React.ComponentProps<'div'>) => {
+	const { t } = useTranslation();
+	const projectName = t(`projects.${project.translationKey}.name`);
+
 	return (
 		<div
 			key={project.id}
@@ -38,12 +42,12 @@ const ProjectItem = ({
 					onClick={() => project.url && openPage(project.url)}
 				>
 					{project.url ? (
-						<>{project.name}&nbsp;</>
+						<>{projectName}&nbsp;</>
 					) : (
 						<Tooltip>
-							<TooltipTrigger className='text-right'>{project.name}&nbsp;</TooltipTrigger>
+							<TooltipTrigger className='text-right'>{projectName}&nbsp;</TooltipTrigger>
 							<TooltipContent side='bottom'>
-								<Text size='body'>On-Premise service</Text>
+								<Text size='body'>{t('projectItem.onPremise')}</Text>
 							</TooltipContent>
 						</Tooltip>
 					)}
@@ -53,7 +57,7 @@ const ProjectItem = ({
 						size='caption'
 						color='var(--muted-foreground)'
 					>
-						with&nbsp;
+						{t('projectItem.with')}&nbsp;
 					</Text>
 					<Text
 						size='label'
@@ -82,14 +86,14 @@ const ProjectItem = ({
 				size='small'
 				color='var(--muted-foreground)'
 			>
-				{project.start} ~ {project.end || 'in progress'}
+				{project.start} ~ {project.end || t('projectItem.inProgress')}
 			</Text>
 			<Button
 				size='sm'
 				variant='text'
 				onClickCapture={() => setSelectedProject(project)}
 			>
-				Service Preview
+				{t('projectItem.servicePreview')}
 			</Button>
 		</div>
 	);

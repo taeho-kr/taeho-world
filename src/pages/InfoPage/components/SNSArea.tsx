@@ -1,6 +1,7 @@
 import Spacing from '@/components/myUI/spaing';
 import Text from '@/components/myUI/text';
 import { Github, Instagram, Linkedin, Send } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const sns_s = [
 	{
@@ -26,13 +27,15 @@ const sns_s = [
 ];
 
 const SNSArea = () => {
+	const { t } = useTranslation();
+
 	return (
 		<div className='flex flex-col items-center'>
 			<Text
 				size='display'
 				weight='bold'
 			>
-				Contact
+				{t('Contact')}
 			</Text>
 			<Spacing size={16} />
 			<div className='flex flex-row gap-10'>

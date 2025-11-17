@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import appStore from '@/store/appStore';
 import { Copyright, MoonStar, Sun } from 'lucide-react';
 import { useEffect } from 'react';
+import LanguageSelector from '@/components/LanguageSelector';
 
 const Footer = () => {
 	const { setFooterRendered } = appStore();
@@ -24,7 +25,8 @@ const Footer = () => {
 					Everyone
 				</Text>
 			</div>
-			<div>
+			<div className='flex flex-row gap-2 items-center'>
+				<LanguageSelector />
 				<Button
 					variant='ghost'
 					onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}

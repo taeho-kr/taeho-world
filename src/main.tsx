@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import './index-animation.css';
+import './i18n/config';
 import App from './App.tsx';
 import { BrowserRouter } from 'react-router';
 import { ThemeProvider } from './components/theme-provider.tsx';

@@ -1,15 +1,13 @@
 export interface Project {
 	id: number;
 	company: Company['id'];
-	name: string;
+	translationKey: string;
 	domains: string[];
 	start: string;
 	end?: string;
 	url?: string;
 	images: string[];
 	videoUrl?: string;
-	singleSentence: string;
-	description: React.ReactNode;
 	techStack: string[];
 }
 

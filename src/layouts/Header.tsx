@@ -1,10 +1,12 @@
 import Text from "@/components/myUI/text";
 import appStore from "@/store/appStore";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Header = ({ animate }: { animate: boolean }) => {
   const [titleTyped, setTitleTyped] = useState<boolean>(!animate);
   const { setHeaderRendered } = appStore();
+  const { t } = useTranslation();
 
   return (
     <header className="flex flex-col">
@@ -23,7 +25,7 @@ const Header = ({ animate }: { animate: boolean }) => {
           typing={animate}
           onTypingComplete={() => setHeaderRendered(true)}
         >
-          Frontend Engineer
+          {t('header.subtitle')}
         </Text>
       )}
     </header>
