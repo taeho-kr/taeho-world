@@ -1,9 +1,17 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run build:*)"
-    ],
-    "deny": [],
-    "ask": []
+      "Read(//c/Users/tae_h/OneDrive/바탕 화면/dev-personal/taeho-world/**)",
+      "Edit(//c/Users/tae_h/OneDrive/바탕 화면/dev-personal/taeho-world/**)",
+      "Write(//c/Users/tae_h/OneDrive/바탕 화면/dev-personal/taeho-world/**)",
+      "Bash(npm run *)",
+      "Bash(npx *)",
+      "Bash(npm install *)",
+      "Bash(mkdir *)",
+      "Bash(git *)",
+      "WebFetch(*)",
+      "WebSearch(*)",
+      "Read(//c/Users/tae_h/.claude/projects/**)"
+    ]
   }
 }
