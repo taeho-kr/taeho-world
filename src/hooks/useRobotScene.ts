@@ -14,8 +14,8 @@ export function useRobotScene(containerRef: React.RefObject<HTMLDivElement | nul
     if (!container) return;
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(40, container.clientWidth / container.clientHeight, 0.1, 100);
-    camera.position.set(0, 1.0, 7.0);
+    const camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 100);
+    camera.position.set(0, 1.2, 5.5);
     camera.lookAt(0, 0.8, 0);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -32,11 +32,12 @@ export function useRobotScene(containerRef: React.RefObject<HTMLDivElement | nul
     controls.enableDamping = true;
     controls.dampingFactor = 0.08;
     controls.enablePan = false;
-    controls.minDistance = 3.5;
-    controls.maxDistance = 12;
+    controls.minDistance = 3;
+    controls.maxDistance = 10;
     controls.maxPolarAngle = Math.PI * 0.75;
     controls.minPolarAngle = Math.PI * 0.15;
     controls.target.set(0, 0.8, 0);
+    camera.updateProjectionMatrix();
 
     // Lights
     scene.add(new THREE.AmbientLight(0xffffff, 0.4));
