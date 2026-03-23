@@ -1,0 +1,337 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1774196590824,
+  "projectRoot": "c:\\Users\\tae_h\\OneDrive\\바탕 화면\\dev-personal\\taeho-world",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "next",
+        "version": "16.1.6",
+        "category": "fullstack"
+      },
+      {
+        "name": "react",
+        "version": "19.2.4",
+        "category": "frontend"
+      },
+      {
+        "name": "react-dom",
+        "version": "19.2.4",
+        "category": "frontend"
+      }
+    ],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "npm run build",
+    "testCommand": null,
+    "lintCommand": "npm run lint",
+    "devCommand": "npm run dev",
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start",
+      "lint": "next lint",
+      "type-check": "tsc --noEmit"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": "type-based"
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "public",
+      "src"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 0,
+      "lastAccessed": 1774196590786,
+      "keyFiles": []
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 0,
+      "lastAccessed": 1774196590787,
+      "keyFiles": []
+    },
+    "public\\models": {
+      "path": "public\\models",
+      "purpose": "Data models",
+      "fileCount": 1,
+      "lastAccessed": 1774196590801,
+      "keyFiles": [
+        "robot-expressive.glb"
+      ]
+    },
+    "src\\app": {
+      "path": "src\\app",
+      "purpose": "Application code",
+      "fileCount": 5,
+      "lastAccessed": 1774196590802,
+      "keyFiles": [
+        "globals.css",
+        "layout.tsx",
+        "page.tsx"
+      ]
+    },
+    "src\\assets": {
+      "path": "src\\assets",
+      "purpose": "Static assets",
+      "fileCount": 0,
+      "lastAccessed": 1774196590803,
+      "keyFiles": []
+    },
+    "src\\components": {
+      "path": "src\\components",
+      "purpose": "UI components",
+      "fileCount": 1,
+      "lastAccessed": 1774196590803,
+      "keyFiles": [
+        "CLAUDE.md"
+      ]
+    },
+    "src\\lib": {
+      "path": "src\\lib",
+      "purpose": "Library code",
+      "fileCount": 0,
+      "lastAccessed": 1774196590804,
+      "keyFiles": []
+    },
+    "src\\pages": {
+      "path": "src\\pages",
+      "purpose": "Page components",
+      "fileCount": 1,
+      "lastAccessed": 1774196590804,
+      "keyFiles": [
+        "CLAUDE.md"
+      ]
+    },
+    "src\\public": {
+      "path": "src\\public",
+      "purpose": "Public files",
+      "fileCount": 0,
+      "lastAccessed": 1774196590805,
+      "keyFiles": []
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "src\\hooks\\useRobotScene.ts",
+      "accessCount": 32,
+      "lastAccessed": 1774264418246,
+      "type": "file"
+    },
+    {
+      "path": "src\\sections\\HeroSection.tsx",
+      "accessCount": 9,
+      "lastAccessed": 1774249397442,
+      "type": "file"
+    },
+    {
+      "path": "src\\App.tsx",
+      "accessCount": 5,
+      "lastAccessed": 1774247771715,
+      "type": "file"
+    },
+    {
+      "path": "src\\main.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1774242288047,
+      "type": "file"
+    },
+    {
+      "path": "src\\pages\\CareerPage\\data.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1774248097388,
+      "type": "file"
+    },
+    {
+      "path": "src\\sections\\ProjectsSection.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1774248144408,
+      "type": "file"
+    },
+    {
+      "path": "src\\i18n\\locales\\en.json",
+      "accessCount": 3,
+      "lastAccessed": 1774242225093,
+      "type": "file"
+    },
+    {
+      "path": "src\\index.css",
+      "accessCount": 3,
+      "lastAccessed": 1774242297293,
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "accessCount": 3,
+      "lastAccessed": 1774247766811,
+      "type": "file"
+    },
+    {
+      "path": "src\\app\\layout.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1774196626969,
+      "type": "file"
+    },
+    {
+      "path": "amplify.yml",
+      "accessCount": 2,
+      "lastAccessed": 1774227071222,
+      "type": "file"
+    },
+    {
+      "path": "index.html",
+      "accessCount": 2,
+      "lastAccessed": 1774229875741,
+      "type": "file"
+    },
+    {
+      "path": "",
+      "accessCount": 2,
+      "lastAccessed": 1774241736421,
+      "type": "directory"
+    },
+    {
+      "path": "src\\i18n\\locales\\ko.json",
+      "accessCount": 2,
+      "lastAccessed": 1774241740554,
+      "type": "file"
+    },
+    {
+      "path": "src\\pages\\InfoPage\\index.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1774241741964,
+      "type": "file"
+    },
+    {
+      "path": "src\\routes.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1774241742407,
+      "type": "file"
+    },
+    {
+      "path": "src\\pages\\InfoPage\\components\\SNSArea.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1774242172639,
+      "type": "file"
+    },
+    {
+      "path": "tsconfig.json",
+      "accessCount": 1,
+      "lastAccessed": 1774241698101,
+      "type": "file"
+    },
+    {
+      "path": "src\\pages\\HomePage\\index.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1774241700982,
+      "type": "file"
+    },
+    {
+      "path": "src\\pages\\CareerPage\\index.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1774241701672,
+      "type": "file"
+    },
+    {
+      "path": "src\\layouts\\Header.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1774241705723,
+      "type": "file"
+    },
+    {
+      "path": "src\\layouts\\Nav.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1774241705907,
+      "type": "file"
+    },
+    {
+      "path": "src\\pages\\InfoPage\\components\\Expertise.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1774241706128,
+      "type": "file"
+    },
+    {
+      "path": "src\\types\\index.ts",
+      "accessCount": 1,
+      "lastAccessed": 1774241709658,
+      "type": "file"
+    },
+    {
+      "path": "src\\store\\appStore.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1774241709874,
+      "type": "file"
+    },
+    {
+      "path": "src\\hooks\\useThree.ts",
+      "accessCount": 1,
+      "lastAccessed": 1774241710154,
+      "type": "file"
+    },
+    {
+      "path": "src\\sections\\ExpertiseSection.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1774242244878,
+      "type": "file"
+    },
+    {
+      "path": "src\\sections\\ContactSection.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1774242264378,
+      "type": "file"
+    },
+    {
+      "path": "src\\sections\\SiteNav.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1774242283425,
+      "type": "file"
+    },
+    {
+      "path": "src\\components\\ui\\dialog.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1774248101198,
+      "type": "file"
+    },
+    {
+      "path": "src\\components\\ui\\carousel.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1774248101575,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

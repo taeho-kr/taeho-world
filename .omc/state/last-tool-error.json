@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"cd \\\"c:\\\\Users\\\\tae_h\\\\OneDrive\\\\바탕 화면\\\\dev-personal\\\\taeho-world\\\" && git add -A && git commit -m \\\"$(cat <<'EOF'\\nfeat: rebuild portfolio as single-page with 3D robot and interactions\\n\\...",
+  "error": "Exit code 128\nwarning: in the working copy of 'yarn.lock', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '.next/app-path-routes-manifest.json', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '.next/build-manifest.json', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '.next/build/chunks/[root-of-the-server]__51225daf._.js', LF will be replaced by CRLF the next time Git to...",
+  "timestamp": "2026-03-23T11:16:31.624Z",
+  "retry_count": 1
+}

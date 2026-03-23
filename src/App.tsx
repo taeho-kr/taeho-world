@@ -1,58 +1,24 @@
-import { Route, Routes } from 'react-router';
-import routes from '@/routes';
-import Header from './layouts/Header';
-import Nav from './layouts/Nav';
-import Footer from './layouts/Footer';
-import Contents from './layouts/Contents';
-import useLayout from './hooks/useLayout';
-import { useEffect, useRef } from 'react';
-import { cn } from './lib/utils';
-import useThree from './hooks/useThree';
+import HeroSection from './sections/HeroSection';
+import ProjectsSection from './sections/ProjectsSection';
+import ExpertiseSection from './sections/ExpertiseSection';
+import ContactSection from './sections/ContactSection';
+import SiteNav from './sections/SiteNav';
 
 function App() {
-	const { isMobile, doNotAnimate, checkRenderHistory } = useLayout();
-	const contentsContainer = useRef<HTMLDivElement | null>(null);
-	const { threeWave } = useThree();
-
-	useEffect(() => {
-		threeWave(contentsContainer.current);
-	}, []);
-
-	useEffect(() => {
-		checkRenderHistory();
-	}, []);
-
-	return (
-		<div className='w-full h-full p-4 lg:p-8 flex flex-col max-w-[1300px]'>
-			<div
-				className={cn(
-					'w-full flex flex-1 relative border max-h-[100%] overflow-hidden rounded-md relative',
-					isMobile ? 'flex-col' : 'flex-row'
-				)}
-			>
-				<div
-					ref={contentsContainer}
-					className='absolute w-full h-full z-[-1]'
-				/>
-				<div className={isMobile ? 'flex flex-row justify-between items-center py-3 px-5' : 'mt-10 ml-8'}>
-					<Header animate={!doNotAnimate} />
-					<Nav animate={!doNotAnimate} />
-				</div>
-				<Contents animate={!doNotAnimate}>
-					<Routes>
-						{routes.map((route) => (
-							<Route
-								key={route.path}
-								path={route.path}
-								element={route.element}
-							/>
-						))}
-					</Routes>
-				</Contents>
-			</div>
-			<Footer />
-		</div>
-	);
+  return (
+    <div className="min-h-screen bg-[#0a0a0a] text-[#fafafa] font-sans">
+      <SiteNav />
+      <main className="max-w-5xl mx-auto px-6 md:px-12">
+        <HeroSection />
+        <ProjectsSection />
+        <ExpertiseSection />
+        <ContactSection />
+      </main>
+      <footer className="border-t border-[#1f1f1f] py-8 mt-24">
+        <p className="text-center text-[#525252] text-sm">© 2025 Taeho Kim</p>
+      </footer>
+    </div>
+  );
 }
 
 export default App;
