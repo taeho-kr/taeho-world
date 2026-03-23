@@ -77,18 +77,6 @@ export function useRobotScene(containerRef: React.RefObject<HTMLDivElement | nul
     const LOWER_DUR  = 0.45;
     const TOTAL_DUR  = RAISE_DUR + WAVE_DUR + LOWER_DUR;
 
-    // Mouse state
-    const mouse = { x: 0, y: 0 };
-    const lerpTarget = { rotY: 0, tiltX: 0, tiltZ: 0 };
-    let isDragging = false;
-
-    const onMouseMove = (e: MouseEvent) => {
-      const rect = container.getBoundingClientRect();
-      mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-      mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
-    };
-    const onMouseDown = () => { isDragging = true; };
-    const onMouseUp   = () => { isDragging = false; };
     const onCanvasClick = () => {
       if (isWaving) return;
       isWaving = true;
@@ -99,9 +87,6 @@ export function useRobotScene(containerRef: React.RefObject<HTMLDivElement | nul
       }
     };
 
-    window.addEventListener('mousemove', onMouseMove);
-    renderer.domElement.addEventListener('mousedown', onMouseDown);
-    window.addEventListener('mouseup', onMouseUp);
     renderer.domElement.addEventListener('click', onCanvasClick);
 
     const shellMat = new THREE.MeshStandardMaterial({ color: 0xeeeeee, metalness: 0.3, roughness: 0.25 });
@@ -246,15 +231,6 @@ export function useRobotScene(containerRef: React.RefObject<HTMLDivElement | nul
         }
       }
 
-      // A + C: mouse tracking + parallax
-      if (!isDragging) {
-        lerpTarget.rotY  =  mouse.x * 0.6;
-        lerpTarget.tiltX =  mouse.y * 0.08;
-        lerpTarget.tiltZ = -mouse.x * 0.05;
-        robotWrapper.rotation.y += (lerpTarget.rotY  - robotWrapper.rotation.y) * 0.05;
-        robotWrapper.rotation.x += (lerpTarget.tiltX - robotWrapper.rotation.x) * 0.05;
-        robotWrapper.rotation.z += (lerpTarget.tiltZ - robotWrapper.rotation.z) * 0.05;
-      }
 
       renderer.render(scene, camera);
     };
@@ -270,10 +246,7 @@ export function useRobotScene(containerRef: React.RefObject<HTMLDivElement | nul
 
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('mouseup', onMouseUp);
       window.removeEventListener('resize', onResize);
-      renderer.domElement.removeEventListener('mousedown', onMouseDown);
       renderer.domElement.removeEventListener('click', onCanvasClick);
       controls.dispose();
       renderer.dispose();
