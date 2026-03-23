@@ -1,0 +1,102 @@
+import Text from '@/components/myUI/text';
+import { cn } from '@/lib/utils';
+import { Project } from '@/types';
+import { openPage } from '@/utils/common';
+import { company } from '../data';
+import Chip from '@/components/myUI/chip';
+import { Button } from '@/components/ui/button';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { useTranslation } from 'react-i18next';
+
+interface ProjectItemProps {
+	project: Project;
+	hovered: boolean;
+	setSelectedProject: (project: Project | null) => void;
+}
+
+const ProjectItem = ({
+	project,
+	hovered,
+	setSelectedProject,
+	...props
+}: ProjectItemProps & React.ComponentProps<'div'>) => {
+	const { t } = useTranslation();
+	const projectName = t(`projects.${project.translationKey}.name`);
+
+	return (
+		<div
+			key={project.id}
+			{...props}
+			className={cn(`flex flex-col gap-0.25 items-baseline transition-transform duration-300 items-end`, {
+				'bg-[var(--foreground)] ': hovered,
+			})}
+		>
+			<div className='flex flex-col lg:!flex-row items-end lg:!items-baseline'>
+				<Text
+					size='title'
+					className={cn('text-right', {
+						'hover:text-[var(--background)] cursor-pointer': project.url !== undefined,
+						'text-[var(--muted-foreground)]' : hovered,
+						'cursor-default': project.url === undefined,
+					})}
+					onClick={() => project.url && openPage(project.url)}
+				>
+					{project.url ? (
+						<>{projectName}&nbsp;</>
+					) : (
+						<Tooltip>
+							<TooltipTrigger className='text-right'>{projectName}&nbsp;</TooltipTrigger>
+							<TooltipContent side='bottom'>
+								<Text size='body'>{t('projectItem.onPremise')}</Text>
+							</TooltipContent>
+						</Tooltip>
+					)}
+				</Text>
+				<div>
+					<Text
+						size='caption'
+						color='var(--muted-foreground)'
+					>
+						{t('projectItem.with')}&nbsp;
+					</Text>
+					<Text
+						size='label'
+						className={cn('hover:text-[var(--background)] cursor-pointer',{
+							'text-[var(--muted-foreground)]' : hovered,
+						}
+						)}
+						onClick={() => openPage(company.find((c) => c.id === project.company)!.url)}
+					>
+						{company.find((c) => c.id === project.company)?.name}
+					</Text>
+				</div>
+			</div>
+			<div className='[&>div]:ml-2 [&>div]:first:ml-0 w-fit text-right'>
+				{project.domains.map((domain, i) => (
+					<Chip
+						size='sm'
+						key={i}
+						className={hovered ? 'text-[var(--background)]' : 'text-[var(--foreground)]'}
+					>
+						{domain}
+					</Chip>
+				))}
+			</div>
+			<Text
+				size='small'
+				color='var(--muted-foreground)'
+			>
+				{project.start} ~ {project.end || t('projectItem.inProgress')}
+			</Text>
+			<Button
+				size='sm'
+				variant='text'
+				onClickCapture={() => setSelectedProject(project)}
+			>
+				{t('projectItem.servicePreview')}
+			</Button>
+		</div>
+	);
+};
+
+export default ProjectItem;
