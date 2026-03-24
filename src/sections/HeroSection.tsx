@@ -16,6 +16,7 @@ const HeroSection = () => {
           Taeho<br />Kim
         </h1>
         <p className="text-lg md:text-xl text-[#525252] font-light">{t('header.subtitle')}</p>
+        <p className="text-xs text-[#3a3a3a] font-light mt-1">{t('header.formerRole')}</p>
       </div>
 
       {/* Robot canvas — right side */}

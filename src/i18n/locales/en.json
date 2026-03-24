@@ -5,7 +5,8 @@
   "Expertise": "Expertise",
   "Contact": "Contact",
   "header": {
-    "subtitle": "Frontend Engineer"
+    "subtitle": "AI Coder",
+    "formerRole": "former Frontend Engineer"
   },
   "projectItem": {
     "with": "with",
@@ -87,6 +88,21 @@
       "singleSentence": "Enterprise Security Intelligence Hub",
       "summary": "A comprehensive security analysis and intelligence platform for advanced threat detection.",
       "detail": "SAIP (Security Analysis & Intelligence Platform) empowers organizations with cutting-edge security intelligence capabilities. By integrating threat intelligence feeds, real-time monitoring, and advanced analytics, the platform enables security teams to proactively detect, analyze, and respond to cybersecurity threats—ensuring robust protection of digital assets."
+    }
+  },
+  "Side Projects": "Side Projects",
+  "sideProjects": {
+    "realestate": {
+      "name": "Seoul Redevelopment Cost Calculator",
+      "description": "Simulate redevelopment contribution costs across all 25 districts of Seoul"
+    },
+    "tools": {
+      "name": "CalcHub",
+      "description": "A collection of free online calculators and utility tools"
+    },
+    "nambti": {
+      "name": "NamBTI",
+      "description": "How do your friends see your MBTI? Compare self-perception vs. others' perception"
     }
   }
 }

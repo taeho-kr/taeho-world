@@ -2,6 +2,7 @@ import HeroSection from './sections/HeroSection';
 import ProjectsSection from './sections/ProjectsSection';
 import ExpertiseSection from './sections/ExpertiseSection';
 import ContactSection from './sections/ContactSection';
+import SideProjectsSection from './sections/SideProjectsSection';
 import SiteNav from './sections/SiteNav';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <main className="max-w-5xl mx-auto px-6 md:px-12">
         <HeroSection />
         <ProjectsSection />
+        <SideProjectsSection />
         <ExpertiseSection />
         <ContactSection />
       </main>

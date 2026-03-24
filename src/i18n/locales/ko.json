@@ -5,7 +5,8 @@
   "Expertise": "전문 분야",
   "Contact": "연락처",
   "header": {
-    "subtitle": "프론트엔드 엔지니어"
+    "subtitle": "AI Coder",
+    "formerRole": "former Frontend Engineer"
   },
   "projectItem": {
     "with": "with",
@@ -87,6 +88,21 @@
       "singleSentence": "엔터프라이즈 보안 인텔리전스 허브",
       "summary": "고도화된 위협 탐지를 위한 포괄적인 보안 분석 및 인텔리전스 플랫폼입니다.",
       "detail": "SAIP(보안 분석 및 인텔리전스 플랫폼)는 최첨단 보안 인텔리전스 역량으로 조직을 강화합니다. 위협 인텔리전스 피드, 실시간 모니터링, 고급 분석을 통합하여 보안 팀이 사이버 보안 위협을 선제적으로 탐지·분석·대응할 수 있도록 지원하며, 디지털 자산을 견고하게 보호합니다."
+    }
+  },
+  "Side Projects": "사이드 프로젝트",
+  "sideProjects": {
+    "realestate": {
+      "name": "서울 재개발 분담금 계산기",
+      "description": "서울 25개 구별 재개발·재건축 분담금을 시뮬레이션하는 계산기"
+    },
+    "tools": {
+      "name": "CalcHub",
+      "description": "다양한 온라인 계산 도구 모음 플랫폼"
+    },
+    "nambti": {
+      "name": "NamBTI",
+      "description": "친구들이 보는 내 MBTI — 자기 인식과 타인 인식을 비교하는 서비스"
     }
   }
 }
