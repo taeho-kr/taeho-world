@@ -103,6 +103,14 @@
     "nambti": {
       "name": "NamBTI",
       "description": "How do your friends see your MBTI? Compare self-perception vs. others' perception"
+    },
+    "randomKorea": {
+      "name": "Random Korea Travel",
+      "description": "Pick a departure and travel duration, get a random domestic destination with local attractions"
+    },
+    "imgpress": {
+      "name": "ImgPress",
+      "description": "Privacy-first image compressor — runs entirely in the browser with zero server uploads"
     }
   }
 }

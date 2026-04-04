@@ -103,6 +103,14 @@
     "nambti": {
       "name": "NamBTI",
       "description": "친구들이 보는 내 MBTI — 자기 인식과 타인 인식을 비교하는 서비스"
+    },
+    "randomKorea": {
+      "name": "랜덤 국내여행",
+      "description": "출발지와 여행 기간을 선택하면 랜덤으로 국내 여행지를 추천하는 서비스"
+    },
+    "imgpress": {
+      "name": "ImgPress",
+      "description": "서버 업로드 없이 브라우저에서 이미지를 압축하는 프라이버시 중심 도구"
     }
   }
 }

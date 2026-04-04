@@ -23,6 +23,16 @@ const sideProjects: SideProject[] = [
     url: 'https://nambti.site',
     techStack: ['Next.js', 'Tailwind CSS'],
   },
+  {
+    id: 'randomKorea',
+    url: 'https://random-korea.taeho.world',
+    techStack: ['JavaScript', 'CSS'],
+  },
+  {
+    id: 'imgpress',
+    url: 'https://imgpress.taeho.world',
+    techStack: ['JavaScript', 'Canvas API'],
+  },
 ];
 
 const SideProjectsSection = () => {
