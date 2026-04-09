@@ -85,9 +85,9 @@
     },
     "saip": {
       "name": "SAIP",
-      "singleSentence": "Enterprise Security Intelligence Hub",
-      "summary": "A comprehensive security analysis and intelligence platform for advanced threat detection.",
-      "detail": "SAIP (Security Analysis & Intelligence Platform) empowers organizations with cutting-edge security intelligence capabilities. By integrating threat intelligence feeds, real-time monitoring, and advanced analytics, the platform enables security teams to proactively detect, analyze, and respond to cybersecurity threats—ensuring robust protection of digital assets."
+      "singleSentence": "AI-Powered Knowledge Graph Builder",
+      "summary": "A use case-driven platform that automatically constructs knowledge graphs from diverse data sources through visual pipelines and AI-powered ontology generation.",
+      "detail": "SAIP (Smart Adaptive Intelligence Platform) enables organizations to build knowledge graphs without deep technical expertise. Users define business goals, design visual ETL pipelines with 16+ transform types, and leverage a 6-stage AI pipeline to automatically generate OWL-based ontologies from raw datasets. The platform features a visual workflow editor for action orchestration, supports RDF/OWL import and export, and integrates with external databases and search engines—bridging low-code interfaces with advanced semantic capabilities."
     }
   },
   "Side Projects": "Side Projects",

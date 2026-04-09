@@ -93,11 +93,11 @@ const projects: Project[] = [
 		id: 8,
 		company: 4,
 		translationKey: 'saip',
-		domains: ['Security', 'Intelligence', 'Cybersecurity'],
+		domains: ['AI', 'Knowledge Graph', 'Ontology'],
 		start: '2025-08',
 		url: 'https://s2w.inc/',
 		images: [],
-		techStack: ['React', 'TypeScript', 'Styled-Components'],
+		techStack: ['React', 'TypeScript', 'Zustand', 'ReactFlow', 'D3.js', 'shadcn/ui', 'TailwindCSS'],
 	},
 ];
 
