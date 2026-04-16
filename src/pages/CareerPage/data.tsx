@@ -93,7 +93,7 @@ const projects: Project[] = [
 		id: 8,
 		company: 4,
 		translationKey: 'saip',
-		domains: ['AI', 'Knowledge Graph', 'Ontology'],
+		domains: ['AI', 'Knowledge Graph', 'Ontology', 'Data Intelligence'],
 		start: '2025-08',
 		url: 'https://s2w.inc/',
 		images: [],

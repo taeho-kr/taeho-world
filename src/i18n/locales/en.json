@@ -85,9 +85,9 @@
     },
     "saip": {
       "name": "SAIP",
-      "singleSentence": "AI-Powered Knowledge Graph Builder",
-      "summary": "A use case-driven platform that automatically constructs knowledge graphs from diverse data sources through visual pipelines and AI-powered ontology generation.",
-      "detail": "SAIP (Smart Adaptive Intelligence Platform) enables organizations to build knowledge graphs without deep technical expertise. Users define business goals, design visual ETL pipelines with 16+ transform types, and leverage a 6-stage AI pipeline to automatically generate OWL-based ontologies from raw datasets. The platform features a visual workflow editor for action orchestration, supports RDF/OWL import and export, and integrates with external databases and search engines—bridging low-code interfaces with advanced semantic capabilities."
+      "singleSentence": "Domain-Specific Ontology Platform",
+      "summary": "A tailored generative AI platform that transforms expert knowledge into domain-specific ontologies and constructs connected knowledge graphs for operational decision-making.",
+      "detail": "SAIP (S2W AI Platform) is a domain-specific ontology platform that structures expert knowledge into formal ontologies and builds connected knowledge graphs to support consistent, context-aware decisions. Users define business goals, design visual ETL pipelines with 16+ transform types, and leverage a 6-stage AI pipeline to automatically generate OWL-based ontologies from raw datasets. Powered by domain-specialized LLMs, RAG, and advanced reasoning engines, the platform enables root-cause analysis, alternative evaluation, and outcome prediction while ensuring full transparency and explainability at every step."
     }
   },
   "Side Projects": "Side Projects",
