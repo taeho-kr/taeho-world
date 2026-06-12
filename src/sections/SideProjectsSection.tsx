@@ -9,11 +9,6 @@ interface SideProject {
 
 const sideProjects: SideProject[] = [
   {
-    id: 'realestate',
-    url: 'https://realestate.taeho.world',
-    techStack: ['React', 'Tailwind CSS', 'Claude'],
-  },
-  {
     id: 'tools',
     url: 'https://tools.taeho.world',
     techStack: ['React', 'Tailwind CSS', 'Claude'],
@@ -26,6 +21,11 @@ const sideProjects: SideProject[] = [
   {
     id: 'randomKorea',
     url: 'https://random-korea.taeho.world',
+    techStack: ['JavaScript', 'CSS'],
+  },
+  {
+    id: 'randomJapan',
+    url: 'https://random-japan.taeho.world',
     techStack: ['JavaScript', 'CSS'],
   },
   {

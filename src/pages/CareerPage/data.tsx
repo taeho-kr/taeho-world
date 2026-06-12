@@ -14,6 +14,11 @@ import TMS2Image from './images/tms2.webp';
 import TMS3Image from './images/tms3.webp';
 import RISSImage from './images/riss.webp';
 import manyChatImage from './images/manychat.webp';
+import saipImage from './images/saip.webp';
+import saip2Image from './images/saip2.webp';
+import saip3Image from './images/saip3.webp';
+import saip4Image from './images/saip4.webp';
+import saip5Image from './images/saip5.webp';
 
 const projects: Project[] = [
 	{
@@ -95,9 +100,9 @@ const projects: Project[] = [
 		translationKey: 'saip',
 		domains: ['AI', 'Knowledge Graph', 'Ontology'],
 		start: '2025-08',
-		url: 'https://s2w.inc/',
-		images: [],
-		techStack: ['React', 'TypeScript', 'Zustand', 'ReactFlow', 'D3.js', 'shadcn/ui', 'TailwindCSS'],
+		url: 'https://s2w.inc/ko/product/pd01',
+		images: [saipImage, saip2Image, saip3Image, saip4Image, saip5Image],
+		techStack: ['Web Frontend', 'Backend', 'Claude Code', 'Codex'],
 	},
 ];
 

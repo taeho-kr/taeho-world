@@ -5,7 +5,7 @@
   "Expertise": "전문 분야",
   "Contact": "연락처",
   "header": {
-    "subtitle": "AI Coder",
+    "subtitle": "AI Engineer",
     "formerRole": "former Frontend Engineer"
   },
   "projectItem": {
@@ -85,17 +85,13 @@
     },
     "saip": {
       "name": "SAIP",
-      "singleSentence": "AI 기반 지식 그래프 빌더",
-      "summary": "비즈니스 유스케이스 기반으로 다양한 데이터 소스에서 시각적 파이프라인과 AI 온톨로지 자동 생성을 통해 지식 그래프를 구축하는 플랫폼입니다.",
-      "detail": "SAIP(Smart Adaptive Intelligence Platform)는 전문 지식 없이도 지식 그래프를 구축할 수 있게 지원합니다. 비즈니스 목표를 정의하고, 16가지 이상의 변환 유형을 갖춘 비주얼 ETL 파이프라인을 설계하며, 6단계 AI 파이프라인을 활용해 원시 데이터에서 OWL 기반 온톨로지를 자동 생성합니다. 비주얼 워크플로우 에디터로 액션 오케스트레이션을 지원하고, RDF/OWL 임포트·익스포트, 외부 데이터베이스 및 검색 엔진 연동을 제공하여 로우코드 인터페이스와 고급 시맨틱 기능을 연결합니다."
+      "singleSentence": "유스케이스 기반 지식 그래프 빌더",
+      "summary": "목표 정의부터 파이프라인, 온톨로지 모델링, AI 분석까지 지식 그래프를 처음부터 끝까지 구축하고 활용하는 웹 플랫폼입니다.",
+      "detail": "SAIP Builder는 원천 데이터를 질의 가능한 지식 그래프로 만드는 7단계 흐름을 안내합니다. 목표(Goal)를 정의하고, 데이터베이스·API·파일에서 데이터를 가져오는 시각적 파이프라인(Pipeline)을 설계하며, 적재된 데이터셋(Datasets)을 탐색하고, Entity Type과 Relation으로 온톨로지(Ontology)를 모델링한 뒤, 검색 인덱싱(Indexing)을 구축하고, 휴먼인더루프(HITL) 승인을 결합한 워크플로우(Workflow)로 자동화하며, 마지막으로 Chat에서 자연어로 질문하거나 거버넌스 대시보드(Dashboard)로 분석합니다. 시각적 파이프라인 에디터는 필터링·조인·검증·문서 파싱을 위한 21가지 변환 노드를 제공하며, Goal·Pipeline·Ontology·Workflow 에디터에 내장된 AI 어시스턴트(Agent Panel)는 자연어 요청으로 초안을 제안하고 사용자가 검토 후 승인 또는 거절한 다음 저장하도록 합니다. 이를 통해 온톨로지 기반 검색과 자연어 질의를 결합한 시각적·안내형 작업 환경을 제공하여, 팀이 화면 순서에 따라 지식 그래프를 구축할 수 있게 합니다."
     }
   },
   "Side Projects": "사이드 프로젝트",
   "sideProjects": {
-    "realestate": {
-      "name": "서울 재개발 분담금 계산기",
-      "description": "서울 25개 구별 재개발·재건축 분담금을 시뮬레이션하는 계산기"
-    },
     "tools": {
       "name": "CalcHub",
       "description": "다양한 온라인 계산 도구 모음 플랫폼"
@@ -107,6 +103,10 @@
     "randomKorea": {
       "name": "랜덤 국내여행",
       "description": "출발지와 여행 기간을 선택하면 랜덤으로 국내 여행지를 추천하는 서비스"
+    },
+    "randomJapan": {
+      "name": "랜덤 일본여행",
+      "description": "출발지와 여행 기간을 선택하면 랜덤으로 일본 여행지를 추천하는 서비스"
     },
     "imgpress": {
       "name": "ImgPress",

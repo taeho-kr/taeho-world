@@ -5,7 +5,7 @@
   "Expertise": "Expertise",
   "Contact": "Contact",
   "header": {
-    "subtitle": "AI Coder",
+    "subtitle": "AI Engineer",
     "formerRole": "former Frontend Engineer"
   },
   "projectItem": {
@@ -44,7 +44,7 @@
     "styleAR": {
       "name": "StyleAR",
       "singleSentence": "AR Virtual Try-On for E-Commerce",
-      "summary": "An AR-powered virtual try-on solution that lets customers experience jewelry, fashion, and beauty products in real-time.",
+      "summary": "An AR-powered virtual try-on solution that lets customers experience jewelry, fashion, and beauty products in real time.",
       "detail": "Seamlessly integrated with e-commerce platforms like Cafe24, StyleAR offers fully customizable interfaces that align with each brand's identity. The solution drives customer engagement through QR code distribution across both online and offline channels. Supporting iOS, Android, and Windows across smartphones, kiosks, and smart mirrors, StyleAR transforms the shopping experience and significantly boosts customer satisfaction."
     },
     "hyperChatbot": {
@@ -74,7 +74,7 @@
     "vunexAI": {
       "name": "VUNex AI",
       "singleSentence": "Smart Security for Small Business",
-      "summary": "AI-powered video security designed specifically for small businesses to detect critical incidents and anomalies.",
+      "summary": "An AI-powered video security solution designed specifically for small businesses to detect critical incidents and anomalies.",
       "detail": "Purpose-built for factories, retail stores, and offices, VUNex AI detects intrusions, falls, fires, and abnormal behaviors through intelligent video stream analysis. Unlike enterprise-focused solutions, it offers a cost-effective and scalable approach to enhancing workplace safety and protecting valuable assets."
     },
     "vunexMLOps": {
@@ -85,17 +85,13 @@
     },
     "saip": {
       "name": "SAIP",
-      "singleSentence": "AI-Powered Knowledge Graph Builder",
-      "summary": "A use case-driven platform that automatically constructs knowledge graphs from diverse data sources through visual pipelines and AI-powered ontology generation.",
-      "detail": "SAIP (Smart Adaptive Intelligence Platform) enables organizations to build knowledge graphs without deep technical expertise. Users define business goals, design visual ETL pipelines with 16+ transform types, and leverage a 6-stage AI pipeline to automatically generate OWL-based ontologies from raw datasets. The platform features a visual workflow editor for action orchestration, supports RDF/OWL import and export, and integrates with external databases and search engines—bridging low-code interfaces with advanced semantic capabilities."
+      "singleSentence": "Use Case-Driven Knowledge Graph Builder",
+      "summary": "A web platform for building and using a Knowledge Graph end to end, guiding users from goal definition through pipelines, ontology modeling, and AI-powered analysis.",
+      "detail": "SAIP Builder turns source data into a queryable Knowledge Graph through a guided seven-step flow: define a Goal, design a visual Pipeline that pulls from databases, APIs, and files, explore the loaded Datasets, model an Ontology of Entity Types and Relations, build search Indexing, automate Workflows with human-in-the-loop approval, and finally ask questions in Chat or analyze with a governance Dashboard. The visual pipeline editor offers 21 transform node types for filtering, joining, validating, and parsing documents, while an embedded AI assistant (Agent Panel) in the Goal, Pipeline, Ontology, and Workflow editors drafts proposals from natural-language requests that users review and approve or reject before saving. The result is a visual, guided workbench that pairs ontology-backed search with natural-language querying, helping teams construct a Knowledge Graph step by step."
     }
   },
   "Side Projects": "Side Projects",
   "sideProjects": {
-    "realestate": {
-      "name": "Seoul Redevelopment Cost Calculator",
-      "description": "Simulate redevelopment contribution costs across all 25 districts of Seoul"
-    },
     "tools": {
       "name": "CalcHub",
       "description": "A collection of free online calculators and utility tools"
@@ -108,9 +104,13 @@
       "name": "Random Korea Travel",
       "description": "Pick a departure and travel duration, get a random domestic destination with local attractions"
     },
+    "randomJapan": {
+      "name": "Random Japan Travel",
+      "description": "Pick a departure and travel duration, get a random destination in Japan with local attractions"
+    },
     "imgpress": {
       "name": "ImgPress",
-      "description": "Privacy-first image compressor — runs entirely in the browser with zero server uploads"
+      "description": "Privacy-first image compressor that runs entirely in the browser with zero server uploads"
     }
   }
 }
