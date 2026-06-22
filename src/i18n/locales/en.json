@@ -4,9 +4,23 @@
   "Info": "Info",
   "Expertise": "Expertise",
   "Contact": "Contact",
+  "About": "About",
   "header": {
     "subtitle": "AI Engineer",
-    "formerRole": "former Frontend Engineer"
+    "formerRole": "former Frontend Engineer",
+    "viewWork": "View work",
+    "getInTouch": "Get in touch"
+  },
+  "about": {
+    "headline": "I build AI products end-to-end — from the model to the interface people actually use.",
+    "paragraph1": "I started as a frontend engineer shipping React and React Native interfaces, fixated on how software feels to use. Over time I moved deeper into the systems behind the screen — and today I work as an AI Engineer building knowledge-graph and computer-vision products.",
+    "paragraph2": "That path lets me carry an idea across the whole stack: shaping the data and ontology, training and wiring up the models, and crafting a frontend that makes the intelligence feel effortless. I've shipped across fashion, e-commerce, education, AI, and physical security.",
+    "nowLabel": "Now",
+    "now": "Building SAIP — a use-case-driven knowledge-graph builder.",
+    "focusLabel": "Focus",
+    "focus": "Knowledge graphs · Computer vision · AI products",
+    "stackLabel": "Stack",
+    "stack": "React · React Native · TypeScript · AI Engineering"
   },
   "projectItem": {
     "with": "with",

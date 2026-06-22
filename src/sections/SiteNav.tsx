@@ -12,11 +12,14 @@ const SiteNav = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-sm border-b border-[#1f1f1f]">
       <div className="max-w-5xl mx-auto px-6 md:px-12 h-14 flex items-center justify-between">
         <span className="text-sm font-semibold tracking-widest">TK</span>
-        <div className="flex items-center gap-6 text-sm text-[#525252]">
+        <div className="flex items-center gap-4 sm:gap-6 text-sm text-[#525252]">
+          <a href="#about" className="hidden sm:inline-block hover:text-[#fafafa] transition-colors">
+            {t('About')}
+          </a>
           <a href="#projects" className="hover:text-[#fafafa] transition-colors">
             {t('Projects')}
           </a>
-          <a href="#expertise" className="hover:text-[#fafafa] transition-colors">
+          <a href="#expertise" className="hidden sm:inline-block hover:text-[#fafafa] transition-colors">
             {t('Expertise')}
           </a>
           <a href="#contact" className="hover:text-[#fafafa] transition-colors">

@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Reveal } from '@/components/Reveal';
 
 const contacts = [
   {
@@ -36,21 +37,24 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-24 border-t border-[#1f1f1f]">
-      <p className="text-xs tracking-widest uppercase text-[#525252] mb-12">
-        {t('Contact')}
-      </p>
+      <Reveal>
+        <p className="text-xs tracking-widest uppercase text-[#525252] mb-12">
+          {t('Contact')}
+        </p>
+      </Reveal>
       <div className="flex gap-6 flex-wrap">
-        {contacts.map((c) => (
-          <a
-            key={c.label}
-            href={c.href}
-            target={c.href.startsWith('mailto') ? undefined : '_blank'}
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 px-5 py-3 border border-[#1f1f1f] rounded-sm text-[#525252] hover:text-[#fafafa] hover:border-[#333333] transition-colors text-sm"
-          >
-            {c.icon}
-            <span>{c.label}</span>
-          </a>
+        {contacts.map((c, i) => (
+          <Reveal key={c.label} delay={i * 80}>
+            <a
+              href={c.href}
+              target={c.href.startsWith('mailto') ? undefined : '_blank'}
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 px-5 py-3 border border-[#1f1f1f] rounded-sm text-[#525252] hover:text-[#fafafa] hover:border-[#333333] hover:-translate-y-0.5 transition-all duration-300 text-sm"
+            >
+              {c.icon}
+              <span>{c.label}</span>
+            </a>
+          </Reveal>
         ))}
       </div>
     </section>

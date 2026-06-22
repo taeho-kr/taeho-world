@@ -1,4 +1,5 @@
 import HeroSection from './sections/HeroSection';
+import AboutSection from './sections/AboutSection';
 import ProjectsSection from './sections/ProjectsSection';
 import ExpertiseSection from './sections/ExpertiseSection';
 import ContactSection from './sections/ContactSection';
@@ -11,13 +12,14 @@ function App() {
       <SiteNav />
       <main className="max-w-5xl mx-auto px-6 md:px-12">
         <HeroSection />
+        <AboutSection />
         <ProjectsSection />
         <SideProjectsSection />
         <ExpertiseSection />
         <ContactSection />
       </main>
       <footer className="border-t border-[#1f1f1f] py-8 mt-24">
-        <p className="text-center text-[#525252] text-sm">© 2025 Taeho Kim</p>
+        <p className="text-center text-[#525252] text-sm">© {new Date().getFullYear()} Taeho Kim</p>
       </footer>
     </div>
   );

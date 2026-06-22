@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { X, ExternalLink } from 'lucide-react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { projects, company } from '@/pages/CareerPage/data';
+import { Reveal } from '@/components/Reveal';
 import {
   Carousel,
   CarouselContent,
@@ -189,11 +190,17 @@ const ProjectCard = ({
 
   return (
     <div
-      className="bg-[#111111] border border-[#1f1f1f] rounded-sm overflow-hidden hover:border-[#333333] transition-colors h-full flex flex-col cursor-pointer"
+      className="group bg-[#111111] border border-[#1f1f1f] rounded-sm overflow-hidden hover:border-[#333333] hover:-translate-y-1 transition-all duration-300 h-full flex flex-col cursor-pointer"
       onClick={onClick}
     >
       {firstImage ? (
-        <img src={firstImage} className="w-full aspect-video object-cover" alt={project.translationKey} />
+        <div className="overflow-hidden">
+          <img
+            src={firstImage}
+            className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
+            alt={project.translationKey}
+          />
+        </div>
       ) : (
         <div className="w-full aspect-video bg-[#1a1a1a]" />
       )}
@@ -228,16 +235,19 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects" className="py-24 border-t border-[#1f1f1f]">
-      <p className="text-xs tracking-widest uppercase text-[#525252] mb-12">
-        {t('Projects')}
-      </p>
+      <Reveal>
+        <p className="text-xs tracking-widest uppercase text-[#525252] mb-12">
+          {t('Projects')}
+        </p>
+      </Reveal>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {projects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-            onClick={() => setSelectedProject(project)}
-          />
+        {projects.map((project, i) => (
+          <Reveal key={project.id} delay={(i % 2) * 80} className="h-full">
+            <ProjectCard
+              project={project}
+              onClick={() => setSelectedProject(project)}
+            />
+          </Reveal>
         ))}
       </div>
 
