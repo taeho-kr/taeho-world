@@ -11,34 +11,33 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-24 border-t border-[#1f1f1f]">
-      <Reveal>
-        <p className="text-xs tracking-widest uppercase text-[#525252] mb-12">
-          {t('About')}
-        </p>
-      </Reveal>
+    <section id="about" aria-labelledby="about-t">
+      <div className="sec-head">
+        <h2 className="sec-title" id="about-t">
+          <span className="ord">01</span> {t('About')}
+        </h2>
+        <div className="sec-meta">{t('ui.profileMeta')}</div>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <Reveal className="md:col-span-2">
-          <h2 className="text-2xl md:text-4xl font-semibold leading-tight tracking-tight mb-8">
-            {t('about.headline')}
-          </h2>
-          <p className="text-[#a3a3a3] leading-relaxed mb-4">{t('about.paragraph1')}</p>
-          <p className="text-[#a3a3a3] leading-relaxed">{t('about.paragraph2')}</p>
-        </Reveal>
+      <div className="sec-body">
+        <div className="about-grid">
+          <Reveal variant="up" className="about-main">
+            <p className="about-head">{t('about.headline')}</p>
+            <p>{t('about.paragraph1')}</p>
+            <p>{t('about.paragraph2')}</p>
+          </Reveal>
 
-        <Reveal delay={120}>
-          <dl className="md:border-l md:border-[#1f1f1f] md:pl-6 flex flex-col gap-6">
-            {facts.map((f) => (
-              <div key={f.label}>
-                <dt className="text-[#525252] text-xs tracking-widest uppercase mb-1">
-                  {f.label}
-                </dt>
-                <dd className="text-sm text-[#d4d4d4] leading-relaxed">{f.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </Reveal>
+          <Reveal variant="right" delay={120}>
+            <dl className="about-facts">
+              {facts.map((f) => (
+                <div className="fact" key={f.label}>
+                  <dt>{f.label}</dt>
+                  <dd>{f.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

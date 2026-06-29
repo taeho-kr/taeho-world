@@ -5,12 +5,71 @@
   "Expertise": "전문 분야",
   "Contact": "연락처",
   "About": "소개",
-  "Build Log": "Build Log",
+  "Build Log": "빌드 로그",
   "header": {
-    "subtitle": "AI Engineer",
-    "formerRole": "former Frontend Engineer",
+    "subtitle": "AI 엔지니어",
+    "formerRole": "전(前) 프론트엔드 엔지니어",
     "viewWork": "작업 보기",
     "getInTouch": "연락하기"
+  },
+  "ui": {
+    "hero": {
+      "tag": "포트폴리오 — 개인 · AI 엔지니어링",
+      "status": "상태: SAIP 개발 중",
+      "eyebrow": "포트폴리오",
+      "discipline": "분야",
+      "domains": "도메인",
+      "projects": "프로젝트",
+      "fde": "AI / FDE",
+      "verticals": "{{n}}개 분야",
+      "shipped": "{{n}}개 출시"
+    },
+    "profileMeta": "프로필 · 엔드투엔드",
+    "metricsMeta": "계측 지표",
+    "meters": {
+      "commits": "커밋 · 작성 주체",
+      "lines": "코드 변경 · 총 466K",
+      "coverage": "테스트 커버리지",
+      "commitsUnit": "커밋"
+    },
+    "legend": {
+      "ai": "AI",
+      "human": "사람",
+      "added": "추가",
+      "deleted": "삭제",
+      "covered": "커버",
+      "uncovered": "미커버"
+    },
+    "units": {
+      "events": "이벤트",
+      "calls": "호출",
+      "spawned": "생성",
+      "runs": "실행",
+      "commitsAi": "87.8% AI",
+      "lines": "추가 / 삭제",
+      "days": "일",
+      "loc": "라인",
+      "modules": "모듈",
+      "cases": "건",
+      "covered": "커버"
+    },
+    "stack": {
+      "meta": "빈도 · {{n}}개 프로젝트 기준",
+      "title": "스택 — 사용 빈도",
+      "scale": "카운트 / {{total}} · 최대 = {{max}}",
+      "also": "· 그 외 (×1):"
+    },
+    "projectsMeta": "{{n}}개 · 최신순",
+    "detail": "자세히",
+    "visitSite": "사이트 방문",
+    "watchVideo": "영상 보기",
+    "present": "현재",
+    "sideMeta": "운영 중 {{n}}",
+    "domainsMeta": "{{n}}개 분야",
+    "principles": "원칙",
+    "candid": "솔직하게",
+    "openToTalk": "대화는 언제든 환영",
+    "skip": "본문으로 건너뛰기"
   },
   "about": {
     "headline": "모델부터 사람들이 실제로 쓰는 화면까지, AI 제품을 처음부터 끝까지 만듭니다.",
@@ -21,7 +80,7 @@
     "focusLabel": "관심 분야",
     "focus": "지식 그래프 · 컴퓨터 비전 · AI 제품",
     "stackLabel": "주력",
-    "stack": "AI Engineering · Forward Deployed Engineering"
+    "stack": "AI 엔지니어링 · 포워드 디플로이드 엔지니어링"
   },
   "buildLog": {
     "headline": "AI 에이전트와 일하는 방식.",

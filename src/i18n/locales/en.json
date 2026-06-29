@@ -12,6 +12,65 @@
     "viewWork": "View work",
     "getInTouch": "Get in touch"
   },
+  "ui": {
+    "hero": {
+      "tag": "Portfolio — Personal · AI Engineering",
+      "status": "Status: Building SAIP",
+      "eyebrow": "Portfolio",
+      "discipline": "Discipline",
+      "domains": "Domains",
+      "projects": "Projects",
+      "fde": "AI / FDE",
+      "verticals": "{{n}} verticals",
+      "shipped": "{{n}} shipped"
+    },
+    "profileMeta": "Profile · End-to-End",
+    "metricsMeta": "Instrumented Metrics",
+    "meters": {
+      "commits": "Commits · authorship",
+      "lines": "Lines changed · 466K total",
+      "coverage": "Test coverage",
+      "commitsUnit": "commits"
+    },
+    "legend": {
+      "ai": "AI",
+      "human": "Human",
+      "added": "Added",
+      "deleted": "Deleted",
+      "covered": "Covered",
+      "uncovered": "Uncovered"
+    },
+    "units": {
+      "events": "events",
+      "calls": "calls",
+      "spawned": "spawned",
+      "runs": "runs",
+      "commitsAi": "87.8% AI",
+      "lines": "added / removed",
+      "days": "days",
+      "loc": "loc",
+      "modules": "modules",
+      "cases": "cases",
+      "covered": "covered"
+    },
+    "stack": {
+      "meta": "Frequency · across {{n}} projects",
+      "title": "Stack — Usage Frequency",
+      "scale": "Count / {{total}} · scale max = {{max}}",
+      "also": "· also (×1):"
+    },
+    "projectsMeta": "{{n}} entries · recent first",
+    "detail": "Detail",
+    "visitSite": "Visit Site",
+    "watchVideo": "Watch Video",
+    "present": "Present",
+    "sideMeta": "{{n}} live",
+    "domainsMeta": "{{n}} domains",
+    "principles": "Principles",
+    "candid": "Candid",
+    "openToTalk": "Open to conversations",
+    "skip": "Skip to content"
+  },
   "about": {
     "headline": "I build AI products end-to-end — from the model to the interface people actually use.",
     "paragraph1": "I started as a frontend engineer shipping React and React Native interfaces, focused on how software solves problems. I moved deeper into the systems behind the screen — and today I work as an AI Engineer building ontology products.",

@@ -48,8 +48,12 @@ export function useRobotScene(containerRef: React.RefObject<HTMLDivElement | nul
     const rim = new THREE.DirectionalLight(0xffffff, 1.5);
     rim.position.set(0, 0, -4); scene.add(rim);
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     const clock = new THREE.Clock();
     let animationId: number;
+    let autoWaveTimer: ReturnType<typeof setTimeout> | undefined;
+    let scrollRaf = 0;
     let mixer: THREE.AnimationMixer | null = null;
     let idleAction: THREE.AnimationAction | null = null;
     let waveAction: THREE.AnimationAction | null = null;
@@ -79,7 +83,7 @@ export function useRobotScene(containerRef: React.RefObject<HTMLDivElement | nul
     const TOTAL_DUR  = RAISE_DUR + WAVE_DUR + LOWER_DUR;
 
     const onCanvasClick = () => {
-      if (isWaving) return;
+      if (isWaving || prefersReducedMotion) return;
       isWaving = true;
       waveTimer = 0;
       if (waveAction) {
@@ -152,12 +156,21 @@ export function useRobotScene(containerRef: React.RefObject<HTMLDivElement | nul
           isWaving = false;
         }
       });
+
+      // Greet once on arrival (after rest pose has settled), unless reduced motion.
+      if (prefersReducedMotion) {
+        // Settle a single neutral idle frame, then stay static (animate() skips updates).
+        mixer.update(0);
+      } else {
+        autoWaveTimer = setTimeout(onCanvasClick, 900);
+      }
     });
 
     const animate = () => {
       animationId = requestAnimationFrame(animate);
       const delta = clock.getDelta();
-      if (mixer) mixer.update(delta);
+      // Freeze skeletal animation under reduced motion (posed once at frame 0 on load).
+      if (mixer && !prefersReducedMotion) mixer.update(delta);
       controls.update();
 
       // Procedural wave
@@ -237,6 +250,19 @@ export function useRobotScene(containerRef: React.RefObject<HTMLDivElement | nul
     };
     animate();
 
+    // Gentle scroll parallax — the figure drifts as the hero scrolls away.
+    const onScroll = () => {
+      if (scrollRaf) return;
+      scrollRaf = requestAnimationFrame(() => {
+        scrollRaf = 0;
+        const p = Math.max(0, Math.min(1, window.scrollY / window.innerHeight));
+        robotWrapper.position.y = -p * 0.5;
+      });
+    };
+    if (!prefersReducedMotion) {
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
     const onResize = () => {
       if (!container) return;
       camera.aspect = container.clientWidth / container.clientHeight;
@@ -247,7 +273,10 @@ export function useRobotScene(containerRef: React.RefObject<HTMLDivElement | nul
 
     return () => {
       cancelAnimationFrame(animationId);
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      if (autoWaveTimer) clearTimeout(autoWaveTimer);
       window.removeEventListener('resize', onResize);
+      window.removeEventListener('scroll', onScroll);
       renderer.domElement.removeEventListener('click', onCanvasClick);
       controls.dispose();
       renderer.dispose();

@@ -4,6 +4,7 @@ import { X, ExternalLink } from 'lucide-react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { projects, company } from '@/pages/CareerPage/data';
 import { Reveal } from '@/components/Reveal';
+import { Chip } from '@/components/Chip';
 import {
   Carousel,
   CarouselContent,
@@ -16,12 +17,12 @@ import { useEffect, useCallback } from 'react';
 
 type Project = typeof projects[number];
 
-const formatPeriod = (start: string, end?: string) => {
+const formatPeriod = (start: string, end: string | undefined, present: string) => {
   const fmt = (s: string) => {
     const [y, m] = s.split('-');
     return `${y}.${m}`;
   };
-  return end ? `${fmt(start)} — ${fmt(end)}` : `${fmt(start)} — Present`;
+  return end ? `${fmt(start)} — ${fmt(end)}` : `${fmt(start)} — ${present}`;
 };
 
 const ProjectModal = ({
@@ -56,10 +57,10 @@ const ProjectModal = ({
   return (
     <DialogPrimitive.Root open onOpenChange={(open) => { if (!open) onClose(); }}>
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+        <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
         <DialogPrimitive.Content
           onKeyDown={handleKeyDown}
-          className="fixed top-[50%] left-[50%] z-50 translate-x-[-50%] translate-y-[-50%] w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-[#0f0f0f] border border-[#1f1f1f] rounded-sm p-8 focus:outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 duration-200"
+          className="fixed top-[50%] left-[50%] z-50 translate-x-[-50%] translate-y-[-50%] w-full max-w-2xl max-h-[90vh] overflow-y-auto [background:var(--card-face)] border border-[var(--border-lit)] rounded-[var(--radius-card)] shadow-[var(--shadow-modal)] p-8 focus:outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 duration-200"
         >
           {/* Close button */}
           <DialogPrimitive.Close
@@ -70,20 +71,20 @@ const ProjectModal = ({
           </DialogPrimitive.Close>
 
           {/* Header */}
-          <p className="text-xs text-[#525252] tracking-widest uppercase">
-            {companyData?.name} &bull; {formatPeriod(project.start, project.end)}
+          <p className="text-folio uppercase tracking-[0.18em] nums-tabular text-[#525252]">
+            {companyData?.name} &bull; {formatPeriod(project.start, project.end, t('ui.present'))}
           </p>
-          <DialogPrimitive.Title className="text-3xl font-bold mt-1">
+          <DialogPrimitive.Title className="text-h2 opsz-head leading-[1.05] mt-2">
             {t(`projects.${project.translationKey}.name`)}
           </DialogPrimitive.Title>
-          <p className="text-[#888] mt-2 text-sm">
+          <DialogPrimitive.Description className="text-caption text-[#888] mt-3">
             {t(`projects.${project.translationKey}.singleSentence`)}
-          </p>
+          </DialogPrimitive.Description>
 
           {/* Carousel */}
           {project.images.length > 0 && (
             <>
-              <div className="border-t border-[#1f1f1f] my-6" />
+              <div className="hairline my-6" />
               <div className="px-10 relative">
                 <Carousel setApi={setApi}>
                   <CarouselContent>
@@ -105,7 +106,7 @@ const ProjectModal = ({
                   )}
                 </Carousel>
                 {count > 1 && (
-                  <p className="text-center text-xs text-[#525252] mt-3">
+                  <p className="text-center text-folio nums-tabular text-[#525252] mt-3">
                     {current} / {count}
                   </p>
                 )}
@@ -114,43 +115,38 @@ const ProjectModal = ({
           )}
 
           {/* Summary */}
-          <div className="border-t border-[#1f1f1f] my-6" />
-          <p className="text-[#aaa] leading-relaxed text-sm">
+          <div className="hairline my-6" />
+          <p className="text-caption text-[#aaa] leading-[1.6] measure">
             {t(`projects.${project.translationKey}.summary`)}
           </p>
 
           {/* Detail */}
-          <p className="text-[#aaa] leading-relaxed text-sm mt-4">
+          <p className="text-caption text-[#aaa] leading-[1.6] measure mt-4">
             {t(`projects.${project.translationKey}.detail`)}
           </p>
 
           {/* Tech Stack */}
-          <div className="border-t border-[#1f1f1f] my-6" />
-          <p className="text-xs text-[#525252] tracking-widest uppercase mb-3">Tech Stack</p>
+          <div className="hairline my-6" />
+          <p className="text-folio uppercase tracking-[0.18em] text-[#525252] mb-3">{t('projectPreview.techStack')}</p>
           <div className="flex flex-wrap gap-2">
             {project.techStack.map((tech) => (
-              <span
-                key={tech}
-                className="text-xs px-2 py-0.5 border border-[#2a2a2a] rounded-sm text-[#666]"
-              >
-                {tech}
-              </span>
+              <Chip key={tech}>{tech}</Chip>
             ))}
           </div>
 
           {/* Links */}
           {(project.url || project.videoUrl) && (
             <>
-              <div className="border-t border-[#1f1f1f] my-6" />
+              <div className="hairline my-6" />
               <div className="flex flex-wrap gap-3">
                 {project.url && (
                   <a
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm text-[#fafafa] border border-[#333] px-4 py-2 hover:bg-[#1a1a1a] transition-colors rounded-sm"
+                    className="inline-flex items-center gap-1 text-caption text-[#fafafa] border border-[#333] px-4 py-2 hover:bg-[#1a1a1a] transition-colors rounded-sm"
                   >
-                    Visit Site <ExternalLink size={12} />
+                    {t('ui.visitSite')} <ExternalLink size={12} />
                   </a>
                 )}
                 {project.videoUrl && (
@@ -158,9 +154,9 @@ const ProjectModal = ({
                     href={project.videoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm text-[#fafafa] border border-[#333] px-4 py-2 hover:bg-[#1a1a1a] transition-colors rounded-sm"
+                    className="inline-flex items-center gap-1 text-caption text-[#fafafa] border border-[#333] px-4 py-2 hover:bg-[#1a1a1a] transition-colors rounded-sm"
                   >
-                    Watch Video <ExternalLink size={12} />
+                    {t('ui.watchVideo')} <ExternalLink size={12} />
                   </a>
                 )}
               </div>
@@ -174,58 +170,39 @@ const ProjectModal = ({
 
 const ProjectCard = ({
   project,
-  onClick,
+  index,
+  onOpen,
 }: {
   project: Project;
-  onClick: () => void;
+  index: number;
+  onOpen: () => void;
 }) => {
   const { t } = useTranslation();
   const companyData = company.find((c) => c.id === project.company);
   const firstImage = project.images[0];
-
-  const endLabel = project.end
-    ? project.end.slice(0, 7).replace('-', '.')
-    : t('projectItem.inProgress');
-  const startLabel = project.start.slice(0, 7).replace('-', '.');
+  const name = t(`projects.${project.translationKey}.name`);
+  const ord = String(index + 1).padStart(2, '0');
 
   return (
-    <div
-      className="group bg-[#111111] border border-[#1f1f1f] rounded-sm overflow-hidden hover:border-[#333333] hover:-translate-y-1 transition-all duration-300 h-full flex flex-col cursor-pointer"
-      onClick={onClick}
+    <button
+      type="button"
+      className="proj-card"
+      aria-label={name}
+      onClick={onOpen}
     >
       {firstImage ? (
-        <div className="overflow-hidden">
-          <img
-            src={firstImage}
-            className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
-            alt={project.translationKey}
-          />
-        </div>
+        <img src={firstImage} alt={`${name} screenshot`} loading="lazy" />
       ) : (
-        <div className="w-full aspect-video bg-[#1a1a1a]" />
+        <span className="w-full aspect-video block bg-[var(--surface-3)]" />
       )}
-      <div className="p-6 flex flex-col flex-1">
-        <p className="text-[#525252] text-xs tracking-widest uppercase mb-2">
-          {companyData?.name} · {startLabel} ~ {endLabel}
-        </p>
-        <h3 className="text-base font-semibold mb-2 leading-snug">
-          {t(`projects.${project.translationKey}.name`)}
-        </h3>
-        <p className="text-[#525252] text-sm mb-4 flex-1">
-          {t(`projects.${project.translationKey}.singleSentence`)}
-        </p>
-        <div className="flex flex-wrap gap-1.5">
-          {project.techStack.map((tech) => (
-            <span
-              key={tech}
-              className="text-xs px-2 py-0.5 border border-[#2a2a2a] rounded-sm text-[#525252]"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
+      <span className="pc-num">{ord}</span>
+      <span className="pc-co">{companyData?.name}</span>
+      <span className="pc-go">{t('ui.detail')} →</span>
+      <span className="pc-cap">
+        <span className="pc-name">{name}</span>
+        <span className="pc-period">{formatPeriod(project.start, project.end, t('ui.present'))}</span>
+      </span>
+    </button>
   );
 };
 
@@ -234,22 +211,28 @@ const ProjectsSection = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="py-24 border-t border-[#1f1f1f]">
-      <Reveal>
-        <p className="text-xs tracking-widest uppercase text-[#525252] mb-12">
-          {t('Projects')}
-        </p>
-      </Reveal>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {projects.map((project, i) => (
-          <Reveal key={project.id} delay={(i % 2) * 80} className="h-full">
-            <ProjectCard
-              project={project}
-              onClick={() => setSelectedProject(project)}
-            />
-          </Reveal>
-        ))}
+    <section id="projects" aria-labelledby="projects-t">
+      <div className="sec-head">
+        <h2 className="sec-title" id="projects-t">
+          <span className="ord">03</span> {t('Projects')}
+        </h2>
+        <div className="sec-meta tnum">
+          {t('ui.projectsMeta', { n: String(projects.length).padStart(2, '0') })}
+        </div>
       </div>
+
+      <Reveal variant="up">
+        <div className="proj-grid">
+          {projects.map((project, i) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={i}
+              onOpen={() => setSelectedProject(project)}
+            />
+          ))}
+        </div>
+      </Reveal>
 
       {selectedProject && (
         <ProjectModal

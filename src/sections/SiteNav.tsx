@@ -1,41 +1,85 @@
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { cn } from '@/lib/utils';
+import { Logo } from '@/components/Logo';
+
+/**
+ * Ordinal index of the dossier sections. `id` MUST match the section's
+ * DOM id (and the scroll-spy IntersectionObserver targets). The order
+ * here is the visual order of the rail ticks, top → bottom.
+ */
+const RAIL_ITEMS = [
+  { id: 'about', ord: '01', label: 'About' },
+  { id: 'build-log', ord: '02', label: 'Build Log' },
+  { id: 'projects', ord: '03', label: 'Projects' },
+  { id: 'stack', ord: '04', label: 'Tech Stack' },
+  { id: 'side-projects', ord: '05', label: 'Side Projects' },
+  { id: 'expertise', ord: '06', label: 'Expertise' },
+  { id: 'values', ord: '07', label: 'Convictions' },
+  { id: 'honestly', ord: '08', label: 'Honestly' },
+  { id: 'contact', ord: '09', label: 'Contact' },
+] as const;
 
 const SiteNav = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const currentLang = i18n.language?.startsWith('ko') ? 'ko' : 'en';
+  const [active, setActive] = useState<string>('about');
 
   const toggleLang = () => {
     i18n.changeLanguage(currentLang === 'ko' ? 'en' : 'ko');
   };
 
+  // Scroll-spy: highlight the rail tick for the section in the viewport band.
+  useEffect(() => {
+    if (typeof IntersectionObserver === 'undefined') return;
+    const els = RAIL_ITEMS.map((i) => document.getElementById(i.id)).filter(
+      (el): el is HTMLElement => el !== null
+    );
+    if (!els.length) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(e.target.id);
+        });
+      },
+      { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-sm border-b border-[#1f1f1f]">
-      <div className="max-w-5xl mx-auto px-6 md:px-12 h-14 flex items-center justify-between">
-        <span className="text-sm font-semibold tracking-widest">TK</span>
-        <div className="flex items-center gap-4 sm:gap-6 text-sm text-[#525252]">
-          <a href="#about" className="hidden sm:inline-block hover:text-[#fafafa] transition-colors">
-            {t('About')}
-          </a>
-          <a href="#build-log" className="hidden md:inline-block hover:text-[#fafafa] transition-colors">
-            {t('Build Log')}
-          </a>
-          <a href="#projects" className="hover:text-[#fafafa] transition-colors">
-            {t('Projects')}
-          </a>
-          <a href="#expertise" className="hidden sm:inline-block hover:text-[#fafafa] transition-colors">
-            {t('Expertise')}
-          </a>
-          <a href="#contact" className="hover:text-[#fafafa] transition-colors">
-            {t('Contact')}
-          </a>
-          <button
-            onClick={toggleLang}
-            className="text-xs tracking-widest border border-[#2a2a2a] px-2.5 py-1 rounded-sm hover:border-[#444444] hover:text-[#fafafa] transition-colors"
-          >
-            {currentLang === 'ko' ? 'EN' : 'KO'}
-          </button>
-        </div>
+    <nav className="rail" aria-label="Section index">
+      <div className="rail-logo">
+        <a href="#hero" aria-label="Taeho Kim — back to top" className="text-[#fafafa]">
+          <Logo className="h-[18px] w-auto" />
+        </a>
       </div>
+
+      <div className="rail-nav">
+        {RAIL_ITEMS.map((item) => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className={cn(active === item.id && 'active')}
+            aria-current={active === item.id ? 'true' : undefined}
+            aria-label={`${item.ord} — ${item.label}`}
+          >
+            <span className="ord">{item.ord}</span>
+            <span className="tick" aria-hidden="true" />
+          </a>
+        ))}
+      </div>
+
+      <button
+        type="button"
+        onClick={toggleLang}
+        className="rail-lang"
+        aria-label={currentLang === 'ko' ? 'Switch to English' : 'Switch to Korean'}
+      >
+        {currentLang === 'ko' ? 'EN' : 'KO'}
+      </button>
     </nav>
   );
 };

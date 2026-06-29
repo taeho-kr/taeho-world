@@ -7,21 +7,39 @@ const WeaknessesSection = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="honestly" className="py-24 border-t border-[#1f1f1f]">
-      <Reveal>
-        <p className="text-xs tracking-widest uppercase text-[#525252] mb-12">
-          {t('weaknesses.label')}
-        </p>
+    <section id="honestly" aria-labelledby="honestly-t">
+      <div className="sec-head">
+        <h2 className="sec-title" id="honestly-t">
+          <span className="ord">08</span> {t('weaknesses.label')}
+        </h2>
+        <div className="sec-meta">{t('ui.candid')}</div>
+      </div>
+      <Reveal variant="right">
+        <div className="two-col">
+          <div className="col honestly">
+            {itemKeys.map((key, i) => {
+              const text = t(`weaknesses.items.${key}`);
+              const at = text.indexOf(' — ');
+              const lead = at >= 0 ? text.slice(0, at) : '';
+              const body = at >= 0 ? text.slice(at + 3) : text;
+              return (
+                <div className="stmt" key={key}>
+                  <span className="s-no">H.{i + 1}</span>
+                  <p>
+                    {lead ? (
+                      <>
+                        <span className="lead">{lead}</span> — {body}
+                      </>
+                    ) : (
+                      body
+                    )}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </Reveal>
-      <ul className="flex flex-col gap-5 max-w-2xl">
-        {itemKeys.map((key, i) => (
-          <Reveal key={key} delay={i * 80}>
-            <li className="border-l border-[#1f1f1f] pl-5 text-[#a3a3a3] leading-relaxed">
-              {t(`weaknesses.items.${key}`)}
-            </li>
-          </Reveal>
-        ))}
-      </ul>
     </section>
   );
 };
