@@ -129,4 +129,12 @@ const company: Company[] = [
 	}
 ];
 
+// 프로젝트 목록을 최근 순으로 정렬 — 진행 중(end 없음)을 가장 최근으로, 그다음 종료일·시작일 내림차순
+projects.sort((a, b) => {
+	const aEnd = a.end ?? '9999-99';
+	const bEnd = b.end ?? '9999-99';
+	if (aEnd !== bEnd) return bEnd.localeCompare(aEnd);
+	return b.start.localeCompare(a.start);
+});
+
 export { projects, company };

@@ -1,7 +1,10 @@
 import HeroSection from './sections/HeroSection';
 import AboutSection from './sections/AboutSection';
+import BuildLogSection from './sections/BuildLogSection';
 import ProjectsSection from './sections/ProjectsSection';
 import ExpertiseSection from './sections/ExpertiseSection';
+import ValuesSection from './sections/ValuesSection';
+import WeaknessesSection from './sections/WeaknessesSection';
 import ContactSection from './sections/ContactSection';
 import SideProjectsSection from './sections/SideProjectsSection';
 import SiteNav from './sections/SiteNav';
@@ -13,9 +16,12 @@ function App() {
       <main className="max-w-5xl mx-auto px-6 md:px-12">
         <HeroSection />
         <AboutSection />
+        <BuildLogSection />
         <ProjectsSection />
         <SideProjectsSection />
         <ExpertiseSection />
+        <ValuesSection />
+        <WeaknessesSection />
         <ContactSection />
       </main>
       <footer className="border-t border-[#1f1f1f] py-8 mt-24">

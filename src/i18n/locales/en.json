@@ -5,6 +5,7 @@
   "Expertise": "Expertise",
   "Contact": "Contact",
   "About": "About",
+  "Build Log": "Build Log",
   "header": {
     "subtitle": "AI Engineer",
     "formerRole": "former Frontend Engineer",
@@ -13,14 +14,50 @@
   },
   "about": {
     "headline": "I build AI products end-to-end — from the model to the interface people actually use.",
-    "paragraph1": "I started as a frontend engineer shipping React and React Native interfaces, fixated on how software feels to use. Over time I moved deeper into the systems behind the screen — and today I work as an AI Engineer building knowledge-graph and computer-vision products.",
-    "paragraph2": "That path lets me carry an idea across the whole stack: shaping the data and ontology, training and wiring up the models, and crafting a frontend that makes the intelligence feel effortless. I've shipped across fashion, e-commerce, education, AI, and physical security.",
+    "paragraph1": "I started as a frontend engineer shipping React and React Native interfaces, focused on how software solves problems. I moved deeper into the systems behind the screen — and today I work as an AI Engineer building ontology products.",
+    "paragraph2": "When I build, I carry a single idea across the whole stack: shaping the data and ontology, training and wiring up the models, and crafting a service that makes the intelligence feel effortless. I've shipped across fashion, e-commerce, education, AI, and physical security.",
     "nowLabel": "Now",
     "now": "Building SAIP — a use-case-driven knowledge-graph builder.",
     "focusLabel": "Focus",
     "focus": "Knowledge graphs · Computer vision · AI products",
-    "stackLabel": "Stack",
-    "stack": "React · React Native · TypeScript · AI Engineering"
+    "stackLabel": "Practice",
+    "stack": "AI Engineering · Forward Deployed Engineering"
+  },
+  "buildLog": {
+    "headline": "How I work with AI agents.",
+    "caption": "Measured from git, session logs & the codebase — not product traffic · Co-Authored-By on every commit.",
+    "recentLabel": "Last 30 days",
+    "shippedLabel": "Since April · 2.5 months",
+    "outputLabel": "The codebase",
+    "stats": {
+      "events": "AI events",
+      "tools": "Tool calls",
+      "subagents": "Sub-agents",
+      "workflows": "Workflow runs",
+      "commits": "Commits · 87.8% AI",
+      "lines": "Lines changed",
+      "activedays": "Active days",
+      "loc": "Lines of code",
+      "components": "Components",
+      "tests": "Tests",
+      "coverage": "Test coverage"
+    }
+  },
+  "values": {
+    "label": "Convictions",
+    "items": {
+      "intent": "Reason, context, natural fit — a feature ships only once I know why it's needed and how it blends into the service flow.",
+      "ease": "Simplicity, usability — I take on the complexity so the user is left with the simplest path.",
+      "transparency": "Transparency — I never build anything that happens without the customer knowing."
+    }
+  },
+  "weaknesses": {
+    "label": "Honestly",
+    "items": {
+      "breadth": "Breadth over depth — I trade deep specialization in any one area for range.",
+      "ai": "All-in on AI — I deliberately don't sharpen my from-scratch, no-AI coding.",
+      "coverage": "Critical-path testing — I don't chase 100% coverage of every line."
+    }
   },
   "projectItem": {
     "with": "with",
@@ -106,10 +143,6 @@
   },
   "Side Projects": "Side Projects",
   "sideProjects": {
-    "tools": {
-      "name": "CalcHub",
-      "description": "A collection of free online calculators and utility tools"
-    },
     "nambti": {
       "name": "NamBTI",
       "description": "How do your friends see your MBTI? Compare self-perception vs. others' perception"
@@ -121,10 +154,6 @@
     "randomJapan": {
       "name": "Random Japan Travel",
       "description": "Pick a departure and travel duration, get a random destination in Japan with local attractions"
-    },
-    "imgpress": {
-      "name": "ImgPress",
-      "description": "Privacy-first image compressor that runs entirely in the browser with zero server uploads"
     }
   }
 }

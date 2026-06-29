@@ -5,6 +5,7 @@
   "Expertise": "전문 분야",
   "Contact": "연락처",
   "About": "소개",
+  "Build Log": "Build Log",
   "header": {
     "subtitle": "AI Engineer",
     "formerRole": "former Frontend Engineer",
@@ -13,14 +14,50 @@
   },
   "about": {
     "headline": "모델부터 사람들이 실제로 쓰는 화면까지, AI 제품을 처음부터 끝까지 만듭니다.",
-    "paragraph1": "저는 React와 React Native로 인터페이스를 만드는 프론트엔드 엔지니어로 시작했고, 소프트웨어가 '어떻게 느껴지는가'에 집착했습니다. 시간이 지나며 화면 뒤의 시스템으로 더 깊이 들어갔고, 지금은 지식 그래프와 컴퓨터 비전 제품을 만드는 AI 엔지니어로 일하고 있습니다.",
-    "paragraph2": "그 과정 덕분에 하나의 아이디어를 전체 스택에 걸쳐 끌고 갈 수 있습니다. 데이터와 온톨로지를 설계하고, 모델을 학습·연결하며, 그 지능이 자연스럽게 느껴지는 프론트엔드를 만듭니다. 패션, 이커머스, 교육, AI, 물리 보안 등 다양한 분야에서 제품을 출시해 왔습니다.",
+    "paragraph1": "저는 React와 React Native로 인터페이스를 만드는 프론트엔드 엔지니어로 시작했고, 소프트웨어가 '어떻게 문제를 해결하는가'에 집중했습니다. 화면 뒤의 시스템으로 더 깊이 들어갔고, 지금은 온톨로지 제품을 만드는 AI 엔지니어로 일하고 있습니다.",
+    "paragraph2": "개발 과정에서 하나의 아이디어를 전체 스택에 걸쳐 끌고 갈 수 있습니다. 데이터와 온톨로지를 설계하고, 모델을 학습·연결하며, 그 지능이 자연스럽게 느껴지는 서비스를 만듭니다. 패션, 이커머스, 교육, AI, 물리 보안 등 다양한 분야에서 제품을 출시해 왔습니다.",
     "nowLabel": "현재",
     "now": "유스케이스 기반 지식 그래프 빌더 SAIP를 만들고 있습니다.",
     "focusLabel": "관심 분야",
     "focus": "지식 그래프 · 컴퓨터 비전 · AI 제품",
-    "stackLabel": "기술",
-    "stack": "React · React Native · TypeScript · AI Engineering"
+    "stackLabel": "주력",
+    "stack": "AI Engineering · Forward Deployed Engineering"
+  },
+  "buildLog": {
+    "headline": "AI 에이전트와 일하는 방식.",
+    "caption": "git·세션 로그·코드베이스 실측 · 제품 트래픽 아님 · 모든 커밋에 Co-Authored-By",
+    "recentLabel": "최근 30일",
+    "shippedLabel": "4월부터 · 2.5개월",
+    "outputLabel": "결과물",
+    "stats": {
+      "events": "AI 이벤트",
+      "tools": "도구 호출",
+      "subagents": "서브에이전트",
+      "workflows": "워크플로우 실행",
+      "commits": "커밋 · 87.8% AI",
+      "lines": "코드 변경",
+      "activedays": "활동일",
+      "loc": "코드 라인",
+      "components": "컴포넌트",
+      "tests": "테스트",
+      "coverage": "테스트 커버리지"
+    }
+  },
+  "values": {
+    "label": "신념",
+    "items": {
+      "intent": "이유, 맥락, 자연스러운 융합 — 왜 필요한지, 서비스 흐름에 어떻게 녹일지 답이 선 기능만 넣습니다.",
+      "ease": "단순함, 사용성 — 복잡함은 내가 떠안고, 사용자에게는 가장 쉬운 길만 남깁니다.",
+      "transparency": "투명함 — 고객이 모르는 채로 일어나는 일은 만들지 않습니다."
+    }
+  },
+  "weaknesses": {
+    "label": "정직하게",
+    "items": {
+      "breadth": "깊이보다 넓이 — 한 분야의 깊은 전문성과 맞바꿨습니다.",
+      "ai": "AI 운용에 올인 — 도구 없이 맨손으로 짜는 능력은 의도적으로 내려놓았습니다.",
+      "coverage": "테스트는 핵심 경로 우선 — 모든 코드를 100% 덮지는 않습니다."
+    }
   },
   "projectItem": {
     "with": "with",
@@ -106,10 +143,6 @@
   },
   "Side Projects": "사이드 프로젝트",
   "sideProjects": {
-    "tools": {
-      "name": "CalcHub",
-      "description": "다양한 온라인 계산 도구 모음 플랫폼"
-    },
     "nambti": {
       "name": "NamBTI",
       "description": "친구들이 보는 내 MBTI — 자기 인식과 타인 인식을 비교하는 서비스"
@@ -121,10 +154,6 @@
     "randomJapan": {
       "name": "랜덤 일본여행",
       "description": "출발지와 여행 기간을 선택하면 랜덤으로 일본 여행지를 추천하는 서비스"
-    },
-    "imgpress": {
-      "name": "ImgPress",
-      "description": "서버 업로드 없이 브라우저에서 이미지를 압축하는 프라이버시 중심 도구"
     }
   }
 }

@@ -16,6 +16,9 @@ const SiteNav = () => {
           <a href="#about" className="hidden sm:inline-block hover:text-[#fafafa] transition-colors">
             {t('About')}
           </a>
+          <a href="#build-log" className="hidden md:inline-block hover:text-[#fafafa] transition-colors">
+            {t('Build Log')}
+          </a>
           <a href="#projects" className="hover:text-[#fafafa] transition-colors">
             {t('Projects')}
           </a>
