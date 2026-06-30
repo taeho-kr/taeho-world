@@ -17,7 +17,7 @@ const HeroSection = () => {
           <span className="dot" aria-hidden="true" />
           {t('ui.hero.status')}
         </span>
-        <span className="tnum">REV 2026.06.29</span>
+        <span className="tnum">REV {__BUILD_DATE__}</span>
       </div>
 
       <div className="hero-grid">

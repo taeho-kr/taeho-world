@@ -5,6 +5,14 @@ import { projects } from '@/pages/CareerPage/data';
 
 const BAR_LIMIT = 7;
 
+/**
+ * Tokens that are categories or AI tooling, not libraries/frameworks. They stay
+ * in each project's `techStack` (and still render as chips in the project modal)
+ * but are excluded from the frequency chart so the viz reads as a clean inventory
+ * of actual technologies instead of mixing "Backend"/"Claude Code" with React.
+ */
+const NON_TECH = new Set(['Web Frontend', 'Backend', 'Claude Code', 'Codex']);
+
 interface FreqEntry {
   name: string;
   count: number;
@@ -24,6 +32,7 @@ const StackSection = () => {
     const tally = new Map<string, number>();
     for (const project of projects) {
       for (const tech of project.techStack) {
+        if (NON_TECH.has(tech)) continue;
         tally.set(tech, (tally.get(tech) ?? 0) + 1);
       }
     }

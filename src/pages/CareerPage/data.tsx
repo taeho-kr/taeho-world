@@ -30,7 +30,7 @@ const projects: Project[] = [
 		end: '2021-06',
 		url: 'https://www.stylear.ai/',
 		images: [styleAR2Image, styleARImage],
-		techStack: ['Vue2', 'Vuex', 'HTML Canvas', 'WebGL', 'JQuery', 'Node.js', 'Express', 'MySQL'],
+		techStack: ['Vue2', 'Vuex', 'HTML Canvas', 'WebGL', 'jQuery', 'Node.js', 'Express', 'MySQL'],
 	},
 	{
 		id: 2,
@@ -58,7 +58,7 @@ const projects: Project[] = [
 		id: 4,
 		company: 3,
 		translationKey: 'smartCity',
-		domains: ['Geographic', 'Physical security', 'Video Stream'],
+		domains: ['Geographic', 'Physical Security', 'Video Stream'],
 		start: '2023-04',
 		end: '2024-06',
 		images: [TMSImage, TMS2Image, TMS3Image],
@@ -82,7 +82,7 @@ const projects: Project[] = [
 		domains: ['AI', 'Video Stream', 'Physical Security'],
 		start: '2024-10',
 		images: [vunexAIImage, vunexAI2Image],
-		techStack: ['React', 'Zustand', 'tanstack Query', 'Styled-Components', 'tailwindcss', 'WebRTC', 'HTML Canvas'],
+		techStack: ['React', 'Zustand', 'TanStack Query', 'Styled-Components', 'Tailwind CSS', 'WebRTC', 'HTML Canvas'],
 	},
 	{
 		id: 7,
@@ -92,7 +92,7 @@ const projects: Project[] = [
 		start: '2024-10',
 		url: 'https://mlops.vunex-cloud.com/',
 		images: [vunexMLOpsImage, vunexMLOps2Image, vunexMLOps3Image],
-		techStack: ['React', 'Zustand', 'tanstack Query', 'tailwindcss', 'HTML Canvas'],
+		techStack: ['React', 'Zustand', 'TanStack Query', 'Tailwind CSS', 'HTML Canvas'],
 	},
 	{
 		id: 8,

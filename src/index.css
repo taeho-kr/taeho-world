@@ -142,12 +142,14 @@ body {
   --border-hover: #333333;
   --border-lit: rgba(255, 255, 255, 0.06);
 
-  /* text ramp (muted lifted for AA on raised faces) */
+  /* text ramp — label tier (#808080) clears WCAG AA (>=4.5:1) on every surface
+     in this ramp; faint/ghost below are decorative-only and intentionally sub-AA
+     (never route readable label/body text through them). */
   --foreground: #fafafa;
   --fg-secondary: #d4d4d4;
   --fg-body: #a3a3a3;
   --fg-muted: #808080;
-  --fg-label: #525252;
+  --fg-label: #808080;
   --fg-faint: #3a3a3a;
   --fg-ghost: #262626;
 
@@ -521,6 +523,7 @@ body {
   .reveal-right,
   .animate-rise-in,
   .hero-line,
+  .hero-top .dot,
   .hover-card {
     opacity: 1 !important;
     transform: none !important;
@@ -549,7 +552,7 @@ body {
   --line-strong: var(--border-hover); /* #333 */
   --ink: var(--foreground); /* #fafafa */
   --ink-dim: var(--fg-body); /* #a3a3a3 */
-  --ink-faint: var(--fg-label); /* #525252 */
+  --ink-faint: var(--fg-label); /* #808080 — AA-legible */
   --panel: var(--card); /* #111 */
   --rail-w: 64px;
   --mono: 'Roboto Flex', 'Noto Sans KR', monospace;
@@ -1718,16 +1721,18 @@ footer.foot {
     font-size: 9px;
   }
   table.bl tr td:first-child {
-    padding-left: 16px;
+    padding: 12px 8px 12px 16px;
     font-size: 11px;
+    width: auto;
     white-space: normal;
-    word-break: break-word;
+    word-break: keep-all;
   }
   table.bl tr td:nth-child(2) {
-    font-size: 20px;
+    padding: 10px 8px;
+    font-size: 17px;
   }
   table.bl tr td:last-child {
-    padding-right: 16px;
+    padding: 12px 16px 12px 8px;
     white-space: normal;
   }
   table.bl caption {

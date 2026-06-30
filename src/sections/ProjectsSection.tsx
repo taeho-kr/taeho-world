@@ -64,20 +64,20 @@ const ProjectModal = ({
         >
           {/* Close button */}
           <DialogPrimitive.Close
-            className="absolute top-4 right-4 text-[#525252] hover:text-[#fafafa] transition-colors"
-            aria-label="Close"
+            className="absolute top-4 right-4 text-[var(--fg-muted)] hover:text-[var(--foreground)] transition-colors"
+            aria-label={t('ui.close')}
           >
             <X size={18} />
           </DialogPrimitive.Close>
 
           {/* Header */}
-          <p className="text-folio uppercase tracking-[0.18em] nums-tabular text-[#525252]">
+          <p className="text-folio uppercase tracking-[0.18em] nums-tabular text-[var(--fg-muted)]">
             {companyData?.name} &bull; {formatPeriod(project.start, project.end, t('ui.present'))}
           </p>
           <DialogPrimitive.Title className="text-h2 opsz-head leading-[1.05] mt-2">
             {t(`projects.${project.translationKey}.name`)}
           </DialogPrimitive.Title>
-          <DialogPrimitive.Description className="text-caption text-[#888] mt-3">
+          <DialogPrimitive.Description className="text-caption text-[var(--fg-muted)] mt-3">
             {t(`projects.${project.translationKey}.singleSentence`)}
           </DialogPrimitive.Description>
 
@@ -92,7 +92,7 @@ const ProjectModal = ({
                       <CarouselItem key={i}>
                         <img
                           src={img}
-                          alt={`${project.translationKey} screenshot ${i + 1}`}
+                          alt={`${t(`projects.${project.translationKey}.name`)} — screenshot ${i + 1}`}
                           className="w-full aspect-video object-cover rounded-sm"
                         />
                       </CarouselItem>
@@ -100,13 +100,13 @@ const ProjectModal = ({
                   </CarouselContent>
                   {count > 1 && (
                     <>
-                      <CarouselPrevious className="bg-[#1a1a1a] border-[#333] text-[#aaa] hover:bg-[#2a2a2a] hover:text-white -left-8" />
-                      <CarouselNext className="bg-[#1a1a1a] border-[#333] text-[#aaa] hover:bg-[#2a2a2a] hover:text-white -right-8" />
+                      <CarouselPrevious className="bg-[var(--surface-4)] border-[var(--border-hover)] text-[var(--fg-body)] hover:bg-[#222] hover:text-white -left-8" />
+                      <CarouselNext className="bg-[var(--surface-4)] border-[var(--border-hover)] text-[var(--fg-body)] hover:bg-[#222] hover:text-white -right-8" />
                     </>
                   )}
                 </Carousel>
                 {count > 1 && (
-                  <p className="text-center text-folio nums-tabular text-[#525252] mt-3">
+                  <p className="text-center text-folio nums-tabular text-[var(--fg-muted)] mt-3">
                     {current} / {count}
                   </p>
                 )}
@@ -116,18 +116,18 @@ const ProjectModal = ({
 
           {/* Summary */}
           <div className="hairline my-6" />
-          <p className="text-caption text-[#aaa] leading-[1.6] measure">
+          <p className="text-caption text-[var(--fg-body)] leading-[1.6] measure">
             {t(`projects.${project.translationKey}.summary`)}
           </p>
 
           {/* Detail */}
-          <p className="text-caption text-[#aaa] leading-[1.6] measure mt-4">
+          <p className="text-caption text-[var(--fg-body)] leading-[1.6] measure mt-4">
             {t(`projects.${project.translationKey}.detail`)}
           </p>
 
           {/* Tech Stack */}
           <div className="hairline my-6" />
-          <p className="text-folio uppercase tracking-[0.18em] text-[#525252] mb-3">{t('projectPreview.techStack')}</p>
+          <p className="text-folio uppercase tracking-[0.18em] text-[var(--fg-muted)] mb-3">{t('projectPreview.techStack')}</p>
           <div className="flex flex-wrap gap-2">
             {project.techStack.map((tech) => (
               <Chip key={tech}>{tech}</Chip>
@@ -144,7 +144,7 @@ const ProjectModal = ({
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-caption text-[#fafafa] border border-[#333] px-4 py-2 hover:bg-[#1a1a1a] transition-colors rounded-sm"
+                    className="inline-flex items-center gap-1 text-caption text-[var(--foreground)] border border-[var(--border-hover)] px-4 py-2 hover:bg-[var(--surface-4)] transition-colors rounded-sm"
                   >
                     {t('ui.visitSite')} <ExternalLink size={12} />
                   </a>
@@ -154,7 +154,7 @@ const ProjectModal = ({
                     href={project.videoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-caption text-[#fafafa] border border-[#333] px-4 py-2 hover:bg-[#1a1a1a] transition-colors rounded-sm"
+                    className="inline-flex items-center gap-1 text-caption text-[var(--foreground)] border border-[var(--border-hover)] px-4 py-2 hover:bg-[var(--surface-4)] transition-colors rounded-sm"
                   >
                     {t('ui.watchVideo')} <ExternalLink size={12} />
                   </a>

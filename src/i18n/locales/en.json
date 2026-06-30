@@ -20,7 +20,7 @@
       "discipline": "Discipline",
       "domains": "Domains",
       "projects": "Projects",
-      "fde": "AI / FDE",
+      "fde": "AI Engineering / FDE",
       "verticals": "{{n}} verticals",
       "shipped": "{{n}} shipped"
     },
@@ -69,7 +69,8 @@
     "principles": "Principles",
     "candid": "Candid",
     "openToTalk": "Open to conversations",
-    "skip": "Skip to content"
+    "skip": "Skip to content",
+    "close": "Close"
   },
   "about": {
     "headline": "I build AI products end-to-end — from the model to the interface people actually use.",

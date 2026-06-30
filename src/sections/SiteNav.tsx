@@ -9,19 +9,19 @@ import { Logo } from '@/components/Logo';
  * here is the visual order of the rail ticks, top → bottom.
  */
 const RAIL_ITEMS = [
-  { id: 'about', ord: '01', label: 'About' },
-  { id: 'build-log', ord: '02', label: 'Build Log' },
-  { id: 'projects', ord: '03', label: 'Projects' },
-  { id: 'stack', ord: '04', label: 'Tech Stack' },
-  { id: 'side-projects', ord: '05', label: 'Side Projects' },
-  { id: 'expertise', ord: '06', label: 'Expertise' },
-  { id: 'values', ord: '07', label: 'Convictions' },
-  { id: 'honestly', ord: '08', label: 'Honestly' },
-  { id: 'contact', ord: '09', label: 'Contact' },
+  { id: 'about', ord: '01', i18nKey: 'About' },
+  { id: 'build-log', ord: '02', i18nKey: 'Build Log' },
+  { id: 'projects', ord: '03', i18nKey: 'Projects' },
+  { id: 'stack', ord: '04', i18nKey: 'projectPreview.techStack' },
+  { id: 'side-projects', ord: '05', i18nKey: 'Side Projects' },
+  { id: 'expertise', ord: '06', i18nKey: 'Expertise' },
+  { id: 'values', ord: '07', i18nKey: 'values.label' },
+  { id: 'honestly', ord: '08', i18nKey: 'weaknesses.label' },
+  { id: 'contact', ord: '09', i18nKey: 'Contact' },
 ] as const;
 
 const SiteNav = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const currentLang = i18n.language?.startsWith('ko') ? 'ko' : 'en';
   const [active, setActive] = useState<string>('about');
 
@@ -63,8 +63,8 @@ const SiteNav = () => {
             key={item.id}
             href={`#${item.id}`}
             className={cn(active === item.id && 'active')}
-            aria-current={active === item.id ? 'true' : undefined}
-            aria-label={`${item.ord} — ${item.label}`}
+            aria-current={active === item.id ? 'location' : undefined}
+            aria-label={`${item.ord} — ${t(item.i18nKey)}`}
           >
             <span className="ord">{item.ord}</span>
             <span className="tick" aria-hidden="true" />

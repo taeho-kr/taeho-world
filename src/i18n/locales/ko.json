@@ -20,7 +20,7 @@
       "discipline": "분야",
       "domains": "도메인",
       "projects": "프로젝트",
-      "fde": "AI / FDE",
+      "fde": "AI 엔지니어링 / FDE",
       "verticals": "{{n}}개 분야",
       "shipped": "{{n}}개 출시"
     },
@@ -69,7 +69,8 @@
     "principles": "원칙",
     "candid": "솔직하게",
     "openToTalk": "대화는 언제든 환영",
-    "skip": "본문으로 건너뛰기"
+    "skip": "본문으로 건너뛰기",
+    "close": "닫기"
   },
   "about": {
     "headline": "모델부터 사람들이 실제로 쓰는 화면까지, AI 제품을 처음부터 끝까지 만듭니다.",
