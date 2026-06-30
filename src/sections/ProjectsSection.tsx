@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { X, ExternalLink } from 'lucide-react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-import { projects, company } from '@/pages/CareerPage/data';
+import { projects, company } from '@/data/data';
 import { Reveal } from '@/components/Reveal';
 import { Chip } from '@/components/Chip';
 import {

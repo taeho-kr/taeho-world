@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Reveal } from '@/components/Reveal';
-import { projects } from '@/pages/CareerPage/data';
+import { projects } from '@/data/data';
 
 const BAR_LIMIT = 7;
 

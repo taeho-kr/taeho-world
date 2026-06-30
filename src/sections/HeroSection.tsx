@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRobotScene } from '../hooks/useRobotScene';
-import { projects } from '@/pages/CareerPage/data';
+import { projects } from '@/data/data';
 
 const HeroSection = () => {
   const { t } = useTranslation();
