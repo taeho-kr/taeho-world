@@ -1398,11 +1398,16 @@ table.bl tr:hover td {
 /* ---- side projects rows ---- */
 .side-list {
   display: grid;
-  grid-template-columns: 1fr;
+  /* One shared set of column tracks for the whole list. Each row is a subgrid
+     (below) that inherits these tracks, so the URL column — sized to the widest
+     URL — is identical on every row and the name/description columns line up.
+     (Independent per-row grids made the columns ragged between rows.) */
+  grid-template-columns: 56px 1fr 2fr auto;
 }
 .side-row {
   display: grid;
-  grid-template-columns: 56px 1fr 2fr auto;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
   align-items: center;
   gap: 0;
   border-bottom: 1px solid var(--line);
@@ -1444,6 +1449,9 @@ table.bl tr:hover td {
   color: var(--ink-dim);
   letter-spacing: 0.02em;
   gap: 8px;
+  /* The shared URL column is as wide as the longest URL; keep shorter URLs
+     flush to the right edge instead of left-aligned with a ragged gap. */
+  justify-content: flex-end;
 }
 .side-row:hover .side-url {
   color: #fff;
@@ -1648,13 +1656,24 @@ footer.foot {
   .about-facts {
     padding-left: 0;
   }
+  .side-list {
+    grid-template-columns: 1fr;
+  }
   .side-row {
     grid-template-columns: 40px 1fr;
   }
   .side-row > * {
     border-right: none;
   }
+  /* Pin the index + name explicitly. With only `grid-row: 1` the name (a
+     definite-row item) was auto-placed into column 1 before the fully-auto
+     index, so the two overlapped. */
+  .side-idx {
+    grid-column: 1;
+    grid-row: 1;
+  }
   .side-name {
+    grid-column: 2;
     grid-row: 1;
   }
   .side-desc,
@@ -1662,6 +1681,13 @@ footer.foot {
     grid-column: 1 / -1;
     padding-top: 4px;
     padding-bottom: 8px;
+    justify-content: flex-start;
+  }
+  .side-desc {
+    grid-row: 2;
+  }
+  .side-url {
+    grid-row: 3;
   }
   .exp-grid {
     grid-template-columns: 1fr;
