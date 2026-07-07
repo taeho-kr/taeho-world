@@ -6,13 +6,22 @@
 html,
 body {
   width: 100%;
-  height: 100%;
 }
+/* No `height: 100%` here on purpose: a fixed-height <body> collapses its
+   scrollable content to the viewport the moment Radix's modal lock applies
+   `body { overflow: hidden }`, which yanks the page to the top on open.
+   Letting <body> grow with content (min-height below) keeps scroll intact. */
 
-/* Allow full-bleed hairline dividers without inducing horizontal scroll */
-html {
-  overflow-x: hidden;
-}
+/* Do NOT add any overflow override to <html>. The window's scroll is
+   propagated from the root element; the moment <html> is anything other than
+   `overflow: visible` on BOTH axes (yes — `clip` and `hidden` both count),
+   Blink stops treating the window as the standard scroller. Radix's modal
+   scroll-lock (react-remove-scroll) then flips `body { overflow: hidden }`
+   against that non-standard viewport and Blink resets the scroll offset to 0
+   — this is the "background jumps to the top when a project modal opens" bug.
+   Horizontal full-bleed clipping (e.g. .hairline-bleed at 100vw) is done on
+   #root below, which is NOT part of viewport overflow propagation, so it
+   clips the X axis without disturbing the window scroller. */
 
 /* Anchor-nav offset so the fixed header never covers a section heading */
 section[id] {
@@ -27,7 +36,9 @@ section[id] {
 
 body {
   box-sizing: border-box;
-  min-width: 100vw;
+  /* No `min-width: 100vw`: 100vw includes the scrollbar width, so it forces the
+     body a few px wider than the content box and yields a horizontal scrollbar
+     once <html> no longer clips X. The body already fills the viewport width. */
   min-height: 100dvh;
   /* Break lines at word (eojeol) boundaries — never mid-word for Korean.
      Inherited site-wide; long unbreakable tokens (emails/URLs) still wrap. */
@@ -37,7 +48,14 @@ body {
 
 #root {
   width: 100%;
-  min-height: 100%;
+  min-height: 100dvh;
+  /* Clip full-bleed elements (.hairline-bleed spans 100vw) here rather than on
+     <html>. #root is not a viewport-propagation participant, so `clip` here
+     trims horizontal overflow WITHOUT turning the window into a non-standard
+     scroller — which is what caused the modal-open scroll-to-top bug. `clip`
+     (not `hidden`) keeps #root from becoming a scroll container, so the page
+     still scrolls on the window and the sticky left rail keeps working. */
+  overflow-x: clip;
 }
 
 ::-webkit-scrollbar {
