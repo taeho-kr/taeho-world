@@ -7,6 +7,7 @@ interface SideProject {
 }
 
 const sideProjects: SideProject[] = [
+  { id: 'mpti', url: 'https://mypoliticaltypeindicator.com' },
   { id: 'nambti', url: 'https://nambti.site' },
   { id: 'randomKorea', url: 'https://random-korea.taeho.world' },
   { id: 'randomJapan', url: 'https://random-japan.taeho.world' },

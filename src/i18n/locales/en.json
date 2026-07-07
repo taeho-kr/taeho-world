@@ -203,6 +203,10 @@
   },
   "Side Projects": "Side Projects",
   "sideProjects": {
+    "mpti": {
+      "name": "MPTI",
+      "description": "Like MBTI, but for politics — 60 questions across 4 axes place you in one of 16 political types"
+    },
     "nambti": {
       "name": "NamBTI",
       "description": "How do your friends see your MBTI? Compare self-perception vs. others' perception"

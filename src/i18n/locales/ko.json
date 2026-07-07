@@ -203,6 +203,10 @@
   },
   "Side Projects": "사이드 프로젝트",
   "sideProjects": {
+    "mpti": {
+      "name": "MPTI",
+      "description": "MBTI의 정치 버전 — 4개 축 60문항으로 16가지 정치 성향 유형 중 하나를 진단"
+    },
     "nambti": {
       "name": "NamBTI",
       "description": "친구들이 보는 내 MBTI — 자기 인식과 타인 인식을 비교하는 서비스"
