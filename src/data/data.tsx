@@ -18,7 +18,6 @@ import saipImage from './images/saip.webp';
 import saip2Image from './images/saip2.webp';
 import saip3Image from './images/saip3.webp';
 import saip4Image from './images/saip4.webp';
-import saip5Image from './images/saip5.webp';
 
 const projects: Project[] = [
 	{
@@ -101,7 +100,7 @@ const projects: Project[] = [
 		domains: ['AI', 'Knowledge Graph', 'Ontology'],
 		start: '2025-08',
 		url: 'https://s2w.inc/ko/product/pd01',
-		images: [saipImage, saip2Image, saip3Image, saip4Image, saip5Image],
+		images: [saipImage, saip2Image, saip3Image, saip4Image],
 		techStack: ['Web Frontend', 'Backend', 'Claude Code', 'Codex'],
 	},
 ];
