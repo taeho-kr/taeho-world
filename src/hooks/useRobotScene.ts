@@ -89,6 +89,13 @@ export function useRobotScene(containerRef: React.RefObject<HTMLDivElement | nul
       if (waveAction) {
         waveAction.reset().setEffectiveTimeScale(1).setEffectiveWeight(1).fadeIn(0.3).play();
         idleAction?.fadeOut(0.3);
+      } else if (useProceduralWave) {
+        // Snapshot the arm's current (idle) pose so the raise and the return are
+        // coherent with wherever the idle sway happens to be at this instant.
+        if (bones.rightShoulder) restRot.rightShoulder.copy(bones.rightShoulder.rotation);
+        if (bones.rightArm)      restRot.rightArm.copy(bones.rightArm.rotation);
+        if (bones.rightForeArm)  restRot.rightForeArm.copy(bones.rightForeArm.rotation);
+        if (bones.rightHand)     restRot.rightHand.copy(bones.rightHand.rotation);
       }
     };
 
@@ -173,76 +180,42 @@ export function useRobotScene(containerRef: React.RefObject<HTMLDivElement | nul
       if (mixer && !prefersReducedMotion) mixer.update(delta);
       controls.update();
 
-      // Procedural wave
+      // Procedural greeting wave (the model ships no wave clip). We drive the
+      // right arm chain directly while the idle animation keeps moving the rest
+      // of the body underneath. Every frame we write ALL of x/y/z for each arm
+      // bone so the idle track can't leak into the arm and fight the pose.
       if (isWaving && useProceduralWave) {
         waveTimer += delta;
         const t = waveTimer;
+        const R = restRot;
 
-        if (t < RAISE_DUR) {
-          // Phase 1: raise arm up above shoulder (wave position)
-          const p = easeOut(clamp01(t / RAISE_DUR));
-          if (bones.rightShoulder) {
-            bones.rightShoulder.rotation.z = restRot.rightShoulder.z + p * (-0.2);
-          }
-          if (bones.rightArm) {
-            // Raise arm to about 60° above horizontal
-            bones.rightArm.rotation.z = restRot.rightArm.z + p * (-1.2);
-            bones.rightArm.rotation.x = restRot.rightArm.x + p * 0.3; // slight forward tilt
-          }
-          if (bones.rightForeArm) {
-            // Bend elbow so forearm points upward (away from body)
-            bones.rightForeArm.rotation.z = restRot.rightForeArm.z + p * (-1.3);
-          }
-          if (bones.spine) {
-            bones.spine.rotation.z = restRot.spine.z + p * (-0.05);
-          }
-        } else if (t < RAISE_DUR + WAVE_DUR) {
-          // Phase 2: wave hand back and forth at raised position
-          const wt = t - RAISE_DUR;
-          const amp = 0.5 * (1 - 0.12 * clamp01(wt / WAVE_DUR));
-          const freq = 5.0;
-          const waveVal = Math.sin(wt * freq) * amp;
-          const elbowBob = Math.cos(wt * freq * 0.5) * 0.12;
+        // Raised target pose, as offsets from the snapshotted rest pose.
+        const SH_Z  = -0.18;  // shoulder lifts a touch
+        const ARM_X =  0.12;  // small forward tilt so the elbow doesn't wing out
+        const ARM_Z = -1.45;  // upper arm swings up to ~shoulder height
+        const FA_X  = -0.15;  // forearm cants in toward the head
+        const FA_Z  = -1.55;  // elbow bends so the forearm points up
 
-          if (bones.rightShoulder) bones.rightShoulder.rotation.z = restRot.rightShoulder.z + (-0.2);
-          if (bones.rightArm) {
-            bones.rightArm.rotation.z = restRot.rightArm.z + (-1.2);
-            bones.rightArm.rotation.x = restRot.rightArm.x + 0.3;
-          }
-          if (bones.rightForeArm) {
-            bones.rightForeArm.rotation.z = restRot.rightForeArm.z + (-1.3) + elbowBob;
-          }
-          if (bones.rightHand) {
-            // Hand rotates on Z for side-to-side wave
-            bones.rightHand.rotation.z = restRot.rightHand.z + waveVal;
-            bones.rightHand.rotation.x = restRot.rightHand.x + Math.sin(wt * freq * 0.7) * 0.15;
-          }
-          if (bones.spine) bones.spine.rotation.z = restRot.spine.z + (-0.05);
-        } else {
-          // Phase 3: lower arm back to rest
-          const p = easeInOut(clamp01((t - RAISE_DUR - WAVE_DUR) / LOWER_DUR));
-          if (bones.rightShoulder) bones.rightShoulder.rotation.z = THREE.MathUtils.lerp(restRot.rightShoulder.z + (-0.2), restRot.rightShoulder.z, p);
-          if (bones.rightArm) {
-            bones.rightArm.rotation.z = THREE.MathUtils.lerp(restRot.rightArm.z + (-1.2), restRot.rightArm.z, p);
-            bones.rightArm.rotation.x = THREE.MathUtils.lerp(restRot.rightArm.x + 0.3, restRot.rightArm.x, p);
-          }
-          if (bones.rightForeArm) bones.rightForeArm.rotation.z = THREE.MathUtils.lerp(restRot.rightForeArm.z + (-1.3), restRot.rightForeArm.z, p);
-          if (bones.rightHand) {
-            bones.rightHand.rotation.z = THREE.MathUtils.lerp(bones.rightHand.rotation.z, restRot.rightHand.z, p);
-            bones.rightHand.rotation.x = THREE.MathUtils.lerp(bones.rightHand.rotation.x, restRot.rightHand.x, p);
-          }
-          if (bones.spine) bones.spine.rotation.z = THREE.MathUtils.lerp(restRot.spine.z + (-0.05), restRot.spine.z, p);
+        // raise: 0 at rest → 1 fully up → 0 again while lowering.
+        let raise: number;
+        if (t < RAISE_DUR) raise = easeOut(clamp01(t / RAISE_DUR));
+        else if (t < RAISE_DUR + WAVE_DUR) raise = 1;
+        else raise = 1 - easeInOut(clamp01((t - RAISE_DUR - WAVE_DUR) / LOWER_DUR));
 
-          if (t >= TOTAL_DUR) {
-            isWaving = false;
-            // Snap to rest
-            if (bones.rightShoulder) bones.rightShoulder.rotation.copy(restRot.rightShoulder);
-            if (bones.rightArm)      bones.rightArm.rotation.copy(restRot.rightArm);
-            if (bones.rightForeArm)  bones.rightForeArm.rotation.copy(restRot.rightForeArm);
-            if (bones.rightHand)     bones.rightHand.rotation.copy(restRot.rightHand);
-            if (bones.spine)         bones.spine.rotation.copy(restRot.spine);
-          }
-        }
+        // Side-to-side hand swing — fades in once the arm is up, out as it drops.
+        const env   = clamp01((t - RAISE_DUR * 0.5) / 0.3) * raise;
+        const swing = Math.sin((t - RAISE_DUR) * 9.0) * 0.42 * env;
+
+        if (bones.rightShoulder)
+          bones.rightShoulder.rotation.set(R.rightShoulder.x, R.rightShoulder.y, R.rightShoulder.z + SH_Z * raise);
+        if (bones.rightArm)
+          bones.rightArm.rotation.set(R.rightArm.x + ARM_X * raise, R.rightArm.y, R.rightArm.z + ARM_Z * raise);
+        if (bones.rightForeArm)
+          bones.rightForeArm.rotation.set(R.rightForeArm.x + FA_X * raise + swing, R.rightForeArm.y, R.rightForeArm.z + FA_Z * raise);
+        if (bones.rightHand)
+          bones.rightHand.rotation.set(R.rightHand.x, R.rightHand.y, R.rightHand.z + swing * 0.5);
+
+        if (t >= TOTAL_DUR) isWaving = false;   // idle takes the arm back next frame
       }
 
 
