@@ -52,7 +52,7 @@ const SiteNav = () => {
   return (
     <nav className="rail" aria-label="Section index">
       <div className="rail-logo">
-        <a href="#hero" aria-label="Taeho Kim — back to top" className="text-[#fafafa]">
+        <a href="#hero" aria-label="Taeho Kim, back to top" className="text-[#fafafa]">
           <Logo className="h-[18px] w-auto" />
         </a>
       </div>
@@ -64,7 +64,7 @@ const SiteNav = () => {
             href={`#${item.id}`}
             className={cn(active === item.id && 'active')}
             aria-current={active === item.id ? 'location' : undefined}
-            aria-label={`${item.ord} — ${t(item.i18nKey)}`}
+            aria-label={`${item.ord}. ${t(item.i18nKey)}`}
           >
             <span className="ord">{item.ord}</span>
             <span className="tick" aria-hidden="true" />

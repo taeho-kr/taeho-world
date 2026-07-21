@@ -7,20 +7,20 @@
   "About": "About",
   "Build Log": "Build Log",
   "header": {
-    "subtitle": "AI Engineer",
+    "subtitle": "Forward Deployed Engineer",
     "formerRole": "former Frontend Engineer",
     "viewWork": "View work",
     "getInTouch": "Get in touch"
   },
   "ui": {
     "hero": {
-      "tag": "Portfolio — Personal · AI Engineering",
+      "tag": "Portfolio · Personal · FDE",
       "status": "Status: Building SAIP",
       "eyebrow": "Portfolio",
       "discipline": "Discipline",
       "domains": "Domains",
       "projects": "Projects",
-      "fde": "AI Engineering / FDE",
+      "fde": "FDE / AI Engineering",
       "verticals": "{{n}} verticals",
       "shipped": "{{n}} shipped"
     },
@@ -55,7 +55,7 @@
     },
     "stack": {
       "meta": "Frequency · across {{n}} projects",
-      "title": "Stack — Usage Frequency",
+      "title": "Stack · Usage Frequency",
       "scale": "Count / {{total}} · scale max = {{max}}",
       "also": "· also (×1):"
     },
@@ -73,19 +73,19 @@
     "close": "Close"
   },
   "about": {
-    "headline": "I'm a frontend engineer turned AI engineer — I build knowledge-graph products end to end, from the ontology to the screen people actually use.",
-    "paragraph1": "I started as a frontend engineer shipping React and React Native interfaces, focused on how software solves problems. I moved deeper into the systems behind the screen — and today I work as an AI Engineer building ontology products.",
+    "headline": "I'm a Forward Deployed Engineer who started in frontend. I build knowledge-graph products end to end, then carry them into the customer's site myself.",
+    "paragraph1": "I started as a frontend engineer shipping React and React Native interfaces, focused on how software solves problems. I moved deeper, into the systems behind the screen and then past them to the customers. Today I work as a Forward Deployed Engineer (FDE), building an ontology product, installing it inside customer environments, and building use cases with the teams on site.",
     "paragraph2": "When I build, I carry a single idea across the whole stack: shaping the data and ontology, training and wiring up the models, and crafting a service that makes the intelligence feel effortless. I've shipped across fashion, e-commerce, education, AI, and physical security.",
     "nowLabel": "Now",
-    "now": "Building SAIP — a use-case-driven knowledge-graph builder.",
+    "now": "Building SAIP, a use-case-driven knowledge-graph builder.",
     "focusLabel": "Focus",
     "focus": "Knowledge graphs · Computer vision · AI products",
     "stackLabel": "Practice",
-    "stack": "AI Engineering · Forward Deployed Engineering"
+    "stack": "Forward Deployed Engineering · AI Engineering"
   },
   "buildLog": {
     "headline": "How I work with AI agents.",
-    "caption": "Measured from git, session logs & the codebase — not product traffic · Co-Authored-By on every commit · snapshot 2026-06-29.",
+    "caption": "Measured from git, session logs & the codebase, not product traffic · Co-Authored-By on every commit · snapshot 2026-06-29.",
     "recentLabel": "Last 30 days",
     "shippedLabel": "Since Apr 2026 · 2.5 months",
     "outputLabel": "The codebase",
@@ -106,17 +106,17 @@
   "values": {
     "label": "Convictions",
     "items": {
-      "intent": "Reason, context, natural fit — I'm always thinking hard about how to weave the business logic in naturally.",
-      "ease": "Simplicity, usability — I take on the complexity so the user is left with the simplest path.",
-      "transparency": "Transparency — I never build anything that happens without the customer knowing."
+      "intent": "Reason, context, natural fit. I'm always thinking hard about how to weave the business logic in naturally.",
+      "ease": "Simplicity, usability. I take on the complexity so the user is left with the simplest path.",
+      "transparency": "Transparency. I never build anything that happens without the customer knowing."
     }
   },
   "weaknesses": {
     "label": "Honestly",
     "items": {
-      "breadth": "Breadth over depth — I trade deep specialization in any one area for range.",
-      "ai": "All-in on AI — I deliberately don't sharpen my from-scratch, no-AI coding.",
-      "coverage": "Critical-path testing — I don't chase 100% coverage of every line."
+      "breadth": "Breadth over depth. I trade deep specialization in any one area for range.",
+      "ai": "All-in on AI. I deliberately don't sharpen my from-scratch, no-AI coding.",
+      "coverage": "Critical-path testing. I don't chase 100% coverage of every line."
     }
   },
   "projectItem": {
@@ -156,56 +156,56 @@
       "name": "StyleAR",
       "singleSentence": "AR Virtual Try-On for E-Commerce",
       "summary": "AR virtual try-on for jewelry, fashion, and beauty, embedded on shop pages as a floating widget. I owned the entire frontend and the try-on Android app's UI (the physics engine was a teammate's), shipping to 200+ online stores.",
-      "detail": "StyleAR lets shoppers try on jewelry, fashion, and beauty products in real time, dropped onto a store's own page as a floating action button. I owned the entire web frontend and built the UI of the try-on Android app (a teammate built the physics engine), and I also wrote about 10% of the Node.js API and helped design the database. At its peak it was live on 200+ online stores carrying 5,000+ products, with 50,000–100,000 daily visits. Because the widget loaded on top of each customer's page, the hard part was bundle size — squeezing the package as small as it would go so it never slowed the host site down."
+      "detail": "StyleAR lets shoppers try on jewelry, fashion, and beauty products in real time, dropped onto a store's own page as a floating action button. I owned the entire web frontend and built the UI of the try-on Android app (a teammate built the physics engine), and I also wrote about 10% of the Node.js API and helped design the database. At its peak it was live on 200+ online stores carrying 5,000+ products, with 50,000–100,000 daily visits. Because the widget loaded on top of each customer's page, the hard part was bundle size: squeezing the package as small as it would go so it never slowed the host site down."
     },
     "hyperChatbot": {
       "name": "HyperChatbot",
       "singleSentence": "Intelligent Conversational AI",
       "summary": "A hybrid chatbot that blends AI with rule-based flows for context-aware conversations. I built the initial flowchart-based chat builder and held a large share of the architecture, then moved into a development-PM role as the product matured.",
-      "detail": "HyperChatbot pairs natural-language understanding with rule-based flows so responses adapt to context. Across a five-person frontend team I built three of the product's screens — including the initial flowchart-based chat builder — and held a large share of the overall architecture; as the product matured I moved into a development-PM role. The builder is a visual flowchart editor that allows up to 1,000 nodes in a single flow, and it shipped to two customers. The hardest stretch was the flowchart itself — the learning curve of the flowchart library, plus a mid-project major-version bump that forced a large rework of the data architecture beneath it."
+      "detail": "HyperChatbot pairs natural-language understanding with rule-based flows so responses adapt to context. Across a five-person frontend team I built three of the product's screens, including the initial flowchart-based chat builder, and held a large share of the overall architecture; as the product matured I moved into a development-PM role. The builder is a visual flowchart editor that allows up to 1,000 nodes in a single flow, and it shipped to two customers. The hardest stretch was the flowchart itself: the learning curve of the flowchart library, plus a mid-project major-version bump that forced a large rework of the data architecture beneath it."
     },
     "riss": {
       "name": "Research Information Sharing Service (RISS)",
       "singleSentence": "National Academic Research Information Service",
-      "summary": "Korea's national academic-research information service (RISS), opening university research to the public. I worked as the development PM — I shaped the plan for every screen and coordinated a team of three developers rather than writing the code myself.",
-      "detail": "RISS is Korea's nationwide academic-research information service, making university research broadly accessible. My role here was development PM, not hands-on engineering: I drove the planning for all of the screens and distributed the work across a team of three developers. The hardest part wasn't technical — it was requirements discovery. The client often didn't know what they actually wanted, so much of the job was drawing out, framing, and pinning down real requirements before anything could be built."
+      "summary": "Korea's national academic-research information service (RISS), opening university research to the public. I worked as the development PM. I shaped the plan for every screen and coordinated a team of three developers rather than writing the code myself.",
+      "detail": "RISS is Korea's nationwide academic-research information service, making university research broadly accessible. My role here was development PM, not hands-on engineering: I drove the planning for all of the screens and distributed the work across a team of three developers. The hardest part wasn't technical. It was requirements discovery. The client often didn't know what they actually wanted, so much of the job was drawing out, framing, and pinning down real requirements before anything could be built."
     },
     "smartCity": {
       "name": "Smart City Total Management System",
       "singleSentence": "Integrated Urban Safety Platform",
       "summary": "An integrated urban-safety control platform unifying CCTV, sensors, and location data for disaster response across five municipalities. I built specific specialized screens within it (100% mine), focused on rendering huge marker counts without bogging down the browser.",
-      "detail": "Smart City consolidates a city's information systems — CCTV, sensors, and live location data — into one disaster-response control room, deployed across five municipalities handling 1,500–15,000+ cameras and up to 100,000+ sensors, with as many as nine control views open at once. I was a small part of the overall platform frontend (under 3%) but owned a set of specialized service screens end to end. My focus there was performance: drawing very large numbers of items on the map and keeping render load low so the browser stays responsive as the count climbs into the tens of thousands."
+      "detail": "Smart City consolidates a city's information systems (CCTV, sensors, and live location data) into one disaster-response control room, deployed across five municipalities handling 1,500–15,000+ cameras and up to 100,000+ sensors, with as many as nine control views open at once. I was a small part of the overall platform frontend (under 3%) but owned a set of specialized service screens end to end. My focus there was performance: drawing very large numbers of items on the map and keeping render load low so the browser stays responsive as the count climbs into the tens of thousands."
     },
     "aiCamera": {
       "name": "AI Camera",
       "singleSentence": "Distributed Edge Video Intelligence",
-      "summary": "Edge video intelligence that analyzes streams on the camera itself instead of a central server. I built the entire frontend and the on-device microservice that runs the analysis on top of a third-party camera firmware — shipped to 3,000 devices.",
-      "detail": "AI Camera moves analysis to the edge: each device runs a single on-device model and is configured per camera — sensitivity, regions of interest, and schedule — so detection happens locally without a central server in the loop. I owned the frontend end to end and built the microservice that rides on top of a third-party vendor's camera firmware; it's deployed across 3,000 devices. The hard part was exactly that integration — wiring data through someone else's firmware and debugging across the boundary, where you don't control the platform you're running on."
+      "summary": "Edge video intelligence that analyzes streams on the camera itself instead of a central server. I built the entire frontend and the on-device microservice that runs the analysis on top of a third-party camera firmware, shipped to 3,000 devices.",
+      "detail": "AI Camera moves analysis to the edge: each device runs a single on-device model and is configured per camera (sensitivity, regions of interest, and schedule) so detection happens locally without a central server in the loop. I owned the frontend end to end and built the microservice that rides on top of a third-party vendor's camera firmware; it's deployed across 3,000 devices. The hard part was exactly that integration: wiring data through someone else's firmware and debugging across the boundary, where you don't control the platform you're running on."
     },
     "vunexAI": {
       "name": "VUNex AI",
       "singleSentence": "Smart Security for Small Business",
-      "summary": "AI video security for small businesses — intrusion, fall, and fire detection on live camera feeds. I built the canvas overlay layer end to end and co-built the WebRTC streaming that drives up to 16 simultaneous live channels.",
-      "detail": "VUNex AI runs intelligent video-stream analysis on factory, retail, and office cameras to flag intrusions, falls, fires, and abnormal behavior. On the frontend (one of three engineers) I owned the canvas layer outright — drawing detection boxes over live video — and co-built the WebRTC streaming (one of two). Each machine handles up to 25 channels and streams 16 at once with sub-300ms latency; it's deployed at six customers, three in Korea and three abroad. The hard problem lived in the canvas: locking the bounding-box render cadence to many simultaneous live streams, so boxes track their objects without lag or jitter as channels scale up."
+      "summary": "AI video security for small businesses: intrusion, fall, and fire detection on live camera feeds. I built the canvas overlay layer end to end and co-built the WebRTC streaming that drives up to 16 simultaneous live channels.",
+      "detail": "VUNex AI runs intelligent video-stream analysis on factory, retail, and office cameras to flag intrusions, falls, fires, and abnormal behavior. On the frontend (one of three engineers) I owned the canvas layer outright, drawing detection boxes over live video, and co-built the WebRTC streaming (one of two). Each machine handles up to 25 channels and streams 16 at once with sub-300ms latency; it's deployed at six customers, three in Korea and three abroad. The hard problem lived in the canvas: locking the bounding-box render cadence to many simultaneous live streams, so boxes track their objects without lag or jitter as channels scale up."
     },
     "vunexMLOps": {
       "name": "VUNex MLOps",
       "singleSentence": "Efficient Video Annotation Platform",
-      "summary": "A video-annotation tool where you label an object once and it propagates across every frame. I proposed annotating directly on the video — the idea the product grew from — and designed and built the canvas-based labeling editor end to end (frontend 100%).",
-      "detail": "Labeling video frame by frame is brutal — a 10-second clip at 30fps is 300 frames, each boxed by hand in traditional tools. I pitched the idea the product was built around (annotate directly on the video) and then owned the entire frontend, designing and building the canvas-based labeling editor. You label an object once and it propagates across every frame, cutting labeling time by about 80%; in a single month, six labelers worked through 1,000+ hours of footage. The hardest part was data integrity — keeping the video object and the label objects in exact frame-to-frame sync so a propagated box lands precisely where it should across all 300 frames."
+      "summary": "A video-annotation tool where you label an object once and it propagates across every frame. I proposed annotating directly on the video (the idea the product grew from) and designed and built the canvas-based labeling editor end to end (frontend 100%).",
+      "detail": "Labeling video frame by frame is brutal: a 10-second clip at 30fps is 300 frames, each boxed by hand in traditional tools. I pitched the idea the product was built around (annotate directly on the video) and then owned the entire frontend, designing and building the canvas-based labeling editor. You label an object once and it propagates across every frame, cutting labeling time by about 80%; in a single month, six labelers worked through 1,000+ hours of footage. The hardest part was data integrity: keeping the video object and the label objects in exact frame-to-frame sync so a propagated box lands precisely where it should across all 300 frames."
     },
     "saip": {
       "name": "SAIP",
       "singleSentence": "Use Case-Driven Knowledge Graph Builder",
-      "summary": "A guided web platform for building and querying a knowledge graph end to end — from goal to ontology to natural-language analysis. I owned the UX and the full frontend, and built the early product's backend, database, and AI-agent server.",
-      "detail": "SAIP answers one question: how do you make it easy to build the data behind a knowledge-graph-driven decision? It walks a team through a seven-step flow — define a Goal; design a visual Pipeline (21 transform node types for filtering, joining, validating, and parsing documents); explore the loaded Datasets; model an Ontology of Entity Types and Relations; build search Indexing; automate Workflows with human-in-the-loop approval; and finally ask questions in Chat or analyze in a governance Dashboard. An embedded AI assistant (Agent Panel) in the Goal, Pipeline, Ontology, and Workflow editors drafts proposals from natural-language requests that the user reviews and approves or rejects before saving. I designed the UX end to end and implemented the entire frontend, and in the early product I built the backend, the database, and the AI-agent server. It's in use by two teams across two companies, ingesting up to 12 GB per batch from relational databases, CSVs, and PDFs into an ontology of 30 entity types and 55 relations."
+      "summary": "A guided web platform for building and querying a knowledge graph end to end, from goal to ontology to natural-language analysis. I built the UX, the entire frontend, and the early product's backend, database, and AI-agent server, then installed it on-premise inside customers' closed networks and built customer use cases with them on site.",
+      "detail": "SAIP answers one question: how do you make it easy to build the data behind a knowledge-graph-driven decision? It walks a team through a seven-step flow, from defining a Goal through pipeline and ontology design, search indexing, and human-in-the-loop workflows to natural-language Chat and a governance Dashboard. An embedded AI assistant (Agent Panel) drafts proposals in the editors that the user reviews and approves or rejects. I designed the UX end to end and built the entire frontend, plus the early product's backend, database, and AI-agent server. Then I carried that product into customer sites. Each engagement began with direct requirements meetings, and SAIP is installed on-premise inside the customers' closed networks, where I did the work. With one team I selected and shaped data from their data lake, mapped it into the ontology, and drilled company-wide KPIs down to divisions and individual businesses to trace why revenue moved, deriving MoM/YoY, correlating revenue with market trends through external data, and delivering the analysis as recurring reports. With the other team I built unstructured-document summarization and pipeline processing. The customers can now connect correlations directly on real data and check their market performance against external data. The field changed the product, too. Most of the transform nodes we had carefully built went unused in practice, so processing converged on SQL Query and custom Python nodes and many nodes were removed; AI Chat gained richer data visualization; and the ontology's English-only edge definitions gained Korean labels. It's in use by 13 teams across two companies, ingesting up to 65 GB per batch from relational databases, CSVs, and PDFs into ontologies totaling around 150 entity types and 220 relations. The hardest part wasn't the technology. It was the data: each processing owner had a different structure, and the conventions weren't written down anywhere, so a large part of the work was decoding and pinning them down one by one in constant conversation with the customer's hands-on and operations staff."
     }
   },
   "Side Projects": "Side Projects",
   "sideProjects": {
     "mpti": {
       "name": "MPTI",
-      "description": "Like MBTI, but for politics — 60 questions across 4 axes place you in one of 16 political types"
+      "description": "Like MBTI, but for politics: 60 questions across 4 axes place you in one of 16 political types"
     },
     "nambti": {
       "name": "NamBTI",

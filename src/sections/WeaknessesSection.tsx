@@ -19,16 +19,16 @@ const WeaknessesSection = () => {
           <div className="col honestly">
             {itemKeys.map((key, i) => {
               const text = t(`weaknesses.items.${key}`);
-              const at = text.indexOf(' — ');
-              const lead = at >= 0 ? text.slice(0, at) : '';
-              const body = at >= 0 ? text.slice(at + 3) : text;
+              const at = text.indexOf('. ');
+              const lead = at > 0 ? text.slice(0, at) : '';
+              const body = at > 0 ? text.slice(at + 2) : text;
               return (
                 <div className="stmt" key={key}>
                   <span className="s-no">H.{i + 1}</span>
                   <p>
                     {lead ? (
                       <>
-                        <span className="lead">{lead}</span> — {body}
+                        <span className="lead">{lead}.</span> {body}
                       </>
                     ) : (
                       body

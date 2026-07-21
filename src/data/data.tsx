@@ -101,6 +101,7 @@ const projects: Project[] = [
 		url: 'https://s2w.inc/ko/product/pd01',
 		images: [saip2Image, saip3Image, saip4Image],
 		techStack: ['Web Frontend', 'Backend', 'Claude Code', 'Codex'],
+		onPremise: true,
 	},
 ];
 

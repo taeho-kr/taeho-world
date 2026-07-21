@@ -22,7 +22,7 @@ const formatPeriod = (start: string, end: string | undefined, present: string) =
     const [y, m] = s.split('-');
     return `${y}.${m}`;
   };
-  return end ? `${fmt(start)} — ${fmt(end)}` : `${fmt(start)} — ${present}`;
+  return end ? `${fmt(start)} ~ ${fmt(end)}` : `${fmt(start)} ~ ${present}`;
 };
 
 const ProjectModal = ({
@@ -73,6 +73,7 @@ const ProjectModal = ({
           {/* Header */}
           <p className="text-folio uppercase tracking-[0.18em] nums-tabular text-[var(--fg-muted)]">
             {companyData?.name} &bull; {formatPeriod(project.start, project.end, t('ui.present'))}
+            {project.onPremise && <> &bull; {t('projectItem.onPremise')}</>}
           </p>
           <DialogPrimitive.Title className="text-h2 opsz-head leading-[1.05] mt-2">
             {t(`projects.${project.translationKey}.name`)}
@@ -92,7 +93,7 @@ const ProjectModal = ({
                       <CarouselItem key={i}>
                         <img
                           src={img}
-                          alt={`${t(`projects.${project.translationKey}.name`)} — screenshot ${i + 1}`}
+                          alt={`${t(`projects.${project.translationKey}.name`)} screenshot ${i + 1}`}
                           className="w-full aspect-video object-cover rounded-sm"
                         />
                       </CarouselItem>
@@ -116,12 +117,12 @@ const ProjectModal = ({
 
           {/* Summary */}
           <div className="hairline my-6" />
-          <p className="text-caption text-[var(--fg-body)] leading-[1.6] measure">
+          <p className="text-caption text-[var(--fg-body)] leading-[1.6]">
             {t(`projects.${project.translationKey}.summary`)}
           </p>
 
           {/* Detail */}
-          <p className="text-caption text-[var(--fg-body)] leading-[1.6] measure mt-4">
+          <p className="text-caption text-[var(--fg-body)] leading-[1.6] mt-4">
             {t(`projects.${project.translationKey}.detail`)}
           </p>
 

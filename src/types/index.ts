@@ -9,6 +9,7 @@ export interface Project {
 	images: string[];
 	videoUrl?: string;
 	techStack: string[];
+	onPremise?: boolean;
 }
 
 export interface Company {
